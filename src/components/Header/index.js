@@ -2,11 +2,14 @@ import React from 'react';
 
 import Logo from '../../assets/logo';
 
+// Styled components
+import { Wrapper } from './Header.styles';
+
 const Header = () => {
   return (
-    <div>
+    <Wrapper type="reader">
       <Logo />
-    </div>
+    </Wrapper>
   );
 };
 
