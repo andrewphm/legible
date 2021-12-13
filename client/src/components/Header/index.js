@@ -1,4 +1,5 @@
 import { NativeSelect } from '@material-ui/core';
+import { SearchOutlined } from '@material-ui/icons';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo';
@@ -6,22 +7,55 @@ import MenuIcon from '../../assets/MenuIcon';
 import SearchIcon from '../../assets/SearchIcon';
 
 // Styled components
-import { Wrapper, Container, Right, MenuList, MenuItem } from './Header.styles';
+import {
+  Wrapper,
+  Container,
+  Right,
+  MenuList,
+  MenuItem,
+  SearchContainer,
+  Input,
+  Search,
+} from './Header.styles';
 
 const Header = () => {
-  const handleMenuFocus = () => {
-    const nav = document.querySelector('nav');
-
-    nav.style.display = 'flex';
-  };
   const handleMenuBlur = () => {
     const nav = document.querySelector('nav');
+    nav.style.top = '-500%';
+  };
 
-    nav.style.display = 'none';
+  const handleMenuClick = () => {
+    const nav = document.querySelector('nav');
+
+    nav.style.top = '100%';
+  };
+
+  const handleSearchClick = () => {
+    let search = document.getElementById('search-container');
+
+    search.style.top = '100%';
   };
 
   return (
     <Wrapper type="reader">
+      <MenuList>
+        <MenuItem auth="auth">
+          <div className="login">Log in</div>
+          <div className="signup">Sign up</div>
+        </MenuItem>
+        <MenuItem>
+          <p>Browse</p>
+        </MenuItem>
+      </MenuList>
+      <SearchContainer id="search-container">
+        <Search>
+          <Input
+            placeholder="Search for books, authors, topics, and more!"
+            type="text"
+          />
+          <SearchOutlined />
+        </Search>
+      </SearchContainer>
       <Container>
         <Link
           aria-label="Back to homepage"
@@ -31,26 +65,17 @@ const Header = () => {
           <Logo />
         </Link>
         <Right>
-          <button className="search__button">
+          <button className="search__button" onClick={handleSearchClick}>
             <SearchIcon />
           </button>
           <button
             className="menu__button"
-            onFocus={handleMenuFocus}
+            onFocus={handleMenuClick}
             onBlur={handleMenuBlur}
           >
             <MenuIcon />
           </button>
         </Right>
-        <MenuList>
-          <MenuItem auth="auth">
-            <div className="login">Log in</div>
-            <div className="signup">Sign up</div>
-          </MenuItem>
-          <MenuItem>
-            <p>Browse</p>
-          </MenuItem>
-        </MenuList>
       </Container>
     </Wrapper>
   );

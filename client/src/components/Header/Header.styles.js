@@ -2,27 +2,27 @@ import { PinDropSharp } from '@material-ui/icons';
 import styled from 'styled-components';
 
 export const Wrapper = styled.header`
-  width: 100%;
   position: fixed;
+  z-index: 10;
+  width: 100%;
   transition: top 0.25s ease-in-out 0s;
-  background: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(227, 227, 227);
   box-shadow: rgb(171 187 191 / 20%) 2px 2px 1rem;
   top: 0px;
   left: 0px;
-  height: 4rem;
   display: flex;
-  z-index: 100;
 `;
 
 export const Container = styled.div`
   position: relative;
-  z-index: 1000;
+  z-index: 10;
+  height: 4rem;
   display: flex;
   align-items: center;
   padding: 15px 20px;
   justify-content: space-between;
   width: 100%;
+  background-color: white;
 `;
 
 export const Right = styled.div`
@@ -48,15 +48,14 @@ export const Right = styled.div`
 `;
 
 export const MenuList = styled.nav`
-  display: none;
   position: absolute;
-  height: 100%;
+  display: flex;
   width: 100%;
-  top: 100%;
+  top: -500%;
   left: 0;
   flex-direction: column;
   transition: var(--transition);
-  z-index: -2;
+  z-index: -10;
 `;
 
 export const MenuItem = styled.div`
@@ -71,7 +70,6 @@ export const MenuItem = styled.div`
   row-gap: 1rem;
   font-weight: 600;
   color: grey;
-  z-index: -2;
 
   :nth-child(1) {
     border-bottom: 1px solid lightgrey;
@@ -103,7 +101,6 @@ export const MenuItem = styled.div`
     padding: 5px;
     cursor: pointer;
     transition: var(--transition);
-    z-index: -2;
 
     :hover {
       color: white;
@@ -120,10 +117,44 @@ export const MenuItem = styled.div`
     color: white;
     padding: 5px;
     cursor: pointer;
-    z-index: -2;
 
     :hover {
       opacity: 0.9;
     }
+  }
+`;
+
+export const SearchContainer = styled.div`
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  transition: var(--transition);
+  z-index: -10;
+  display: flex;
+  border-bottom: 1px solid rgb(227, 227, 227);
+  box-shadow: rgb(171 187 191 / 20%) 2px 2px 1rem;
+  align-items: center;
+  padding: 10px;
+`;
+
+export const Search = styled.div`
+  border: 2px solid var(--secondary-color);
+  border-radius: 15px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 5px 0px;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+`;
+
+export const Input = styled.input`
+  width: 90%;
+  text-indent: 10px;
+  margin-left: 5px;
+
+  :focus {
+    outline: none;
   }
 `;
