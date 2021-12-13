@@ -1,6 +1,6 @@
 import React from 'react';
 
-const logo = () => {
+const Logo = () => {
   return (
     <svg
       version="1.1"
@@ -47,4 +47,4 @@ const logo = () => {
   );
 };
 
-export default logo;
+export default Logo;

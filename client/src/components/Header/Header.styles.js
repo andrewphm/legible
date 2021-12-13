@@ -12,35 +12,55 @@ export const Wrapper = styled.header`
   left: 0px;
   height: 4rem;
   display: flex;
-  z-index: 10;
+  z-index: 100;
 `;
 
 export const Container = styled.div`
+  position: relative;
+  z-index: 1000;
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 15px 20px;
   justify-content: space-between;
   width: 100%;
-  position: relative;
 `;
 
 export const Right = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  column-gap: 1rem;
+
+  .menu__button {
+    transition: var(--transition);
+    cursor: pointer;
+    background-color: transparent;
+
+    :focus {
+      transform: rotate(90deg);
+    }
+  }
+
+  .search__button {
+    background-color: transparent;
+    cursor: pointer;
+  }
 `;
 
 export const MenuList = styled.nav`
+  display: none;
   position: absolute;
   height: 100%;
   width: 100%;
   top: 100%;
   left: 0;
-  display: flex;
   flex-direction: column;
+  transition: var(--transition);
+  z-index: -2;
 `;
 
 export const MenuItem = styled.div`
+  position: relative;
   display: flex;
   flex-direction: ${(props) => (props.auth === 'auth' ? 'column' : 'row')};
   width: 100%;
@@ -49,8 +69,9 @@ export const MenuItem = styled.div`
     props.auth === 'auth' ? 'center' : 'flex-start'};
   padding: 20px 30px;
   row-gap: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   color: grey;
+  z-index: -2;
 
   :nth-child(1) {
     border-bottom: 1px solid lightgrey;
@@ -67,7 +88,12 @@ export const MenuItem = styled.div`
       props.auth === 'auth' ? 'none' : 'rgb(241, 244, 245)'};
   }
 
+  p {
+    cursor: pointer;
+  }
+
   .login {
+    position: relative;
     width: 70%;
     text-align: center;
     border-radius: 15px;
@@ -77,6 +103,7 @@ export const MenuItem = styled.div`
     padding: 5px;
     cursor: pointer;
     transition: var(--transition);
+    z-index: -2;
 
     :hover {
       color: white;
@@ -93,6 +120,7 @@ export const MenuItem = styled.div`
     color: white;
     padding: 5px;
     cursor: pointer;
+    z-index: -2;
 
     :hover {
       opacity: 0.9;

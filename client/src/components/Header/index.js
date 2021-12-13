@@ -1,12 +1,25 @@
-import { Menu, MenuBookOutlined, Search } from '@material-ui/icons';
+import { NativeSelect } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/logo';
+import Logo from '../../assets/Logo';
+import MenuIcon from '../../assets/MenuIcon';
+import SearchIcon from '../../assets/SearchIcon';
 
 // Styled components
 import { Wrapper, Container, Right, MenuList, MenuItem } from './Header.styles';
 
 const Header = () => {
+  const handleMenuFocus = () => {
+    const nav = document.querySelector('nav');
+
+    nav.style.display = 'flex';
+  };
+  const handleMenuBlur = () => {
+    const nav = document.querySelector('nav');
+
+    nav.style.display = 'none';
+  };
+
   return (
     <Wrapper type="reader">
       <Container>
@@ -18,8 +31,16 @@ const Header = () => {
           <Logo />
         </Link>
         <Right>
-          <Search style={{ fontSize: 32 }} />
-          <Menu style={{ fontSize: 32 }} />
+          <button className="search__button">
+            <SearchIcon />
+          </button>
+          <button
+            className="menu__button"
+            onFocus={handleMenuFocus}
+            onBlur={handleMenuBlur}
+          >
+            <MenuIcon />
+          </button>
         </Right>
         <MenuList>
           <MenuItem auth="auth">
