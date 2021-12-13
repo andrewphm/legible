@@ -22,7 +22,7 @@ const Header = () => {
           <Menu style={{ fontSize: 32 }} />
         </Right>
         <MenuList>
-          <MenuItem>
+          <MenuItem auth="auth">
             <div className="login">Log in</div>
             <div className="signup">Sign up</div>
           </MenuItem>

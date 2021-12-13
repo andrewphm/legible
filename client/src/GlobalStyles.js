@@ -58,6 +58,7 @@ font-display:auto;font-style:italic;font-weight:600;
     --secondary-font: 'Caladea', 'times';
     --primary-color: #34515f;
     --secondary-color: rgb(64, 128, 107);
+    --transition: all 0.5s ease-in-out 0s;
 
      
  }
