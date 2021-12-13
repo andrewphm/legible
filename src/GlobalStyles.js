@@ -55,7 +55,9 @@ font-display:auto;font-style:italic;font-weight:600;
 
  :root {
     --primary-font: 'freight-sans-pro', 'serif';
-    --secondary-font: 'Caladea', 'times'
+    --secondary-font: 'Caladea', 'times';
+    --primary-color: #34515f;
+    --secondary-color: rgb(64, 128, 107);
 
      
  }
