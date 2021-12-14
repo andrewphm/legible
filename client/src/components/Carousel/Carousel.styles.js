@@ -5,6 +5,7 @@ export const CarouselContainer = styled.section`
   width: 100vw;
   overflow: hidden;
   padding-bottom: 40px;
+  margin-bottom: 3rem;
 `;
 
 export const Controls = styled.div`
