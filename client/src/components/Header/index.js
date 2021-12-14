@@ -22,6 +22,8 @@ const Header = () => {
   const handleMenuBlur = () => {
     const nav = document.querySelector('nav');
     nav.style.top = '-500%';
+    let search = document.getElementById('search-container');
+    search.style.top = '-200%';
   };
 
   const handleMenuClick = () => {
@@ -32,7 +34,9 @@ const Header = () => {
 
   const handleSearchClick = () => {
     let search = document.getElementById('search-container');
+    let input = document.getElementById('search-input');
 
+    input.focus();
     search.style.top = '100%';
   };
 
@@ -50,8 +54,10 @@ const Header = () => {
       <SearchContainer id="search-container">
         <Search>
           <Input
+            id="search-input"
             placeholder="Search for books, authors, topics, and more!"
             type="text"
+            onBlur={handleMenuBlur}
           />
           <SearchOutlined />
         </Search>

@@ -143,10 +143,11 @@ export const Search = styled.div`
   border-radius: 15px;
   width: 90%;
   margin: 0 auto;
-  padding: 5px 0px;
+  padding: 5px;
   height: 2rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 export const Input = styled.input`
