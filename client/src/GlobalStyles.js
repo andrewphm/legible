@@ -68,7 +68,8 @@ font-display:auto;font-style:italic;font-weight:600;
      margin: 0;
      padding: 0;
      border: 0;
-     font-family: var(--primary-font)
+     font-family: var(--primary-font);
+     color: var(--primary-color);
  }
 
  body {
