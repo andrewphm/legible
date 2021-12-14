@@ -19,24 +19,44 @@ import {
 
 const Carousel = () => {
   const [play, setPlay] = useState(true);
-
   const [slide, setSlide] = useState(0);
-
+  const changeSlide = () => {
+    setSlide((prev) => {
+      if (prev === 2) {
+        return 0;
+      } else {
+        return (prev += 1);
+      }
+    });
+  };
   const handleSlideClick = (e) => {
-    const carousel = document.getElementById('slider');
-    let value = e.target.value;
+    const slider = document.getElementById('slider');
 
+    let value = Number(e.target.value);
     setSlide(value);
-    carousel.style.transform = `translateX(-${value}00%)`;
+    slider.style.transform = `translateX(-${value}00%)`;
   };
 
   useEffect(() => {
+    const slider = document.getElementById('slider');
+
     const pagination = document.querySelectorAll('.pagination');
 
     pagination.forEach((input) => (input.style.backgroundColor = 'white'));
-
+    slider.style.transform = `translateX(-${slide}00%)`;
     pagination[slide].style.backgroundColor = 'var(--primary-color)';
-  }, [play, slide]);
+  }, [slide]);
+
+  useEffect(() => {
+    let intervalID;
+    if (play) {
+      intervalID = setInterval(() => {
+        changeSlide();
+      }, 5000);
+    }
+
+    return () => clearInterval(intervalID);
+  }, [play]);
 
   return (
     <CarouselContainer>
@@ -91,7 +111,7 @@ const Carousel = () => {
       </Slider>
       <Controls aria-label="Choose slide to display">
         <button className="icon" onClick={() => setPlay((prev) => !prev)}>
-          {play ? <Play /> : <Pause />}
+          {play ? <Pause /> : <Play />}
         </button>
         <input
           onClick={handleSlideClick}

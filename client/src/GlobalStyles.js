@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
-@import url("https://p.typekit.net/p.css?s=1&k=git6crp&ht=tk&f=10954.13453.13454.13455.13458.13459.13460.13461&a=82635727&app=typekit&e=css");
 
 @font-face {
 font-family:"freight-sans-pro";

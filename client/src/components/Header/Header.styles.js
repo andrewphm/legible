@@ -1,4 +1,3 @@
-import { PinDropSharp } from '@material-ui/icons';
 import styled from 'styled-components';
 
 export const Wrapper = styled.header`
