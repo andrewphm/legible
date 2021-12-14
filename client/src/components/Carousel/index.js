@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import slide1 from '../../assets/slide1.svg';
 import slide2 from '../../assets/slide2.svg';
@@ -20,9 +20,27 @@ import {
 const Carousel = () => {
   const [play, setPlay] = useState(true);
 
+  const [slide, setSlide] = useState(0);
+
+  const handleSlideClick = (e) => {
+    const carousel = document.getElementById('slider');
+    let value = e.target.value;
+
+    setSlide(value);
+    carousel.style.transform = `translateX(-${value}00%)`;
+  };
+
+  useEffect(() => {
+    const pagination = document.querySelectorAll('.pagination');
+
+    pagination.forEach((input) => (input.style.backgroundColor = 'white'));
+
+    pagination[slide].style.backgroundColor = 'var(--primary-color)';
+  }, [play, slide]);
+
   return (
     <CarouselContainer>
-      <Slider>
+      <Slider id="slider">
         <SlideContainer>
           <Slide slide={slide1}>
             <div>
@@ -63,8 +81,8 @@ const Carousel = () => {
             <article>
               <h1>Storytelling for everyone</h1>
               <p>
-                Inclusive of all voices, find reads that inspire, thrill, and
-                help us imagine a world where we all share our stories.
+                Find reads that inspire, thrill, and help us imagine a world
+                where we all share our stories.
               </p>
               <button>Create my free account </button>
             </article>
@@ -75,9 +93,24 @@ const Carousel = () => {
         <button className="icon" onClick={() => setPlay((prev) => !prev)}>
           {play ? <Play /> : <Pause />}
         </button>
-        <button className="pagination"></button>
-        <button className="pagination"></button>
-        <button className="pagination"></button>
+        <input
+          onClick={handleSlideClick}
+          value="0"
+          type="button"
+          className="pagination"
+        />
+        <input
+          onClick={handleSlideClick}
+          value="1"
+          type="button"
+          className="pagination"
+        />
+        <input
+          onClick={handleSlideClick}
+          value="2"
+          type="button"
+          className="pagination"
+        />
       </Controls>
     </CarouselContainer>
   );

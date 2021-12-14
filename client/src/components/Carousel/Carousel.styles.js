@@ -2,11 +2,14 @@ import styled from 'styled-components';
 
 export const CarouselContainer = styled.section`
   position: relative;
-  height: 60vh;
   width: 100vw;
+  overflow: hidden;
+  padding-bottom: 40px;
 `;
 
 export const Controls = styled.div`
+  position: absolute;
+  bottom: 0px;
   display: flex;
   width: 100%;
   padding: 0px 40px;
@@ -21,25 +24,32 @@ export const Controls = styled.div`
     cursor: pointer;
   }
 
-  button.pagination {
+  input.pagination {
     border: 1px solid var(--primary-color);
     background-color: transparent;
     border-radius: 50%;
     height: 12px;
     width: 12px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    color: transparent;
+
+    :hover {
+      background-color: var(--primary-color);
+    }
   }
 `;
 
 export const Slider = styled.ul`
-  height: 100%;
   display: flex;
   position: relative;
   touch-action: pan-y;
   width: 100%;
+  transition: all 0.5s ease;
+  transform: translateX(-0%);
 `;
 
 export const SlideContainer = styled.li`
-  height: 100%;
   min-width: 100vw;
   will-change: transform;
   list-style: none;
@@ -95,6 +105,6 @@ export const Slide = styled.section`
 
   img {
     max-width: 100%;
-    height: auto;
+    max-height: 200px;
   }
 `;
