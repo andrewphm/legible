@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 
 // UI Components
-import { Header } from './components/index';
+import { Header, Slider } from './components/index';
 
 function App() {
   return (

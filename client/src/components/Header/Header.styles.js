@@ -56,6 +56,7 @@ export const MenuList = styled.nav`
   flex-direction: column;
   transition: var(--transition);
   z-index: -10;
+  background-color: white;
 `;
 
 export const MenuItem = styled.div`
@@ -136,6 +137,7 @@ export const SearchContainer = styled.div`
   box-shadow: rgb(171 187 191 / 20%) 2px 2px 1rem;
   align-items: center;
   padding: 10px;
+  background-color: white;
 `;
 
 export const Search = styled.div`

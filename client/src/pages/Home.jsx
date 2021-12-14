@@ -1,7 +1,14 @@
 import React from 'react';
 
+// UI Components
+import { Carousel } from '../components/index';
+
 const Home = () => {
-  return <div>home</div>;
+  return (
+    <div>
+      <Carousel />
+    </div>
+  );
 };
 
 export default Home;

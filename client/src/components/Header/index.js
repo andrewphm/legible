@@ -29,7 +29,7 @@ const Header = () => {
   const handleMenuClick = () => {
     const nav = document.querySelector('nav');
 
-    nav.style.top = '100%';
+    nav.style.top = '101%';
   };
 
   const handleSearchClick = () => {
@@ -37,7 +37,7 @@ const Header = () => {
     let input = document.getElementById('search-input');
 
     input.focus();
-    search.style.top = '100%';
+    search.style.top = '101%';
   };
 
   return (
