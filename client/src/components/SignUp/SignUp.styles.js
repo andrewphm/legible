@@ -31,6 +31,7 @@ export const Info = styled.div`
     border-radius: 17px;
     width: 150px;
     cursor: pointer;
+    transition: var(--transition);
 
     :hover {
       background-color: var(--secondary-btn-color);

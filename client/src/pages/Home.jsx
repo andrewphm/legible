@@ -1,7 +1,12 @@
 import React from 'react';
 
 // UI Components
-import { Carousel, Categories, SignUp } from '../components/index';
+import {
+  Carousel,
+  Categories,
+  SignUp,
+  PublisherCTA,
+} from '../components/index';
 
 const Home = () => {
   return (
@@ -9,6 +14,7 @@ const Home = () => {
       <Carousel />
       <Categories />
       <SignUp />
+      <PublisherCTA />
     </div>
   );
 };
