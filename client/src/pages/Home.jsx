@@ -6,6 +6,7 @@ import {
   Categories,
   SignUp,
   PublisherCTA,
+  LatestNews,
 } from '../components/index';
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <Categories />
       <SignUp />
       <PublisherCTA />
+      <LatestNews />
     </div>
   );
 };
