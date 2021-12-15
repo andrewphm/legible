@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  margin-top: 2rem;
+  margin-top: 3rem;
+  padding: 15px;
 `;

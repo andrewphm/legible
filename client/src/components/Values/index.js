@@ -4,7 +4,7 @@ import React from 'react';
 import { Section } from './Values.styles';
 
 const Values = () => {
-  return <div>Hello</div>;
+  return <Section>Hello</Section>;
 };
 
 export default Values;

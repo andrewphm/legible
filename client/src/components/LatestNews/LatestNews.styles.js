@@ -95,6 +95,7 @@ export const Button = styled.button`
   margin: 0 auto;
   transition: all 0.35s ease;
   cursor: pointer;
+  font-family: var(--primary-font);
 
   :hover {
     color: white;
