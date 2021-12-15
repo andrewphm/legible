@@ -7,6 +7,7 @@ export const Card = styled.div`
   width: 340px;
   box-shadow: var(--box-shadow);
   transition: all 0.35s ease-in-out;
+  background-color: white;
 
   :hover {
     transform: scale(1.03);
@@ -17,6 +18,12 @@ export const Card = styled.div`
     width: 100%;
     object-fit: cover;
     object-position: 50% 30%;
+  }
+`;
+
+export const Anchor = styled.a`
+  :not(:first-child) {
+    display: none;
   }
 `;
 
@@ -68,7 +75,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Grid = styled.div`
+export const NewsContainer = styled.div`
   display: grid;
   width: auto;
   gap: 2rem;

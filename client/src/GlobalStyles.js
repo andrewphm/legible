@@ -80,6 +80,9 @@ font-display:auto;font-style:italic;font-weight:600;
          font-family: var(--secondary-font)
      }
 
+     a {
+         text-decoration: none;
+     }
  }
 
 `;
