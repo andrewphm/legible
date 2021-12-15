@@ -63,7 +63,9 @@ const Categories = () => {
           {categories.map((item, i) => (
             <CategoryItem key={i}>
               <ItemContainer>
-                <img src={item.img} alt="A miniature treehouse with books" />
+                <div className="img-wrapper">
+                  <img src={item.img} alt="A miniature treehouse with books" />
+                </div>
                 <h3>{item.category}</h3>
               </ItemContainer>
             </CategoryItem>

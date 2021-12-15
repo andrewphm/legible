@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   padding: 0px 2rem;
+  margin-bottom: 100vh;
 
   h2 {
     font-size: 22px;
@@ -21,6 +22,12 @@ export const CategoryList = styled.ul`
   list-style: none;
   scroll-padding: 0px 50%;
   scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const CategoryItem = styled.li``;
@@ -29,12 +36,23 @@ export const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 1rem;
-  margin: 2.4rem 1.3rem;
+  justify-content: flex-end;
   width: 119px;
+  row-gap: 0.5rem;
+  margin: 1.4rem 1.2rem;
+
+  .img-wrapper {
+    height: 120px;
+    overflow: hidden;
+  }
 
   img {
+    height: 100%;
     width: 100%;
-    height: auto;
+  }
+
+  h3 {
+    font-size: 1rem;
+    text-align: center;
   }
 `;
