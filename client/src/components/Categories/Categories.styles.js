@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   padding: 0px 2rem;
-  margin-bottom: 100vh;
 
   h2 {
     font-size: 22px;
