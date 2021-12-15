@@ -7,6 +7,7 @@ import {
   SignUp,
   PublisherCTA,
   LatestNews,
+  Values,
 } from '../components/index';
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
       <SignUp />
       <PublisherCTA />
       <LatestNews />
+      <Values />
     </div>
   );
 };
