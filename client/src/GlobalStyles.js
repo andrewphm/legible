@@ -74,7 +74,7 @@ font-display:auto;font-style:italic;font-weight:600;
 
  body {
 
-     h1, h2, h3, h4, h5 {
+     h1, h2 {
          font-family: var(--secondary-font)
      }
 
