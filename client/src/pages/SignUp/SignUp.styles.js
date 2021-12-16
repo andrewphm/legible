@@ -3,10 +3,16 @@ import styled from 'styled-components';
 export const Main = styled.main`
   display: flex;
   width: 100%;
-  height: 70vh;
+  height: 100%;
   padding: 45px 12px;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
+
+  .info {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
 `;
 
 export const StepHeading = styled.h1`
@@ -137,5 +143,38 @@ export const ContinueButton = styled.button`
 
   :hover {
     background-color: var(--secondary-btn-color);
+  }
+`;
+
+export const ImageContainer = styled.div`
+  margin: 2rem auto 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+  }
+`;
+
+export const UserInfoContainer = styled.div`
+  width: 100%;
+  display: flex;
+  padding: 10px 20px;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5rem;
+
+  h3 {
+    font-family: var(--secondary-font);
+    font-size: 1.4rem;
+  }
+
+  h4 {
+    color: rgb(95, 108, 116);
+    font-weight: 600;
+    font-size: 1.3rem;
   }
 `;

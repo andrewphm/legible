@@ -10,7 +10,7 @@ const LogoIcon = () => {
       width="auto"
       height="auto"
       viewBox="0 0 40 40"
-      class="sc-jcVebW eVwwrC"
+      className="sc-jcVebW eVwwrC"
     >
       <path fill="#00a3a6" d="M20,0C9,0,0,9,0,20h40C40,9,31,0,20,0z"></path>
       <path fill="#40806B" d="M20,40c11,0,20-9,20-20H0C0,31,9,40,20,40z"></path>

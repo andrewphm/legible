@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 
+import defaultAvatar from '../../assets/Auth/defaultAvatar.png';
+
 import {
   ContinueButton,
   Form,
   FormHeading,
+  ImageContainer,
   Input,
   InputContainer,
   InputWrapper,
@@ -14,6 +17,7 @@ import {
   MarketingContainer,
   StepHeading,
   Terms,
+  UserInfoContainer,
 } from './SignUp.styles';
 
 const initialForm = {
@@ -25,7 +29,7 @@ const initialForm = {
   marketing: false,
 };
 
-const StepOne = ({ form, handleFormChange }) => {
+const StepOne = ({ form, handleFormChange, setStep }) => {
   const [isPassVisible, setIsPassVisible] = useState(false);
   const [isConfirmPassVisible, setIsConfirmPassVisible] = useState(false);
 
@@ -48,8 +52,15 @@ const StepOne = ({ form, handleFormChange }) => {
     setIsConfirmPassVisible((prev) => !prev);
   };
 
+  const handleFormClick = (e) => {
+    e.preventDefault();
+
+    setStep((prev) => (prev += 1));
+  };
+
   return (
     <>
+      {console.log('rerendered')}
       <StepHeading>SIGN UP TO LEGIBLE - STEP 1 OF 4</StepHeading>
       <FormHeading>Create Account</FormHeading>
       <Form>
@@ -59,7 +70,7 @@ const StepOne = ({ form, handleFormChange }) => {
               placeholder="E-mail"
               type="text"
               name="email"
-              autoFocus="true"
+              autoFocus={true}
               value={form.email}
               onChange={handleFormChange}
               required
@@ -118,12 +129,66 @@ const StepOne = ({ form, handleFormChange }) => {
             id="marketing"
             onChange={handleFormChange}
           ></input>
-          <label for="marketing">
+          <label htmlFor="marketing">
             {' '}
             Receive occasional marketing emails from Legible (optional)
           </label>
         </MarketingContainer>
-        <ContinueButton>Continue</ContinueButton>
+        <ContinueButton onClick={handleFormClick}>Continue</ContinueButton>
+      </Form>
+    </>
+  );
+};
+
+const StepTwo = ({ form, handleFormChange, setStep }) => {
+  return (
+    <>
+      <StepHeading>SIGN UP TO LEGIBLE - STEP 2 OF 4</StepHeading>
+      <FormHeading>Customize account</FormHeading>
+      <p className="info">
+        This information will be displayed on your public profile
+      </p>
+      <ImageContainer>
+        <img src={defaultAvatar} alt="" />
+      </ImageContainer>
+      <UserInfoContainer>
+        <h3>{form.displayName ? form.displayName : 'Display Name'}</h3>
+        <h4>@{form.username ? form.username : 'Username'}</h4>
+      </UserInfoContainer>
+      <Form>
+        <InputWrapper>
+          <InputContainer>
+            <Input
+              type="text"
+              value={form.displayName}
+              onChange={handleFormChange}
+              placeholder="Display name"
+              required
+              name="displayName"
+            ></Input>
+            <Label>Display Name</Label>
+          </InputContainer>
+        </InputWrapper>
+        <InputWrapper>
+          <InputContainer>
+            <Input
+              type="text"
+              value={form.username}
+              onChange={handleFormChange}
+              placeholder="Username"
+              required
+              name="username"
+            ></Input>
+            <Label>Username</Label>
+          </InputContainer>
+          <p className="requirement">
+            Your username must have at least 3 characters, and can only contain
+            letters, numbers, ‘-’, ‘_’, and ‘.’
+          </p>
+        </InputWrapper>
+        <ContinueButton onClick={() => setStep((prev) => (prev += 1))}>
+          Continue
+        </ContinueButton>
       </Form>
     </>
   );
@@ -138,14 +203,26 @@ const SignUp = () => {
 
     return setForm({ ...form, [e.target.name]: e.target.value });
   };
+  const [step, setStep] = useState(1);
 
   return (
     <Main>
-      <StepOne
-        form={form}
-        setForm={setForm}
-        handleFormChange={handleFormChange}
-      ></StepOne>
+      {step === 1 && (
+        <StepOne
+          form={form}
+          setForm={setForm}
+          handleFormChange={handleFormChange}
+          setStep={setStep}
+        ></StepOne>
+      )}
+      {step === 2 && (
+        <StepTwo
+          form={form}
+          setForm={setForm}
+          handleFormChange={handleFormChange}
+          setStep={setStep}
+        ></StepTwo>
+      )}
     </Main>
   );
 };
