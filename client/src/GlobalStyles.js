@@ -61,6 +61,7 @@ font-display:auto;font-style:italic;font-weight:600;
     --transition: all 0.5s ease-in-out 0s;
     --secondary-btn-color: rgb(36, 102, 80);
     --box-shadow: rgb(80 110 122 / 20%) 2px 2px 1rem;
+    --background-light: rgb(241, 244, 245);
 
      
  }
