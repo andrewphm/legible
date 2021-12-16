@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 import {
+  ContinueButton,
   Form,
   FormHeading,
   Input,
@@ -10,7 +11,9 @@ import {
   InputWrapper,
   Label,
   Main,
+  MarketingContainer,
   StepHeading,
+  Terms,
 } from './SignUp.styles';
 
 const initialForm = {
@@ -18,9 +21,11 @@ const initialForm = {
   password: '',
   username: '',
   displayName: '',
+  confirmPassword: '',
+  marketing: false,
 };
 
-const StepOne = () => {
+const StepOne = ({ form, handleFormChange }) => {
   const [isPassVisible, setIsPassVisible] = useState(false);
   const [isConfirmPassVisible, setIsConfirmPassVisible] = useState(false);
 
@@ -55,6 +60,9 @@ const StepOne = () => {
               type="text"
               name="email"
               autoFocus="true"
+              value={form.email}
+              onChange={handleFormChange}
+              required
             ></Input>
             <Label htmlFor="email">Email</Label>
           </InputContainer>
@@ -66,6 +74,9 @@ const StepOne = () => {
               placeholder="Password"
               type="password"
               name="password"
+              value={form.password}
+              onChange={handleFormChange}
+              required
             ></Input>
             <Label htmlFor="password">Password</Label>
             {isPassVisible ? (
@@ -74,6 +85,7 @@ const StepOne = () => {
               <Visibility onClick={handlePassVisibleClick} />
             )}
           </InputContainer>
+          <p className="requirement">Must have at least 6 characters</p>
         </InputWrapper>
         <InputWrapper>
           <InputContainer>
@@ -81,7 +93,10 @@ const StepOne = () => {
               id="confirm-password"
               placeholder="Confirm Password"
               type="password"
-              name="password"
+              name="confirmPassword"
+              value={form.confirmPassword}
+              onChange={handleFormChange}
+              required
             ></Input>
             <Label htmlFor="password">Password</Label>
             {isConfirmPassVisible ? (
@@ -91,6 +106,24 @@ const StepOne = () => {
             )}
           </InputContainer>
         </InputWrapper>
+        <Terms>
+          By signing up you agree to our{' '}
+          <a href="https://legible.com/terms-of-service">Terms of Service</a>{' '}
+          and <a href="https://legible.com/privacy-policy">Privacy Policy.</a>
+        </Terms>
+        <MarketingContainer>
+          <input
+            type="checkbox"
+            name="marketing"
+            id="marketing"
+            onChange={handleFormChange}
+          ></input>
+          <label for="marketing">
+            {' '}
+            Receive occasional marketing emails from Legible (optional)
+          </label>
+        </MarketingContainer>
+        <ContinueButton>Continue</ContinueButton>
       </Form>
     </>
   );
@@ -98,10 +131,21 @@ const StepOne = () => {
 
 const SignUp = () => {
   const [form, setForm] = useState(initialForm);
+  const handleFormChange = (e) => {
+    if (e.target.name === 'marketing') {
+      return setForm({ ...form, marketing: [e.target.checked] });
+    }
+
+    return setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   return (
     <Main>
-      <StepOne></StepOne>
+      <StepOne
+        form={form}
+        setForm={setForm}
+        handleFormChange={handleFormChange}
+      ></StepOne>
     </Main>
   );
 };
