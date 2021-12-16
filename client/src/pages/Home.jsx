@@ -8,6 +8,7 @@ import {
   PublisherCTA,
   LatestNews,
   Values,
+  Footer,
 } from '../components/index';
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
       <PublisherCTA />
       <LatestNews />
       <Values />
+      <Footer />
     </div>
   );
 };
