@@ -43,8 +43,12 @@ const Header = () => {
     <Wrapper type="reader">
       <MenuList>
         <MenuItem auth="auth">
-          <div className="login">Log in</div>
-          <div className="signup">Sign up</div>
+          <Link to="/log-in" style={{ width: '100%', margin: '0 auto' }}>
+            <div className="login">Log in</div>
+          </Link>
+          <Link to="/sign-up" style={{ width: '100%', margin: '0 auto' }}>
+            <div className="signup">Sign up</div>
+          </Link>
         </MenuItem>
         <MenuItem>
           <p>Browse</p>

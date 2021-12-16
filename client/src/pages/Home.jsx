@@ -20,7 +20,6 @@ const Home = () => {
       <PublisherCTA />
       <LatestNews />
       <Values />
-      <Footer />
     </div>
   );
 };

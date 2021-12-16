@@ -49,6 +49,8 @@ export const Right = styled.div`
 export const MenuList = styled.nav`
   position: absolute;
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   top: -500%;
   left: 0;
@@ -101,6 +103,7 @@ export const MenuItem = styled.div`
     padding: 5px;
     cursor: pointer;
     transition: var(--transition);
+    margin: 0 auto;
 
     :hover {
       color: white;
@@ -117,6 +120,7 @@ export const MenuItem = styled.div`
     color: white;
     padding: 5px;
     cursor: pointer;
+    margin: 0 auto;
 
     :hover {
       opacity: 0.9;

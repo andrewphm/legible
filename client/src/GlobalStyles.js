@@ -73,9 +73,12 @@ font-display:auto;font-style:italic;font-weight:600;
      border: 0;
      font-family: var(--primary-font);
      color: var(--primary-color);
+         scroll-behavior: smooth;
+
  }
 
  body {
+     
 
      h1, h2 {
          font-family: var(--secondary-font)
