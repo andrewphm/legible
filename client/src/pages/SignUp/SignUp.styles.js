@@ -10,6 +10,7 @@ export const Main = styled.main`
   align-items: center;
   margin: 0 auto;
   margin-bottom: 2rem;
+  min-height: 500px;
 
   .info {
     font-size: 0.9rem;
@@ -40,7 +41,7 @@ export const StepHeading = styled.h1`
 
 export const FormHeading = styled.h2`
   margin: 1rem auto;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 `;
 export const Form = styled.form`
   display: flex;

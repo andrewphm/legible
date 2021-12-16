@@ -94,7 +94,7 @@ export const MenuItem = styled.div`
 
   .login {
     position: relative;
-    width: 70%;
+    width: 200px;
     text-align: center;
     border-radius: 15px;
     border: 1px solid var(--primary-color);
@@ -104,6 +104,8 @@ export const MenuItem = styled.div`
     cursor: pointer;
     transition: var(--transition);
     margin: 0 auto;
+    z-index: 100;
+    background-color: #fff;
 
     :hover {
       color: white;
@@ -112,7 +114,7 @@ export const MenuItem = styled.div`
   }
 
   .signup {
-    width: 70%;
+    width: 200px;
     text-align: center;
     border-radius: 15px;
     background-color: var(--secondary-color);
@@ -121,9 +123,11 @@ export const MenuItem = styled.div`
     padding: 5px;
     cursor: pointer;
     margin: 0 auto;
+    z-index: 100;
+    transition: var(--transition);
 
     :hover {
-      opacity: 0.9;
+      background-color: var(--secondary-btn-color);
     }
   }
 `;

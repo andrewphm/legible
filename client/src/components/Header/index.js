@@ -20,9 +20,12 @@ import {
 const Header = () => {
   const handleMenuBlur = () => {
     const nav = document.querySelector('nav');
-    nav.style.top = '-500%';
     let search = document.getElementById('search-container');
-    search.style.top = '-200%';
+
+    setTimeout(() => {
+      nav.style.top = '-500%';
+      search.style.top = '-200%';
+    }, 100);
   };
 
   const handleMenuClick = () => {
@@ -43,11 +46,17 @@ const Header = () => {
     <Wrapper type="reader">
       <MenuList>
         <MenuItem auth="auth">
-          <Link to="/log-in" style={{ width: '100%', margin: '0 auto' }}>
-            <div className="login">Log in</div>
+          <Link
+            to="/log-in"
+            style={{ width: 'fit-content', margin: '0 auto', display: 'flex' }}
+          >
+            <button className="login">Log in</button>
           </Link>
-          <Link to="/sign-up" style={{ width: '100%', margin: '0 auto' }}>
-            <div className="signup">Sign up</div>
+          <Link
+            to="/sign-up"
+            style={{ width: 'fit-content', margin: '0 auto', display: 'flex' }}
+          >
+            <button className="signup">Sign up</button>
           </Link>
         </MenuItem>
         <MenuItem>
