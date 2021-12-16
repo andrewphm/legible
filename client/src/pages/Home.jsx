@@ -4,11 +4,10 @@ import React from 'react';
 import {
   Carousel,
   Categories,
-  SignUp,
+  SignUpCTA,
   PublisherCTA,
   LatestNews,
   Values,
-  Footer,
 } from '../components/index';
 
 const Home = () => {
@@ -16,7 +15,7 @@ const Home = () => {
     <div>
       <Carousel />
       <Categories />
-      <SignUp />
+      <SignUpCTA />
       <PublisherCTA />
       <LatestNews />
       <Values />

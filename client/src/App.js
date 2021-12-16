@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Pages
 import Home from './pages/Home';
-import SignUp from './pages/SignUp';
+import SignUp from './pages/SignUp/SignUp';
 
 // UI Components
 import { Header, Footer } from './components/index';

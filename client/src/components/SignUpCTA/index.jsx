@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Styled components
-import { Container, Info } from './SignUp.styles';
+import { Container, Info } from './SignUpCTA.styles';
 
-const SignUp = () => {
+const SignUpCTA = () => {
   return (
     <Container>
       <Info>
@@ -15,4 +15,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUpCTA;
