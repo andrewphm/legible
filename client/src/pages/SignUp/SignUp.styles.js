@@ -3,15 +3,28 @@ import styled from 'styled-components';
 export const Main = styled.main`
   display: flex;
   width: 100%;
+  max-width: 500px;
   height: 100%;
   padding: 45px 12px;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
   margin-bottom: 2rem;
 
   .info {
     font-size: 0.9rem;
     font-weight: 500;
+  }
+
+  .select-country {
+    width: 200px;
+    cursor: pointer;
+    border-radius: 0;
+    margin: 1rem auto;
+  }
+
+  .country-info {
+    text-align: center;
   }
 `;
 
