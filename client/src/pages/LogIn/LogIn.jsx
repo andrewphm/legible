@@ -65,6 +65,7 @@ const LogIn = () => {
           <InputContainer>
             <Input
               placeholder="Email"
+              autoComplete="off"
               type="text"
               value={form.email}
               required
@@ -83,6 +84,7 @@ const LogIn = () => {
               placeholder="Password"
               type="password"
               name="password"
+              autoComplete="off"
               onChange={(e) =>
                 setForm({ ...form, [e.target.name]: e.target.value })
               }

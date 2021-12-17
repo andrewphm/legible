@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo';
 import MenuIcon from '../../assets/MenuIcon';
 import SearchIcon from '../../assets/SearchIcon';
-
+import { useLocation } from 'react-router-dom';
 // Styled components
 import {
   Wrapper,
@@ -18,6 +18,9 @@ import {
 } from './Header.styles';
 
 const Header = () => {
+  const location = useLocation();
+  const path = location.pathname.slice(1);
+
   const handleMenuBlur = () => {
     const nav = document.querySelector('nav');
     let search = document.getElementById('search-container');
@@ -82,18 +85,20 @@ const Header = () => {
         >
           <Logo />
         </Link>
-        <Right>
-          <button className="search__button" onClick={handleSearchClick}>
-            <SearchIcon />
-          </button>
-          <button
-            className="menu__button"
-            onFocus={handleMenuClick}
-            onBlur={handleMenuBlur}
-          >
-            <MenuIcon />
-          </button>
-        </Right>
+        {path !== 'sign-up' && path !== 'log-in' && (
+          <Right>
+            <button className="search__button" onClick={handleSearchClick}>
+              <SearchIcon />
+            </button>
+            <button
+              className="menu__button"
+              onFocus={handleMenuClick}
+              onBlur={handleMenuBlur}
+            >
+              <MenuIcon />
+            </button>
+          </Right>
+        )}
       </Container>
     </Wrapper>
   );
