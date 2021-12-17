@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 // User Sign up
-const signUp = async (req, res) => {
+const signup = async (req, res) => {
   try {
     const { email, password, username, country, displayName } = req.body;
 
@@ -24,4 +24,40 @@ const signUp = async (req, res) => {
   }
 };
 
-module.exports = { signUp };
+// User Log in
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Find user
+    try {
+      const user = await User.findOne({ email });
+      const success = await bcrypt.compare(password, user.hashedPassword);
+
+      if (success) {
+        const accessToken = jwt.sign(
+          {
+            id: user._id,
+            isAdmin: user.isAdmin,
+          },
+          process.env.JWT_SEC,
+          {
+            expiresIn: '5d',
+          }
+        );
+
+        const { hashedPassword, ...others } = user._doc;
+
+        res.status(200).json({ ...others, accessToken });
+      } else {
+        res.status(401).json('Incorrect password');
+      }
+    } catch (error) {
+      res.status(401).json('Cannot find user');
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+module.exports = { signup, login };
