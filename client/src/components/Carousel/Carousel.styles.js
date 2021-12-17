@@ -80,7 +80,7 @@ export const Slide = styled.section`
     h1 {
       color: var(--secondary-color);
       text-align: center;
-      font-size: 1.8em;
+      font-size: 1.9em;
       font-family: var(--secondary-font);
     }
     p {
@@ -106,6 +106,6 @@ export const Slide = styled.section`
 
   img {
     max-width: 100%;
-    max-height: 200px;
+    max-height: 150px;
   }
 `;
