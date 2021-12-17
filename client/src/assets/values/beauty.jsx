@@ -4,47 +4,46 @@ const beauty = () => {
   return (
     <svg
       viewBox="0 0 46 82"
-      width="auto"
-      height="autom"
       type="readerLandingPage"
       aria-hidden="true"
-      class="sc-iJuUWI hDqUCO"
+      height="100%"
+      width="100%"
     >
       <title>Butterfly | Beauty</title>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M13.9237 61.2851L6.17811 58.2324L6.36145 57.7672L14.1071 60.82L13.9237 61.2851Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M13.2504 63.3042L5.50477 60.2515L5.68811 59.7863L13.4337 62.839L13.2504 63.3042Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M9.95395 64.2897L4.83192 62.2705L5.0153 61.8053L10.1373 63.8246L9.95395 64.2897Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M2.58767 22.3086L3.93772 23.5911C5.9935 25.5441 10.8635 30.6675 13.9036 35.569C16.6959 40.0708 19.9796 48.7965 21.8286 53.833L43.9797 25.8405L45.5017 28.58L34.0118 47.3185V49.8107L31.9359 51.1163L34.1085 51.9782L34 52.5818C33.4167 55.8283 31.9951 63.1945 31.0034 66.4796C30.0106 69.7683 26.8962 77.0837 25.4767 80.3029L24.901 81.6084L16.076 67.2977L0 77.3058V75.9554C0 73.6322 0.276976 67.5837 1.3874 61.8465C2.49325 56.133 3.99788 51.0185 4.61762 49.1593L4.74089 48.7894L6.06578 48.3935L3.67903 46.4026L2.58767 22.3086ZM7.44754 49.5462L5.98925 49.9819L1.77321 74.4349L15.7242 65.7497L18.6891 58.9236L7.44754 49.5462ZM20.2701 59.0488L17.163 66.2025L24.56 78.1978L32.3414 52.8909L30.3625 52.1058L20.8304 58.1006L20.2701 59.0488ZM22.6939 55.1567L32.5118 48.9821V46.8952L43.765 28.5427L43.7606 28.5347L22.6939 55.1567ZM20.7587 55.2734C18.9762 50.4002 15.503 40.9933 12.6289 36.3596C10.3495 32.6846 6.97638 28.8436 4.63504 26.4089C5.07768 29.206 5.28812 32.5069 5.36343 35.6602C5.4573 39.5906 5.34208 43.3447 5.1877 45.7077L19.4038 57.5664L20.7587 55.2734Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M21.25 55L21.25 0L22.25 -4.37114e-08L22.25 55L21.25 55Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
     </svg>
   );

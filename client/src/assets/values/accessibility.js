@@ -4,68 +4,67 @@ const accessibility = () => {
   return (
     <svg
       viewBox="0 0 48 78"
-      width="auto"
-      height="auto"
       type="readerLandingPage"
       aria-hidden="true"
-      class="sc-iJuUWI hDqUCO"
+      height="100%"
+      width="100%"
     >
       <title>Butterfly | Accessibility</title>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M21.483 52.0756L11.2704 57.0648L11.0509 56.6156L21.2635 51.6263L21.483 52.0756Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M21.9791 54.3231L11.7665 59.3124L11.547 58.8631L21.7596 53.8739L21.9791 54.3231Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M21.6525 57.1071L14.4949 60.6748L14.2719 60.2273L21.4294 56.6596L21.6525 57.1071Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M33.9987 64.4201C31.868 61.3993 30.2699 58.273 29.4443 56.3009L30.828 55.7217C31.6152 57.6023 33.162 60.6314 35.2245 63.5555C37.2967 66.4934 39.8333 69.2441 42.5772 70.6668L41.8867 71.9985C38.8247 70.4107 36.1197 67.4271 33.9987 64.4201Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M27.0649 46.6602H42.3891L47.3829 48.8449L42.6537 73.3776L28.8993 55.5262L27.0649 46.6602ZM28.9071 48.1602L30.2982 54.8842L41.8107 69.8259L45.683 49.7385L42.0753 48.1602H28.9071Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M41.5203 27.1362L47.5271 48.16H28.2546V46.66H45.5385L40.7934 30.0523L27.4507 43.8984L26.3706 42.8576L41.5203 27.1362Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M2.19024 36.4389L6.51732 52.3049H10.1183L27.0563 46.4023L26.3099 43.9763L2.19024 36.4389ZM27.3835 47.8767L10.5883 53.7296L7.74485 55.6981L19.0522 75.363L28.553 55.3613L27.3835 47.8767ZM7.32101 57.9702L5.7569 55.25L7.84429 53.8049H5.46154L5.2617 53.3653C3.91913 50.4116 1.02689 43.3363 0.364448 38.92C0.201959 37.8367 0.102196 37.0252 0.0491226 36.4264C-0.00263571 35.8423 -0.014436 35.4167 0.0182211 35.129C0.0312905 35.0138 0.0629336 34.7836 0.201015 34.5839C0.283437 34.4647 0.444315 34.3 0.705642 34.2461C0.963733 34.1929 1.17215 34.2784 1.2879 34.3479C1.4658 34.4546 1.57526 34.6106 1.62643 34.6912L27.5113 42.7802L28.7184 46.7036L30.1065 55.5869L19.5895 77.7278H19.1155C18.8245 77.7278 18.5448 77.603 18.3207 77.4706C18.0735 77.3245 17.7971 77.1106 17.4943 76.8202C16.8882 76.2389 16.1332 75.3098 15.2512 73.8765C13.5065 71.0414 9.2365 62.0866 7.32101 57.9702ZM0.363624 35.5009C0.364012 35.5015 0.364419 35.5022 0.364847 35.5029C0.353483 35.4878 0.353408 35.4843 0.363624 35.5009Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
       <path
-        class="icon"
+        className="icon"
         fill="#6C787F"
         d="M26.25 44L26.25 0L27.25 -4.37114e-08L27.25 44L26.25 44Z"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
       ></path>
     </svg>
   );

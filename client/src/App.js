@@ -11,11 +11,17 @@ import LogIn from './pages/LogIn/LogIn';
 
 // UI Components
 import { Header, Footer } from './components/index';
-import { useState } from 'react';
+
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
+  const user = useSelector((state) => state.user.currentUser);
+  // const dispatch = useDispatch();
+
   return (
     <Router>
+      {console.log(user)}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

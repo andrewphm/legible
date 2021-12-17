@@ -62,7 +62,7 @@ const LatestNews = () => {
         <h2>Latest News</h2>
         <NewsContainer>
           {news.map((news, i) => (
-            <NewsCard news={news} />
+            <NewsCard key={i} news={news} />
           ))}
         </NewsContainer>
         <Button>Read the Full Blog</Button>

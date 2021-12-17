@@ -7,8 +7,6 @@ const LogoIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
       x="0"
       y="0"
-      width="auto"
-      height="auto"
       viewBox="0 0 40 40"
       className="sc-jcVebW eVwwrC"
     >

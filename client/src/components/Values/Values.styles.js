@@ -37,8 +37,7 @@ export const ValuesContainer = styled.div`
 `;
 
 export const Image = styled.div`
-  width: 95px;
-  height: 95px;
+  height: 90px;
 `;
 
 export const Value = styled.article`
