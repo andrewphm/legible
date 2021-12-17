@@ -4,6 +4,11 @@ dotenv.config();
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+mongoose
+  .connect(process.env.MONGODB_URL)
+  .then(() => console.log('DB connected!'))
+  .catch((err) => console.error(err));
+
 const app = express();
 
 // Middleware
