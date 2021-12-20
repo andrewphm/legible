@@ -25,9 +25,9 @@ const Header = () => {
     const nav = document.querySelector('nav');
     let search = document.getElementById('search-container');
 
+    search.style.top = '-200%';
     setTimeout(() => {
       nav.style.top = '-500%';
-      search.style.top = '-200%';
     }, 100);
   };
 

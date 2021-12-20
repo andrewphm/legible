@@ -241,7 +241,6 @@ const SignUp = () => {
 
   return (
     <Main>
-      {console.log(form)}
       {step === 1 && (
         <StepOne
           form={form}

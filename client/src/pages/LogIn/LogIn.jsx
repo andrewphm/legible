@@ -58,7 +58,6 @@ const LogIn = () => {
 
   return (
     <Main>
-      {console.log(form)}
       <FormHeading>Log in to Legible</FormHeading>
       <Form>
         <InputWrapper>
