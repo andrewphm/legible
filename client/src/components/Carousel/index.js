@@ -9,6 +9,8 @@ import slide3img from '../../assets/slide3img.svg';
 import Play from '../../assets/Play';
 import Pause from '../../assets/Pause';
 
+import { Link } from 'react-router-dom';
+
 import {
   CarouselContainer,
   Controls,
@@ -74,7 +76,11 @@ const Carousel = () => {
               <p>
                 Read your favourite book on any device wherever you have wifi.
               </p>
-              <button>Create my free account </button>
+              <button>
+                <Link to="/sign-up" style={{ color: '#fff' }}>
+                  Create my free account{' '}
+                </Link>
+              </button>
             </article>
           </Slide>
         </SlideContainer>
@@ -89,7 +95,12 @@ const Carousel = () => {
                 Crafted by authors, designers, and readers, Legible is making
                 reading eBooks even better.
               </p>
-              <button>Create my free account </button>
+
+              <button>
+                <Link to="/sign-up" style={{ color: '#fff' }}>
+                  Create my free account{' '}
+                </Link>
+              </button>
             </article>
           </Slide>
         </SlideContainer>
@@ -104,7 +115,11 @@ const Carousel = () => {
                 Find reads that inspire, thrill, and help us imagine a world
                 where we all share our stories.
               </p>
-              <button>Create my free account </button>
+              <button>
+                <Link to="/sign-up" style={{ color: '#fff' }}>
+                  Create my free account{' '}
+                </Link>
+              </button>
             </article>
           </Slide>
         </SlideContainer>
