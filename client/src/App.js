@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp/SignUp';
 import LogIn from './pages/LogIn/LogIn';
+import NotFound from './pages/NotFound';
 
 // UI Components
 import { Header, Footer } from './components/index';
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/log-in" element={<LogIn />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
       <GlobalStyles />
