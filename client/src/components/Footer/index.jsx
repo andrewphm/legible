@@ -2,6 +2,9 @@ import React from 'react';
 import LogoIcon from '../../assets/LogoIcon';
 import cse from '../../assets/cse.png';
 
+// Router
+import { Link } from 'react-router-dom';
+
 // Icons
 import Facebook from '../../assets/social/Facebook';
 import Instagram from '../../assets/social/Instagram';
@@ -27,7 +30,9 @@ const Footer = () => {
       <Container>
         <Mission>
           <div className="icon__wrapper">
-            <LogoIcon />
+            <Link to="/">
+              <LogoIcon />
+            </Link>
           </div>
           <div className="mission__info">
             <p className="heading">OUR MISSION</p>
@@ -62,14 +67,13 @@ const Footer = () => {
         <Navigation>
           <p className="heading">GETTING STARTED</p>
           <Nav role="navigation" aria-label="Footer Menu">
-            <a href="">Browse All</a>
-            <a href="">About Us</a>
-            <a href="">Help</a>
-            <a href="">FAQ</a>
-            <a href="">For Publishers</a>
-            <a href="">Careers</a>
-            <a href="">English</a>
-            <a href="">Investor Relations</a>
+            <Link to="/browse">Browse All</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/help">Help</Link>
+            <Link to="/faq">FAQ</Link>
+            <Link to="/publishers">For Publishers</Link>
+            <Link to="/careers">Careers</Link>
+            <Link to="/investors">Investor Relations</Link>
           </Nav>
         </Navigation>
         <FeedBack>
@@ -97,12 +101,12 @@ const Footer = () => {
       </Container>
       <Legal>
         <LegalLinks>
-          <a href="">
+          <Link to="/legal">
             <p>Legal</p>
-          </a>
-          <a href="">
+          </Link>
+          <Link to="/privacy">
             <p>Privacy Policy</p>
-          </a>
+          </Link>
         </LegalLinks>
         <p>© Legible Inc.</p>
       </Legal>
