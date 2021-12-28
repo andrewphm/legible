@@ -11,7 +11,7 @@ import LogIn from './pages/LogIn/LogIn';
 import NotFound from './pages/NotFound';
 
 // UI Components
-import { Header, Footer } from './components/index';
+import { Header, Footer, ScrollUp } from './components/index';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -23,6 +23,7 @@ function App() {
   return (
     <Router>
       {console.log(user)}
+      <ScrollUp />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
