@@ -44,6 +44,26 @@ export const Right = styled.div`
     background-color: transparent;
     cursor: pointer;
   }
+
+  .profile__button {
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+
+    :hover {
+      background-color: var(--secondary-btn-color);
+      color: lightgrey;
+    }
+  }
 `;
 
 export const MenuList = styled.nav`
@@ -56,8 +76,9 @@ export const MenuList = styled.nav`
   left: 0;
   flex-direction: column;
   transition: var(--transition);
-  z-index: -10;
+  z-index: -2;
   background-color: white;
+  box-shadow: rgb(171 187 191 / 20%) 2px 2px 1rem;
 `;
 
 export const MenuItem = styled.div`
@@ -72,13 +93,11 @@ export const MenuItem = styled.div`
   row-gap: 1rem;
   font-weight: 600;
   color: grey;
-
-  :nth-child(1) {
-    border-bottom: 1px solid lightgrey;
-  }
+  z-index: 10;
 
   :last-child {
-    box-shadow: rgb(171 187 191 / 20%) 2px 2px 1rem;
+    z-index: -1;
+    border-bottom: 1px solid lightgrey;
   }
 
   :hover {
