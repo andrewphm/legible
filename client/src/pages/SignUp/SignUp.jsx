@@ -23,6 +23,7 @@ import {
   StepHeading,
   Terms,
   UserInfoContainer,
+  Warning,
 } from './SignUp.styles';
 
 const initialForm = {
@@ -63,10 +64,37 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
     // Validate username is unique
     const isUnique = await API.checkUniqueUser({ email: form.email });
 
-    if (isUnique === 'true') {
-      setStep((prev) => (prev += 1));
+    let container = document.getElementById('email-container');
+    let label = document.getElementById('email-label');
+    let warning = document.getElementById('warning');
+    let passwordContainers = document.querySelectorAll('.password-container');
+    let passwordWarning = document.getElementById('password-warning');
+    let passwordLabels = document.querySelectorAll('.password-label');
+
+    if (!isUnique) {
+      // Outline box red
+      // Display modal
+      warning.style.display = 'flex';
+      label.style.color = 'rgb(203, 14, 14)';
+      container.style.border = '1px solid rgb(203, 14, 14)';
+    } else if (form.password !== form.confirmPassword) {
+      container.style.border = '1px solid rgb(121, 146, 154)';
+      label.style.color = 'var(--primary-color)';
+      warning.style.display = 'none';
+
+      passwordLabels.forEach((ele) => (ele.style.color = 'rgb(203, 14, 14)'));
+      passwordWarning.style.display = 'flex';
+      passwordContainers.forEach((ele) => {
+        ele.style.border = '1px solid rgb(203, 14, 14)';
+      });
     } else {
-      console.log('not unique');
+      passwordWarning.style.display = 'none';
+
+      passwordContainers.forEach((ele) => {
+        ele.style.border = '1px solid rgb(121, 146, 154)';
+      });
+
+      setStep((prev) => (prev += 1));
     }
   };
 
@@ -76,7 +104,7 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
       <FormHeading>Create Account</FormHeading>
       <Form>
         <InputWrapper>
-          <InputContainer>
+          <InputContainer id="email-container">
             <Input
               placeholder="E-mail"
               type="text"
@@ -86,11 +114,16 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
               onChange={handleFormChange}
               required
             ></Input>
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" id="email-label">
+              Email
+            </Label>
           </InputContainer>
+          <Warning id="warning">
+            <p>This email is already taken.</p>
+          </Warning>
         </InputWrapper>
         <InputWrapper>
-          <InputContainer>
+          <InputContainer className="password-container">
             <Input
               id="password"
               placeholder="Password"
@@ -100,7 +133,9 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
               onChange={handleFormChange}
               required
             ></Input>
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password" className="password-label">
+              Password
+            </Label>
             {isPassVisible ? (
               <VisibilityOff onClick={handlePassVisibleClick} />
             ) : (
@@ -110,7 +145,7 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
           <p className="requirement">Must have at least 6 characters</p>
         </InputWrapper>
         <InputWrapper>
-          <InputContainer>
+          <InputContainer className="password-container">
             <Input
               id="confirm-password"
               placeholder="Confirm Password"
@@ -120,13 +155,18 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
               onChange={handleFormChange}
               required
             ></Input>
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password" className="password-label">
+              Password
+            </Label>
             {isConfirmPassVisible ? (
               <VisibilityOff onClick={handleConfirmPassVisibleClick} />
             ) : (
               <Visibility onClick={handleConfirmPassVisibleClick} />
             )}
           </InputContainer>
+          <Warning id="password-warning">
+            <p>Passwords do not match.</p>
+          </Warning>
         </InputWrapper>
         <Terms>
           By signing up you agree to our{' '}

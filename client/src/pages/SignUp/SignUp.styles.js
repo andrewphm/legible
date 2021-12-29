@@ -192,3 +192,15 @@ export const UserInfoContainer = styled.div`
     font-size: 1.3rem;
   }
 `;
+
+export const Warning = styled.div`
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(203, 14, 14);
+
+  p {
+    color: rgb(203, 14, 14);
+    display: inline-block;
+  }
+`;
