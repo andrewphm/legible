@@ -4,6 +4,13 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+// Reducers
+import { setCurrentUser } from '../../redux/userRedux';
+// API
+import API from '../../API';
+
 import {
   Form,
   FormHeading,
@@ -42,8 +49,18 @@ const initialForm = {
 const LogIn = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [form, setForm] = useState(initialForm);
+  const dispatch = useDispatch();
 
-  const handleLogInClick = () => {};
+  const handleLogInClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await API.loginUser(form);
+      dispatch(setCurrentUser(res));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleVisibilityClick = () => {
     let ele = document.getElementById('password');
@@ -113,7 +130,9 @@ const LogIn = () => {
         </InputWrapper>
 
         <NavContainer>
-          <ContinueButton className="button">Log In</ContinueButton>
+          <ContinueButton className="button" onClick={handleLogInClick}>
+            Log In
+          </ContinueButton>
           <p>
             Don't have a Legible account?{' '}
             <Link className="link" to="/sign-up">
