@@ -6,6 +6,9 @@ import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 import defaultAvatar from '../../assets/Auth/defaultAvatar.png';
 
+// API
+import API from '../../API';
+
 import {
   ContinueButton,
   Form,
@@ -53,6 +56,13 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
       ele.type = 'password';
     }
     setIsConfirmPassVisible((prev) => !prev);
+  };
+
+  const handleContinueClick = () => {
+    // Validate username is unique
+    const isUnique = API.checkUniqueUser(form.email);
+
+    // Change step
   };
 
   return (
@@ -130,9 +140,7 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
             Receive occasional marketing emails from Legible (optional)
           </label>
         </MarketingContainer>
-        <ContinueButton onClick={() => setStep((prev) => (prev += 1))}>
-          Continue
-        </ContinueButton>
+        <ContinueButton onClick={handleContinueClick}>Continue</ContinueButton>
       </Form>
     </>
   );
@@ -241,6 +249,7 @@ const SignUp = () => {
 
   return (
     <Main>
+      {console.log(form)}
       {step === 1 && (
         <StepOne
           form={form}
