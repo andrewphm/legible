@@ -5,6 +5,7 @@ import Logo from '../../assets/Logo';
 import MenuIcon from '../../assets/MenuIcon';
 import SearchIcon from '../../assets/SearchIcon';
 import { useLocation } from 'react-router-dom';
+import MyLibrary from '../../assets/MyLibrary';
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -93,6 +94,16 @@ const Header = () => {
               }}
             >
               <button className="signup">Sign up</button>
+            </Link>
+          </MenuItem>
+        )}
+
+        {user && (
+          <MenuItem>
+            <Link to="/library">
+              <button className="library-btn">
+                <MyLibrary />
+              </button>
             </Link>
           </MenuItem>
         )}

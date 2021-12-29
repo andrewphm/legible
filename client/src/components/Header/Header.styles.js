@@ -149,6 +149,22 @@ export const MenuItem = styled.div`
       background-color: var(--secondary-btn-color);
     }
   }
+
+  .library-btn {
+    width: 120px;
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+
+    :hover {
+      background-color: var(--primary-color);
+    }
+    :hover .library-asset {
+      fill: #fff;
+    }
+  }
 `;
 
 export const SearchContainer = styled.div`
