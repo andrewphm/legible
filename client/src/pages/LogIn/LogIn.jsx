@@ -20,6 +20,7 @@ import {
   Label,
   Main,
   ContinueButton,
+  Warning,
 } from '../SignUp/SignUp.styles';
 
 import { Visibility, VisibilityOff } from '@material-ui/icons';
@@ -58,7 +59,28 @@ const LogIn = () => {
       const res = await API.loginUser(form);
       dispatch(setCurrentUser(res));
     } catch (error) {
-      console.log(error);
+      let data = error.response.data;
+      let emailContainer = document.getElementById('email-container');
+      let emailContainerLabel = document.getElementById('email-label');
+      let passwordContainer = document.getElementById('password-container');
+      let passwordContainerLabel = document.getElementById('password-label');
+      let passwordWarning = document.getElementById('password-warning');
+      let emailWarning = document.getElementById('email-warning');
+
+      if (data === 'email') {
+        emailContainer.style.border = '1px solid rgb(203, 14, 14)';
+        emailContainerLabel.style.color = 'rgb(203, 14, 14)';
+        emailWarning.style.display = 'flex';
+      }
+
+      if (data === 'password') {
+        emailWarning.style.display = 'none';
+        passwordWarning.style.display = 'flex';
+        emailContainer.style.border = '1px solid var(--primary-color)';
+        emailContainerLabel.style.color = 'var(--primary-color)';
+        passwordContainer.style.border = '1px solid rgb(203, 14, 14)';
+        passwordContainerLabel.style.color = 'rgb(203, 14, 14)';
+      }
     }
   };
 
@@ -80,7 +102,7 @@ const LogIn = () => {
       <FormHeading>Log in to Legible</FormHeading>
       <Form>
         <InputWrapper>
-          <InputContainer>
+          <InputContainer id="email-container">
             <Input
               placeholder="Email"
               autoComplete="off"
@@ -92,11 +114,14 @@ const LogIn = () => {
                 setForm({ ...form, [e.target.name]: e.target.value })
               }
             />
-            <Label>Email</Label>
+            <Label id="email-label">Email</Label>
           </InputContainer>
+          <Warning id="email-warning">
+            <p>This email is currently not registered.</p>
+          </Warning>
         </InputWrapper>
         <InputWrapper>
-          <InputContainer>
+          <InputContainer id="password-container">
             <Input
               id="password"
               placeholder="Password"
@@ -109,7 +134,7 @@ const LogIn = () => {
               required
               value={form.password}
             />
-            <Label>Password</Label>
+            <Label id="password-label">Password</Label>
 
             {isVisible ? (
               <VisibilityOff onClick={handleVisibilityClick} />
@@ -117,6 +142,9 @@ const LogIn = () => {
               <Visibility onClick={handleVisibilityClick} />
             )}
           </InputContainer>
+          <Warning id="password-warning">
+            <p>Incorrect password, please try again.</p>
+          </Warning>
           <Link
             style={{
               color: 'var(--secondary-color)',

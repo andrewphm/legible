@@ -52,10 +52,10 @@ const login = async (req, res) => {
 
         res.status(200).json({ ...others, accessToken });
       } else {
-        res.status(401).json('Incorrect password');
+        res.status(401).json('password');
       }
     } catch (error) {
-      res.status(401).json('Cannot find user');
+      res.status(401).json('email');
     }
   } catch (error) {
     res.status(500).json(error);
