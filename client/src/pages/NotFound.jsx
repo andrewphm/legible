@@ -42,7 +42,7 @@ const Image = styled.img`
 const NotFound = () => {
   return (
     <Container>
-      <h1>Sorry the page you're looking for is still under-construction...</h1>
+      <h1>Sorry the page you're looking for is still under construction...</h1>
 
       <Link to="/">
         <button>Go back home</button>

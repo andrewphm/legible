@@ -8,7 +8,10 @@ const UserSchema = new mongoose.Schema(
     displayName: { type: String, required: true },
     country: { type: String, required: true },
     library: { type: Array },
-    isAdmin: { type: Boolean, default: false },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

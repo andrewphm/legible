@@ -5,11 +5,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoute = require('./routes/auth');
 
-mongoose
-  .connect(process.env.MONGODB_URL)
-  .then(() => console.log('DB connected!'))
-  .catch((err) => console.error(err));
-
 const app = express();
 
 // Middleware
@@ -22,4 +17,13 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoute);
 
-app.listen(process.env.PORT || 5000, () => console.log('Server Started'));
+const startServer = async () => {
+  await mongoose
+    .connect(process.env.MONGODB_URL)
+    .then(() => console.log('DB connected!'))
+    .catch((err) => console.error(err));
+
+  app.listen(process.env.PORT || 5000, () => console.log('Server Started'));
+};
+
+startServer();
