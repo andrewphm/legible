@@ -4,9 +4,13 @@ const User = require('../models/User');
 const isUserUnique = async (req, res) => {
   try {
     const user = await User.findOne({ ...req.body });
-    res.status(200).json('false');
+    if (user === null) {
+      res.status(200).json('true');
+    } else {
+      res.status(200).json('false');
+    }
   } catch (error) {
-    res.status(401).json('true');
+    console.log(error);
   }
 };
 

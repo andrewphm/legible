@@ -58,11 +58,16 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
     setIsConfirmPassVisible((prev) => !prev);
   };
 
-  const handleContinueClick = () => {
+  const handleContinueClick = async (e) => {
+    e.preventDefault();
     // Validate username is unique
-    const isUnique = API.checkUniqueUser(form.email);
+    const isUnique = await API.checkUniqueUser({ email: form.email });
 
-    // Change step
+    if (isUnique === 'true') {
+      setStep((prev) => (prev += 1));
+    } else {
+      console.log('not unique');
+    }
   };
 
   return (
