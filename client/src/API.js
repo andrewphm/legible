@@ -14,6 +14,12 @@ const apiSettings = {
 
     return res.data;
   },
+
+  loginUser: async (user) => {
+    let res = await axios.post(`${BASE_URL}auth/login`, user);
+
+    return res.data;
+  },
 };
 
 export default apiSettings;

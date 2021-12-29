@@ -43,6 +43,8 @@ const LogIn = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [form, setForm] = useState(initialForm);
 
+  const handleLogInClick = () => {};
+
   const handleVisibilityClick = () => {
     let ele = document.getElementById('password');
 
