@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema(
     displayName: { type: String, required: true },
     country: { type: String, required: true },
     library: { type: Array },
+    wishList: { type: Array },
     isAdmin: {
       type: Boolean,
       default: false,

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 
@@ -61,7 +61,7 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
 
   const handleContinueClick = async (e) => {
     e.preventDefault();
-    // Validate username is unique
+    // Validate email is unique
     const isUnique = await API.checkUniqueUser({ email: form.email });
 
     let container = document.getElementById('email-container');
@@ -119,7 +119,7 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
             </Label>
           </InputContainer>
           <Warning id="warning">
-            <p>This email is already taken.</p>
+            <p>Email is already taken.</p>
           </Warning>
         </InputWrapper>
         <InputWrapper>
@@ -192,6 +192,21 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
 };
 
 const StepTwo = ({ form, handleFormChange, setStep }) => {
+  const handleContinueClick = async (e) => {
+    e.preventDefault();
+
+    // Validate username is unique
+    const isUnique = await API.checkUniqueUser({ username: form.username });
+
+    let usernameWarning = document.getElementById('username-warning');
+
+    if (!isUnique) {
+      usernameWarning.style.display = 'flex';
+    } else {
+      setStep((prev) => (prev += 1));
+    }
+  };
+
   return (
     <>
       <StepHeading>SIGN UP TO LEGIBLE - STEP 2 OF 3</StepHeading>
@@ -232,14 +247,15 @@ const StepTwo = ({ form, handleFormChange, setStep }) => {
             ></Input>
             <Label>Username</Label>
           </InputContainer>
+          <Warning id="username-warning">
+            <p>Username is already taken, please choose a different one.</p>
+          </Warning>
           <p className="requirement">
             Your username must have at least 3 characters, and can only contain
             letters, numbers, ‘-’, ‘_’, and ‘.’
           </p>
         </InputWrapper>
-        <ContinueButton onClick={() => setStep((prev) => (prev += 1))}>
-          Continue
-        </ContinueButton>
+        <ContinueButton onClick={handleContinueClick}>Continue</ContinueButton>
       </Form>
     </>
   );
@@ -247,6 +263,24 @@ const StepTwo = ({ form, handleFormChange, setStep }) => {
 
 const StepThree = ({ form, handleFormChange }) => {
   const options = useMemo(() => countryList().getData(), []);
+
+  useEffect(() => {
+    const countryWarning = document.querySelector('.country-warning');
+    if (form.country) {
+      countryWarning.style.display = 'none';
+    }
+  }, [form.country]);
+
+  const handleFinishClick = (e) => {
+    e.preventDefault();
+
+    if (form.country === '') {
+      const countryWarning = document.querySelector('.country-warning');
+      countryWarning.style.display = 'flex';
+    } else {
+      // Create user
+    }
+  };
 
   return (
     <>
@@ -267,8 +301,11 @@ const StepThree = ({ form, handleFormChange }) => {
         onChange={handleFormChange}
         placeholder={form.country || 'Type or select...'}
       />
+      <Warning className="country-warning">
+        <p>Please choose a country.</p>
+      </Warning>
 
-      <ContinueButton>Finish</ContinueButton>
+      <ContinueButton onClick={handleFinishClick}>Finish</ContinueButton>
     </>
   );
 };

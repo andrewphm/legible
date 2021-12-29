@@ -8,8 +8,7 @@ export const Main = styled.main`
   padding: 45px 12px;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
   min-height: 500px;
 
   .info {
