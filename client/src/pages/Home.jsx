@@ -10,12 +10,17 @@ import {
   Values,
 } from '../components/index';
 
+// Redux
+import { useSelector } from 'react-redux';
+
 const Home = () => {
+  const user = useSelector((state) => state.user.currentUser);
+
   return (
     <div>
       <Carousel />
       <Categories />
-      <SignUpCTA />
+      {!user && <SignUpCTA />}
       <PublisherCTA />
       <LatestNews />
       <Values />

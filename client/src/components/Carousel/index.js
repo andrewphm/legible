@@ -19,7 +19,12 @@ import {
   Slider,
 } from './Carousel.styles';
 
+//redux
+import { useSelector } from 'react-redux';
+
 const Carousel = () => {
+  const user = useSelector((state) => state.user.currentUser);
+
   const [play, setPlay] = useState(true);
   const [slide, setSlide] = useState(0);
   const changeSlide = () => {
@@ -76,11 +81,13 @@ const Carousel = () => {
               <p>
                 Read your favourite book on any device wherever you have wifi.
               </p>
-              <button>
-                <Link to="/sign-up" style={{ color: '#fff' }}>
-                  Create my free account{' '}
-                </Link>
-              </button>
+              {!user && (
+                <button>
+                  <Link to="/sign-up" style={{ color: '#fff' }}>
+                    Create my free account{' '}
+                  </Link>
+                </button>
+              )}
             </article>
           </Slide>
         </SlideContainer>
@@ -96,11 +103,13 @@ const Carousel = () => {
                 reading eBooks even better.
               </p>
 
-              <button>
-                <Link to="/sign-up" style={{ color: '#fff' }}>
-                  Create my free account{' '}
-                </Link>
-              </button>
+              {!user && (
+                <button>
+                  <Link to="/sign-up" style={{ color: '#fff' }}>
+                    Create my free account{' '}
+                  </Link>
+                </button>
+              )}
             </article>
           </Slide>
         </SlideContainer>
@@ -115,11 +124,13 @@ const Carousel = () => {
                 Find reads that inspire, thrill, and help us imagine a world
                 where we all share our stories.
               </p>
-              <button>
-                <Link to="/sign-up" style={{ color: '#fff' }}>
-                  Create my free account{' '}
-                </Link>
-              </button>
+              {!user && (
+                <button>
+                  <Link to="/sign-up" style={{ color: '#fff' }}>
+                    Create my free account{' '}
+                  </Link>
+                </button>
+              )}
             </article>
           </Slide>
         </SlideContainer>
