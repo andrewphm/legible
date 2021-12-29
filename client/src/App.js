@@ -2,7 +2,12 @@
 import { GlobalStyles } from './GlobalStyles';
 
 // React Router
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 
 // Pages
 import Home from './pages/Home';
@@ -14,7 +19,7 @@ import NotFound from './pages/NotFound';
 import { Header, Footer, ScrollUp } from './components/index';
 
 // Redux
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -26,6 +31,12 @@ function App() {
       <ScrollUp />
       <Header />
       <Routes>
+        {user && (
+          <>
+            <Route path="/sign-up" element={<Navigate replace to="/" />} />
+            <Route path="/log-in" element={<Navigate replace to="/" />} />
+          </>
+        )}{' '}
         <Route path="/" element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/log-in" element={<LogIn />} />

@@ -6,6 +6,11 @@ import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 import defaultAvatar from '../../assets/Auth/defaultAvatar.png';
 
+// Redux
+import { useDispatch } from 'react-redux';
+// Reducers
+import { setCurrentUser } from '../../redux/userRedux';
+
 // API
 import API from '../../API';
 
@@ -263,6 +268,7 @@ const StepTwo = ({ form, handleFormChange, setStep }) => {
 
 const StepThree = ({ form, handleFormChange }) => {
   const options = useMemo(() => countryList().getData(), []);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const countryWarning = document.querySelector('.country-warning');
@@ -271,14 +277,20 @@ const StepThree = ({ form, handleFormChange }) => {
     }
   }, [form.country]);
 
-  const handleFinishClick = (e) => {
+  const handleFinishClick = async (e) => {
     e.preventDefault();
 
     if (form.country === '') {
       const countryWarning = document.querySelector('.country-warning');
       countryWarning.style.display = 'flex';
     } else {
-      // Create user
+      try {
+        let user = await API.createUser(form);
+        // save user to state
+        dispatch(setCurrentUser(user));
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -331,7 +343,6 @@ const SignUp = () => {
 
   return (
     <Main>
-      {console.log(form)}
       {step === 1 && (
         <StepOne
           form={form}

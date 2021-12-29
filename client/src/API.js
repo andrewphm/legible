@@ -8,6 +8,12 @@ const apiSettings = {
     let res = await axios.post(`${BASE_URL}user/unique`, user);
     return res.data.isUnique;
   },
+
+  createUser: async (user) => {
+    let res = await axios.post(`${BASE_URL}auth/signup`, user);
+
+    return res.data;
+  },
 };
 
 export default apiSettings;
