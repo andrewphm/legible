@@ -9,6 +9,7 @@ const BookSchema = new mongoose.Schema(
     details: { type: Object },
     reviews: { type: Object },
     description: { type: String },
+    images: { type: Object },
   },
   { timestamps: true }
 );
