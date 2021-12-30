@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
+const bookRoute = require('./routes/book');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
+app.use('/api/book', bookRoute);
 
 const startServer = async () => {
   await mongoose
