@@ -22,6 +22,8 @@ import {
   SearchContainer,
   Input,
   Search,
+  WideNav,
+  WideList,
 } from './Header.styles';
 
 const Header = () => {
@@ -72,6 +74,77 @@ const Header = () => {
 
   return (
     <Wrapper type="reader">
+      <SearchContainer id="search-container">
+        <Search>
+          <Input
+            id="search-input"
+            placeholder="Search for books, authors, topics, and more!"
+            type="text"
+            onBlur={handleMenuBlur}
+          />
+          <SearchOutlined />
+        </Search>
+      </SearchContainer>
+      <Container>
+        <Link
+          aria-label="Back to homepage"
+          to="/"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
+          <Logo />
+        </Link>
+        {path !== 'sign-up' && path !== 'log-in' && (
+          <Right>
+            <button className="search__button" onClick={handleSearchClick}>
+              <SearchIcon />
+            </button>
+
+            {user && (
+              <button
+                className="profile__button"
+                onBlur={handleMenuBlur}
+                onClick={handleProfileClick}
+              >
+                AP
+              </button>
+            )}
+
+            <button
+              className="menu__button"
+              onFocus={handleMenuClick}
+              onBlur={handleMenuBlur}
+            >
+              <MenuIcon />
+            </button>
+          </Right>
+        )}
+
+        <WideNav>
+          <WideList>
+            <li className="search">
+              <button className="search__btn" onClick={handleSearchClick}>
+                <SearchIcon />
+              </button>
+            </li>
+            <li>
+              <Link to="/browse">
+                <button>Browse</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/log-in">
+                <button className="login__btn">Log In</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/sign-up">
+                <button className="signup__btn">Sign Up</button>
+              </Link>
+            </li>
+          </WideList>
+        </WideNav>
+      </Container>
+
       <MenuList id="auth-nav">
         {user === null && (
           <MenuItem auth="auth" style={{ borderBottom: '1px solid lightgrey' }}>
@@ -138,52 +211,6 @@ const Header = () => {
           </MenuItem>
         </MenuList>
       )}
-
-      <SearchContainer id="search-container">
-        <Search>
-          <Input
-            id="search-input"
-            placeholder="Search for books, authors, topics, and more!"
-            type="text"
-            onBlur={handleMenuBlur}
-          />
-          <SearchOutlined />
-        </Search>
-      </SearchContainer>
-      <Container>
-        <Link
-          aria-label="Back to homepage"
-          to="/"
-          style={{ display: 'flex', alignItems: 'center' }}
-        >
-          <Logo />
-        </Link>
-        {path !== 'sign-up' && path !== 'log-in' && (
-          <Right>
-            <button className="search__button" onClick={handleSearchClick}>
-              <SearchIcon />
-            </button>
-
-            {user && (
-              <button
-                className="profile__button"
-                onBlur={handleMenuBlur}
-                onClick={handleProfileClick}
-              >
-                AP
-              </button>
-            )}
-
-            <button
-              className="menu__button"
-              onFocus={handleMenuClick}
-              onBlur={handleMenuBlur}
-            >
-              <MenuIcon />
-            </button>
-          </Right>
-        )}
-      </Container>
     </Wrapper>
   );
 };

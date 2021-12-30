@@ -42,6 +42,9 @@ export const Wrapper = styled.header`
       right: 65px;
     }
   }
+
+  @media screen and (min-width: 900px) {
+  }
 `;
 
 export const Container = styled.div`
@@ -94,6 +97,13 @@ export const Right = styled.div`
     :hover {
       background-color: var(--secondary-btn-color);
       color: lightgrey;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    .menu__button,
+    .search__button {
+      display: none;
     }
   }
 `;
@@ -242,5 +252,67 @@ export const Input = styled.input`
 
   :focus {
     outline: none;
+  }
+`;
+
+export const WideNav = styled.nav`
+  display: none;
+
+  #last-child {
+    border: none;
+  }
+
+  @media screen and (min-width: 900px) {
+    display: flex;
+  }
+`;
+
+export const WideList = styled.ul`
+  display: flex;
+  list-style: none;
+  column-gap: 1.3rem;
+  align-items: center;
+
+  .search {
+    position: relative;
+    top: 3px;
+    transition: all 0.3s ease;
+
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+
+  li button {
+    background-color: transparent;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  a .signup__btn {
+    width: 100px;
+    padding: 5px;
+    border-radius: 18px;
+    color: white;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease-in-out;
+
+    :hover {
+      background-color: var(--secondary-btn-color);
+    }
+  }
+
+  a .login__btn {
+    width: 100px;
+    padding: 5px;
+    border-radius: 18px;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease-in-out;
+
+    :hover {
+      color: white;
+      background-color: var(--primary-color);
+    }
   }
 `;
