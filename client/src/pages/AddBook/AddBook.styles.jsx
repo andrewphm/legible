@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  margin-top: 1rem;
-  height: 50vh;
-`;
-
 export const Main = styled.main`
   display: flex;
   width: 100%;
@@ -72,6 +67,23 @@ export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   padding-right: 10px;
+`;
+
+export const TextArea = styled.textarea`
+  padding: 10px;
+  width: calc(100% + 10px);
+
+  :-webkit-autofill,
+  :-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+  [data-autocompleted] {
+    background-color: transparent !important;
+  }
+
+  :focus {
+    outline: none !important;
+  }
 `;
 
 export const Input = styled.input`
