@@ -133,7 +133,7 @@ export const Slide = styled.section`
 
       p {
         text-align: left;
-        font-size: clamp(16px, 3vw, 25px);
+        font-size: clamp(16px, 3vw, 20px);
       }
     }
 
@@ -154,10 +154,21 @@ export const Slide = styled.section`
 
     button {
       font-size: 1rem;
+      margin-top: 2rem;
     }
 
     article {
       max-width: 700px;
+    }
+  }
+
+  @media screen and (min-width: 1300px) {
+    article {
+      max-width: 800px;
+
+      p {
+        max-width: 500px;
+      }
     }
   }
 `;

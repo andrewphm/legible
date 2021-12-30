@@ -8,12 +8,14 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
-  padding: 20px;
+  max-width: 500px;
+  padding: 30px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   row-gap: 2rem;
+  margin: 0 auto;
 
   h1 {
     font-size: 1.3rem;
