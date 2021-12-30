@@ -48,7 +48,7 @@ const Header = () => {
     const nav = document.getElementById('auth-nav');
 
     setTimeout(() => {
-      nav.style.top = '130%';
+      nav.style.top = '105%';
     }, 100);
   };
 
@@ -64,7 +64,7 @@ const Header = () => {
     let nav = document.getElementById('profile-nav');
 
     setTimeout(() => {
-      nav.style.top = '130%';
+      nav.style.top = '105%';
     }, 100);
   };
 
@@ -131,16 +131,42 @@ const Header = () => {
                 <button>Browse</button>
               </Link>
             </li>
-            <li>
-              <Link to="/log-in">
-                <button className="login__btn">Log In</button>
-              </Link>
-            </li>
-            <li>
-              <Link to="/sign-up">
-                <button className="signup__btn">Sign Up</button>
-              </Link>
-            </li>
+
+            {!user && (
+              <>
+                <li>
+                  <Link to="/log-in">
+                    <button className="login__btn">Log In</button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/sign-up">
+                    <button className="signup__btn">Sign Up</button>
+                  </Link>
+                </li>
+              </>
+            )}
+
+            {user && (
+              <>
+                <li>
+                  <Link to="/library">
+                    <button className="library-btn">
+                      <MyLibrary />
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    className="profile__button"
+                    onBlur={handleMenuBlur}
+                    onClick={handleProfileClick}
+                  >
+                    {user.displayName.split('')[0].toUpperCase()}
+                  </button>
+                </li>
+              </>
+            )}
           </WideList>
         </WideNav>
       </Container>

@@ -11,7 +11,24 @@ export const Wrapper = styled.header`
   left: 0px;
   display: flex;
 
-  #auth-nav {
+  .library-btn {
+    width: 180px;
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 0 auto;
+
+    :hover {
+      background-color: var(--primary-color);
+    }
+    :hover .library-asset {
+      fill: #fff;
+    }
+  }
+
+  /* #auth-nav {
     :after {
       z-index: 200;
       content: '';
@@ -41,7 +58,7 @@ export const Wrapper = styled.header`
       top: -9px;
       right: 65px;
     }
-  }
+  } */
 
   @media screen and (min-width: 900px) {
   }
@@ -57,6 +74,15 @@ export const Container = styled.div`
   justify-content: space-between;
   width: 100%;
   background-color: white;
+
+  @media screen and (min-width: 900px) {
+    height: 5rem;
+    padding: 15px 40px;
+  }
+  @media screen and (min-width: 1300px) {
+    height: 5rem;
+    padding: 15px 80px;
+  }
 `;
 
 export const Right = styled.div`
@@ -103,6 +129,10 @@ export const Right = styled.div`
   @media screen and (min-width: 900px) {
     .menu__button,
     .search__button {
+      display: none;
+    }
+
+    .profile__button {
       display: none;
     }
   }
@@ -199,23 +229,6 @@ export const MenuItem = styled.div`
       background-color: var(--secondary-btn-color);
     }
   }
-
-  .library-btn {
-    width: 200px;
-    padding: 8px;
-    border: 1px solid var(--primary-color);
-    background-color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    margin: 0 auto;
-
-    :hover {
-      background-color: var(--primary-color);
-    }
-    :hover .library-asset {
-      fill: #fff;
-    }
-  }
 `;
 
 export const SearchContainer = styled.div`
@@ -273,6 +286,11 @@ export const WideList = styled.ul`
   column-gap: 1.3rem;
   align-items: center;
 
+  .library-btn {
+    padding: 5px;
+    width: 130px;
+  }
+
   .search {
     position: relative;
     top: 3px;
@@ -313,6 +331,26 @@ export const WideList = styled.ul`
     :hover {
       color: white;
       background-color: var(--primary-color);
+    }
+  }
+
+  .profile__button {
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1rem;
+
+    :hover {
+      background-color: var(--secondary-btn-color);
+      color: lightgrey;
     }
   }
 `;
