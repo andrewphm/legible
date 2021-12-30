@@ -104,8 +104,49 @@ export const Slide = styled.section`
     }
   }
 
+  .image-wrapper {
+    width: 90%;
+    max-width: 350px;
+  }
+
   img {
-    max-width: 100%;
-    max-height: 150px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 500px) {
+    flex-direction: row;
+    column-gap: 1rem;
+    justify-content: center;
+
+    article {
+      max-width: 400px;
+      align-items: flex-start;
+
+      h1 {
+        text-align: left;
+        font-size: clamp(30px, 4vw, 65px);
+      }
+
+      p {
+        text-align: left;
+        font-size: clamp(16px, 3vw, 25px);
+      }
+    }
+
+    .image-wrapper {
+      min-width: 250px;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    column-gap: 5rem;
+
+    .image-wrapper {
+      max-width: 500px;
+    }
+
+    article {
+      max-width: 550px;
+    }
   }
 `;

@@ -70,7 +70,7 @@ const Carousel = () => {
       <Slider id="slider">
         <SlideContainer>
           <Slide slide={slide1}>
-            <div>
+            <div className="image-wrapper">
               <img
                 src={slide1img}
                 alt="Two people sitting on a picnic blanket leaning against each other reading from their phones"
@@ -93,7 +93,7 @@ const Carousel = () => {
         </SlideContainer>
         <SlideContainer>
           <Slide slide={slide2}>
-            <div>
+            <div className="image-wrapper">
               <img src={slide2img} alt="Lady sitting and reading" />
             </div>
             <article>
@@ -115,7 +115,7 @@ const Carousel = () => {
         </SlideContainer>
         <SlideContainer>
           <Slide slide={slide3}>
-            <div>
+            <div className="image-wrapper">
               <img src={slide3img} alt="Two people talking" />
             </div>
             <article>
