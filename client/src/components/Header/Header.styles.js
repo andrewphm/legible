@@ -151,12 +151,13 @@ export const MenuItem = styled.div`
   }
 
   .library-btn {
-    width: 120px;
+    width: 200px;
     padding: 8px;
     border: 1px solid var(--primary-color);
     background-color: white;
     border-radius: 20px;
     cursor: pointer;
+    margin: 0 auto;
 
     :hover {
       background-color: var(--primary-color);

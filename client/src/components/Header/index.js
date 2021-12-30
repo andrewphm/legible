@@ -99,7 +99,7 @@ const Header = () => {
         )}
 
         {user && (
-          <MenuItem>
+          <MenuItem auth="auth">
             <Link to="/library">
               <button className="library-btn">
                 <MyLibrary />
