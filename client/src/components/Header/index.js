@@ -46,7 +46,7 @@ const Header = () => {
     const nav = document.getElementById('auth-nav');
 
     setTimeout(() => {
-      nav.style.top = '101%';
+      nav.style.top = '130%';
     }, 100);
   };
 
@@ -62,7 +62,7 @@ const Header = () => {
     let nav = document.getElementById('profile-nav');
 
     setTimeout(() => {
-      nav.style.top = '101%';
+      nav.style.top = '130%';
     }, 100);
   };
 

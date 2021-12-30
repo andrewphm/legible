@@ -10,6 +10,38 @@ export const Wrapper = styled.header`
   top: 0px;
   left: 0px;
   display: flex;
+
+  #auth-nav {
+    :after {
+      z-index: 200;
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      transform: rotate(45deg);
+      background-color: white;
+      border-top: 1px solid lightgrey;
+      border-left: 1px solid lightgrey;
+      top: -9px;
+      right: 23px;
+    }
+  }
+
+  #profile-nav {
+    :after {
+      z-index: 200;
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      transform: rotate(45deg);
+      background-color: white;
+      border-top: 1px solid lightgrey;
+      border-left: 1px solid lightgrey;
+      top: -9px;
+      right: 65px;
+    }
+  }
 `;
 
 export const Container = styled.div`
@@ -76,9 +108,17 @@ export const MenuList = styled.nav`
   left: 0;
   flex-direction: column;
   transition: var(--transition);
-  z-index: -2;
+  z-index: 2;
   background-color: white;
   box-shadow: rgb(171 187 191 / 20%) 2px 2px 1rem;
+
+  @media screen and (min-width: 500px) {
+    width: 350px;
+    left: initial;
+    right: 0;
+    border: 1px solid lightgrey;
+    box-shadow: rgb(80 110 122 / 20%) 2px 2px 1rem;
+  }
 `;
 
 export const MenuItem = styled.div`

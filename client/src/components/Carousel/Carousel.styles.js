@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CarouselContainer = styled.section`
   position: relative;
   width: 100vw;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding-bottom: 40px;
   margin-bottom: 3rem;
 `;
@@ -118,6 +118,10 @@ export const Slide = styled.section`
     column-gap: 1rem;
     justify-content: center;
 
+    button {
+      font-size: 0.8rem;
+    }
+
     article {
       max-width: 400px;
       align-items: flex-start;
@@ -139,14 +143,21 @@ export const Slide = styled.section`
   }
 
   @media screen and (min-width: 900px) {
+    background-size: contain;
+    background-position: center center;
+
     column-gap: 5rem;
 
     .image-wrapper {
       max-width: 500px;
     }
 
+    button {
+      font-size: 1rem;
+    }
+
     article {
-      max-width: 550px;
+      max-width: 700px;
     }
   }
 `;
