@@ -73,6 +73,7 @@ export const Label = styled.label`
   background-color: white;
   left: 10px;
   font-weight: 600;
+  font-size: 0.8rem;
 `;
 
 export const InputContainer = styled.div`
@@ -103,14 +104,14 @@ export const TextArea = styled.textarea`
 `;
 
 export const Input = styled.input`
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.35;
   transition: (--transition);
   background-color: #fff;
-  color: rgb(43, 50, 56);
+  color: black;
   display: flex;
   width: 100%;
-  padding: 0.8rem;
+  padding: 0.5rem;
 
   :-webkit-autofill,
   :-webkit-autofill:focus {
@@ -127,8 +128,6 @@ export const Input = styled.input`
 
 export const ReviewContainer = styled.ol`
   width: 100%;
-  height: 400px;
-
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
@@ -151,7 +150,7 @@ export const ReviewItem = styled.li`
     width: 250px;
   }
 
-  .desc:hover {
+  :hover .desc {
     text-overflow: initial;
     overflow: initial;
     white-space: initial;

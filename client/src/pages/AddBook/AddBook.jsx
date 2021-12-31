@@ -38,11 +38,11 @@ const AddBook = () => {
   const [book, setBook] = useState(initialForm);
   const [review, setReview] = useState(initialReview);
   const [reviews, setReviews] = useState([]);
+  const [file, setFiles] = useState(null);
 
   const handleChange = (e) => {
     if (e.target.name === 'category') {
       let value = e.target.value.split(', ');
-      console.log(value);
       setBook((prev) => {
         return {
           ...prev,
@@ -50,6 +50,17 @@ const AddBook = () => {
         };
       });
       return;
+    }
+
+    if (e.target.name === 'price') {
+      let num = Number(e.target.value);
+
+      setBook((prev) => {
+        return {
+          ...prev,
+          price: num,
+        };
+      });
     }
 
     if (e.target.name.split('-')[0] === 'details') {
@@ -87,7 +98,6 @@ const AddBook = () => {
   };
 
   const handleDelete = (e, i) => {
-    console.log(i);
     e.preventDefault();
 
     setReviews((prev) => {
@@ -108,6 +118,8 @@ const AddBook = () => {
 
   return (
     <Main>
+      {console.log(book.price)}
+      {console.log(file)}
       <FormHeading>Add New Book</FormHeading>
       <Form onChange={handleChange}>
         <InputWrapper>
@@ -132,7 +144,7 @@ const AddBook = () => {
           <InputContainer>
             <Label>Description</Label>
             <TextArea
-              rows="5"
+              rows="3"
               name="description"
               placeholder="Description"
               value={book.description}
@@ -225,6 +237,18 @@ const AddBook = () => {
                 </ReviewItem>
               ))}
           </ReviewContainer>
+        </InputWrapper>
+
+        <InputWrapper>
+          <h3>Image</h3>
+
+          <InputContainer>
+            <Input
+              type="file"
+              id="file"
+              onChange={(e) => setFiles(e.target.files[0])}
+            ></Input>
+          </InputContainer>
         </InputWrapper>
       </Form>
     </Main>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CarouselContainer = styled.section`
   position: relative;
   width: 100vw;
-  /* overflow: hidden; */
+  overflow: hidden;
   padding-bottom: 40px;
   margin-bottom: 3rem;
 `;
@@ -143,8 +143,7 @@ export const Slide = styled.section`
   }
 
   @media screen and (min-width: 900px) {
-    background-size: contain;
-    background-position: center center;
+    background-position: center bottom;
 
     column-gap: 5rem;
 
