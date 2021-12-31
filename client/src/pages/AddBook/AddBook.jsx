@@ -179,8 +179,15 @@ const AddBook = () => {
     <Main>
       {console.log(book)}
       <FormHeading>Add New Book</FormHeading>
-      <Form>
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleFormClick(e);
+        }}
+      >
         <InputWrapper>
+          <h3>Info</h3>
+
           <InputContainer>
             <Label>Title</Label>
             <Input
@@ -335,7 +342,7 @@ const AddBook = () => {
           </InputContainer>
         </InputWrapper>
 
-        <button type="submit" onSubmit={handleFormClick}>
+        <button id="submit" type="submit">
           Add Book
         </button>
       </Form>

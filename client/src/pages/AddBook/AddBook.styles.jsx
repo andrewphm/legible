@@ -39,7 +39,21 @@ export const Form = styled.form`
   width: 100%;
   padding: 10px;
 
-  .input__wrapper-reviews {
+  #submit {
+    margin-top: 1rem;
+    background-color: transparent;
+    padding: 5px 8px;
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    width: 120px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    :hover {
+      color: white;
+      background-color: var(--primary-color);
+    }
   }
 `;
 
@@ -138,6 +152,7 @@ export const ReviewItem = styled.li`
   column-gap: 1rem;
   border: 1px solid lightgrey;
   padding: 5px 8px;
+  font-size: 0.8rem;
 
   p {
     width: 120px;
