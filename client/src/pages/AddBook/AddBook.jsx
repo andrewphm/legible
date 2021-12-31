@@ -11,6 +11,8 @@ import {
   TextArea,
   ReviewContainer,
   ReviewItem,
+  Success,
+  Failure,
 } from './AddBook.styles';
 
 //Firebase
@@ -21,6 +23,9 @@ import {
   getDownloadURL,
 } from 'firebase/storage';
 import App from '../../firebase';
+
+// API
+import API from '../../API';
 
 const initialForm = {
   title: '',
@@ -123,6 +128,35 @@ const AddBook = () => {
     });
   };
 
+  const uploadBookToDb = async (newBook) => {
+    try {
+      let res = await API.addBook(newBook);
+      console.log(res);
+      setBook(initialForm);
+      setReviews([]);
+      const fileElement = document.getElementById('file');
+      fileElement.value = '';
+      console.log('success');
+
+      let succ = document.querySelector('.success');
+      succ.style.display = 'block';
+
+      setTimeout(() => {
+        succ.style.display = 'none';
+      }, 5000);
+    } catch (error) {
+      let failure = document.querySelector('.failure');
+
+      failure.style.display = 'block';
+
+      setTimeout(() => {
+        failure.style.display = 'none';
+      }, 5000);
+
+      console.log(error);
+    }
+  };
+
   const handleFormClick = (e) => {
     e.preventDefault();
     const fileName = new Date().getTime() + file.name;
@@ -160,7 +194,8 @@ const AddBook = () => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log({ ...book, image: downloadURL });
+          // Call API with state
+          uploadBookToDb({ ...book, image: downloadURL });
         });
       }
     );
@@ -177,7 +212,6 @@ const AddBook = () => {
 
   return (
     <Main>
-      {console.log(book)}
       <FormHeading>Add New Book</FormHeading>
       <Form
         onSubmit={(e) => {
@@ -345,6 +379,13 @@ const AddBook = () => {
         <button id="submit" type="submit">
           Add Book
         </button>
+
+        <Success className="success">
+          <p>Success! New book added.</p>
+        </Success>
+        <Failure className="failure">
+          <p>Upload failed, please try again.</p>
+        </Failure>
       </Form>
     </Main>
   );

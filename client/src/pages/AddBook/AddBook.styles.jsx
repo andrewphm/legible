@@ -182,3 +182,23 @@ export const ReviewItem = styled.li`
     }
   }
 `;
+
+export const Success = styled.div`
+  margin-top: 1rem;
+  display: none;
+  p {
+    color: green;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+`;
+
+export const Failure = styled.div`
+  margin-top: 1rem;
+  display: none;
+  p {
+    color: red;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+`;

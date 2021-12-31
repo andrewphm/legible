@@ -20,6 +20,12 @@ const apiSettings = {
 
     return res.data;
   },
+
+  addBook: async (book) => {
+    let res = await axios.post(`${BASE_URL}book/create`, book);
+
+    return res.data;
+  },
 };
 
 export default apiSettings;
