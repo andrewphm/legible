@@ -13,6 +13,15 @@ import {
   ReviewItem,
 } from './AddBook.styles';
 
+//Firebase
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from 'firebase/storage';
+import App from '../../firebase';
+
 const initialForm = {
   title: '',
   author: '',
@@ -26,7 +35,7 @@ const initialForm = {
     language: '',
   },
   reviews: [],
-  images: {},
+  image: '',
 };
 
 const initialReview = {
@@ -38,7 +47,7 @@ const AddBook = () => {
   const [book, setBook] = useState(initialForm);
   const [review, setReview] = useState(initialReview);
   const [reviews, setReviews] = useState([]);
-  const [file, setFiles] = useState(null);
+  const [file, setFile] = useState(null);
 
   const handleChange = (e) => {
     if (e.target.name === 'category') {
@@ -94,6 +103,13 @@ const AddBook = () => {
     e.preventDefault();
     if (review.name !== '') {
       setReviews((prev) => [...prev, review]);
+
+      setReview((prev) => {
+        return {
+          name: '',
+          description: '',
+        };
+      });
     }
   };
 
@@ -107,6 +123,49 @@ const AddBook = () => {
     });
   };
 
+  const handleFormClick = (e) => {
+    e.preventDefault();
+    const fileName = new Date().getTime() + file.name;
+    const storage = getStorage(App);
+    const storageRef = ref(storage, fileName);
+
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    // Register three observers:
+    // 1. 'state_changed' observer, called any time the state changes
+    // 2. Error observer, called on failure
+    // 3. Completion observer, called on successful completion
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        // Observe state change events such as progress, pause, and resume
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+        switch (snapshot.state) {
+          case 'paused':
+            console.log('Upload is paused');
+            break;
+          case 'running':
+            console.log('Upload is running');
+            break;
+          default:
+        }
+      },
+      (error) => {
+        // Handle unsuccessful uploads
+      },
+      () => {
+        // Handle successful uploads on complete
+        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log({ ...book, image: downloadURL });
+        });
+      }
+    );
+  };
+
   useEffect(() => {
     setBook((prev) => {
       return {
@@ -118,32 +177,50 @@ const AddBook = () => {
 
   return (
     <Main>
-      {console.log(book.price)}
-      {console.log(file)}
+      {console.log(book)}
       <FormHeading>Add New Book</FormHeading>
-      <Form onChange={handleChange}>
+      <Form>
         <InputWrapper>
           <InputContainer>
             <Label>Title</Label>
-            <Input name="title" placeholder="Title" value={book.title} />
+            <Input
+              onChange={handleChange}
+              name="title"
+              required
+              placeholder="Title"
+              value={book.title}
+            />
           </InputContainer>
         </InputWrapper>
         <InputWrapper>
           <InputContainer>
             <Label>Author</Label>
-            <Input name="author" placeholder="Author" value={book.author} />
+            <Input
+              onChange={handleChange}
+              name="author"
+              required
+              placeholder="Author"
+              value={book.author}
+            />
           </InputContainer>
         </InputWrapper>
         <InputWrapper>
           <InputContainer>
             <Label>Price</Label>
-            <Input name="price" placeholder="Price" value={book.price} />
+            <Input
+              onChange={handleChange}
+              name="price"
+              required
+              placeholder="Price"
+              value={book.price}
+            />
           </InputContainer>
         </InputWrapper>
         <InputWrapper>
           <InputContainer>
             <Label>Description</Label>
             <TextArea
+              onChange={handleChange}
               rows="3"
               name="description"
               placeholder="Description"
@@ -155,8 +232,10 @@ const AddBook = () => {
           <InputContainer>
             <Label>Categories</Label>
             <TextArea
+              onChange={handleChange}
               rows="2"
               name="category"
+              required
               placeholder='Separate categories by commas, eg. "Fiction, Comedy, Adventure"...'
               value={book.category.join(', ')}
             />
@@ -166,6 +245,7 @@ const AddBook = () => {
           <InputContainer className="input__container-small">
             <Label>Publisher</Label>
             <Input
+              onChange={handleChange}
               name="details-publisher"
               placeholder="Publisher"
               value={book.details.publisher}
@@ -174,6 +254,7 @@ const AddBook = () => {
           <InputContainer className="input__container-small">
             <Label>Release Date</Label>
             <Input
+              onChange={handleChange}
               name="details-releaseDate"
               placeholder="eg. September 15th, 2020"
               value={book.details.releaseDate}
@@ -182,6 +263,7 @@ const AddBook = () => {
           <InputContainer className="input__container-small">
             <Label>ISBN</Label>
             <Input
+              onChange={handleChange}
               name="details-ISBN"
               placeholder="ISBN"
               value={book.details.ISBN}
@@ -190,6 +272,7 @@ const AddBook = () => {
           <InputContainer className="input__container-small">
             <Label>Language</Label>
             <Input
+              onChange={handleChange}
               name="details-language"
               placeholder="Language"
               value={book.details.language}
@@ -244,12 +327,17 @@ const AddBook = () => {
 
           <InputContainer>
             <Input
+              required
               type="file"
               id="file"
-              onChange={(e) => setFiles(e.target.files[0])}
+              onChange={(e) => setFile(e.target.files[0])}
             ></Input>
           </InputContainer>
         </InputWrapper>
+
+        <button type="submit" onSubmit={handleFormClick}>
+          Add Book
+        </button>
       </Form>
     </Main>
   );

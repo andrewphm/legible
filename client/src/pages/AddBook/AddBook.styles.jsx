@@ -160,6 +160,7 @@ export const ReviewItem = styled.li`
     background-color: transparent;
     font-weight: 600;
     cursor: pointer;
+    height: fit-content;
 
     :hover {
       transform: scale(1.1);
