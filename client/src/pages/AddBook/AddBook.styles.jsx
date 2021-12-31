@@ -38,6 +38,9 @@ export const Form = styled.form`
   align-items: center;
   width: 100%;
   padding: 10px;
+
+  .input__wrapper-reviews {
+  }
 `;
 
 export const InputWrapper = styled.div`
@@ -45,10 +48,22 @@ export const InputWrapper = styled.div`
   position: relative;
   width: 100%;
   border-radius: 0.2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 
-  .requirement {
-    font-size: 0.9rem;
-    font-weight: 500;
+  h3 {
+    width: 100%;
+  }
+
+  button {
+    background-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+
+    :hover {
+      transform: scale(1.05);
+    }
   }
 `;
 
@@ -67,6 +82,7 @@ export const InputContainer = styled.div`
   display: flex;
   align-items: center;
   padding-right: 10px;
+  min-width: 220px;
 `;
 
 export const TextArea = styled.textarea`
@@ -106,5 +122,48 @@ export const Input = styled.input`
 
   :focus {
     outline: none !important;
+  }
+`;
+
+export const ReviewContainer = styled.ol`
+  width: 100%;
+  height: 400px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+`;
+
+export const ReviewItem = styled.li`
+  display: flex;
+  column-gap: 1rem;
+  border: 1px solid lightgrey;
+  padding: 5px 8px;
+
+  p {
+    width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .desc {
+    width: 250px;
+  }
+
+  .desc:hover {
+    text-overflow: initial;
+    overflow: initial;
+    white-space: initial;
+  }
+
+  button {
+    background-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+
+    :hover {
+      transform: scale(1.1);
+    }
   }
 `;
