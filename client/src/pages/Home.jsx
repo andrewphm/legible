@@ -8,6 +8,7 @@ import {
   PublisherCTA,
   LatestNews,
   Values,
+  CategoryCarousel,
 } from '../components/index';
 
 // Redux
@@ -19,6 +20,7 @@ const Home = () => {
   return (
     <div>
       <Carousel />
+      <CategoryCarousel />
       <Categories />
       {!user && <SignUpCTA />}
       <PublisherCTA />

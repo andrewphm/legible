@@ -7,3 +7,4 @@ export { default as LatestNews } from './LatestNews';
 export { default as Values } from './Values';
 export { default as Footer } from './Footer';
 export { default as ScrollUp } from './ScrollUp';
+export { default as CategoryCarousel } from './CategoryCarousel';
