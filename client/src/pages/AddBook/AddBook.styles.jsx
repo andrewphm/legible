@@ -196,6 +196,7 @@ export const Success = styled.div`
 export const Failure = styled.div`
   margin-top: 1rem;
   display: none;
+
   p {
     color: red;
     font-size: 1rem;

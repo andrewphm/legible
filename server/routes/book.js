@@ -1,6 +1,9 @@
 const router = require('express').Router();
 
-const { createBook } = require('../controllers/book');
+const { createBook, getBooks } = require('../controllers/book');
+
+//GET Books
+router.get('/', getBooks);
 
 //Create Book
 router.post('/create', createBook);
