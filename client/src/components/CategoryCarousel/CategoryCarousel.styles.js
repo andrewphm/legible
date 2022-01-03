@@ -20,6 +20,7 @@ export const HeadingContainer = styled.div`
   .link {
     font-weight: 600;
     opacity: 0.8;
+    letter-spacing: 0.12em;
 
     :hover {
       opacity: 1;
@@ -34,7 +35,7 @@ export const BooksWrapper = styled.div`
 export const BooksContainer = styled.ul``;
 
 export const HeadingTitle = styled.h2`
-  font-size: 1.4rem;
+  font-size: clamp(20px, 4vw, 26px);
 `;
 
 export const HeadingDesc = styled.p`

@@ -14,6 +14,8 @@ import {
   BooksContainer,
 } from './CategoryCarousel.styles';
 
+import { ProductCover } from '../index';
+
 const CategoryCarousel = () => {
   return (
     <Section>
@@ -29,7 +31,11 @@ const CategoryCarousel = () => {
           </Link>
         </HeadingContainer>
         <BooksWrapper>
-          <BooksContainer></BooksContainer>
+          <BooksContainer>
+            <li>
+              <ProductCover></ProductCover>
+            </li>
+          </BooksContainer>
         </BooksWrapper>
       </Wrapper>
     </Section>
