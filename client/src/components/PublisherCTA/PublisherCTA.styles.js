@@ -2,22 +2,60 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   background-color: rgb(255, 242, 234);
-  background-image: url(${(props) => props.publisher});
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  background-size: min(16.1rem, 50%);
+  height: 100%;
   padding: 20px;
+
+  @media screen and (min-width: 500px) {
+    padding: 20px 50px;
+  }
+  @media screen and (min-width: 700px) {
+    padding: 20px 100px;
+  }
+  @media screen and (min-width: 1200px) {
+    padding: 50px 200px;
+  }
 `;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  position: relative;
+  margin: 0 auto;
 
-export const ImgWrapper = styled.div``;
+  @media screen and (min-width: 700px) {
+    width: 80%;
+  }
+`;
+
+export const ImgWrapper = styled.div`
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  width: 150px;
+  height: 150px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (min-width: 700px) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 300px;
+    height: 300px;
+    bottom: -50px;
+  }
+`;
 
 export const Info = styled.div`
   height: 250px;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  max-width: 400px;
 
   p {
     font-weight: 600;
@@ -39,6 +77,10 @@ export const Info = styled.div`
     :hover {
       background-color: var(--secondary-btn-color);
     }
+  }
+
+  @media screen and (min-width: 700px) {
+    max-width: 700px;
   }
 `;
 

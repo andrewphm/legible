@@ -15,12 +15,12 @@ import {
 import { Link } from 'react-router-dom';
 
 const ProductCover = ({ book }) => {
-  const { author, image, price, title } = book;
+  const { author, image, price, title, _id } = book;
 
   return (
     <Container>
       <ImgWrapper>
-        <Link to="/hi">
+        <Link to={`/book/${_id}`}>
           <Thumb src={image}></Thumb>
         </Link>
       </ImgWrapper>

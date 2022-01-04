@@ -17,14 +17,13 @@ const PublisherCTA = () => {
     <Section publisher={publisher}>
       <Container>
         <Info>
-          <Heading>
-            Become a Legible
-            <br></br>
-            Publisher Partner
-          </Heading>
+          <Heading>Become a Legible Publisher Partner</Heading>
           <p>Start selling beautiful, accessible eBooks on Legible.com</p>
           <button>Learn more</button>
         </Info>
+        <ImgWrapper>
+          <img src={publisher} alt="" />
+        </ImgWrapper>
       </Container>
     </Section>
   );
