@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Router
 import { Link } from 'react-router-dom';
@@ -24,6 +24,7 @@ import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 
 const CategoryCarousel = ({ category, title, desc }) => {
   const [books, setBooks] = useState([]);
+  const listContainer = useRef(null);
 
   useEffect(() => {
     const gettingBooks = async () => {
@@ -40,16 +41,16 @@ const CategoryCarousel = ({ category, title, desc }) => {
 
   let container;
 
-  const handleClick = (e) => {
+  const handleNextClick = (e) => {
     e.stopPropagation();
-    console.log(e.target.parentNode.parentNode);
+    const scrollLeft = listContainer.current.parentNode.scrollLeft;
+    listContainer.current.parentNode.scrollLeft = scrollLeft + 500;
+  };
 
-    // const bookContainer = document.querySelector('.book-container');
-
-    // console.log('container', bookContainer);
-    // const scrollWidth = bookContainer.scrollWidth;
-    // const scrollLeft = bookContainer.scrollLeft;
-    // bookContainer.scrollLeft = scrollLeft + 200;
+  const handlePrevClick = (e) => {
+    e.stopPropagation();
+    const scrollLeft = listContainer.current.parentNode.scrollLeft;
+    listContainer.current.parentNode.scrollLeft = scrollLeft - 500;
   };
 
   return (
@@ -65,7 +66,7 @@ const CategoryCarousel = ({ category, title, desc }) => {
               </Link>
             </HeadingContainer>
             <BooksWrapper>
-              <BooksContainer id="book-container">
+              <BooksContainer ref={listContainer} id="book-container">
                 {books.map((book, i) => {
                   return (
                     <li key={i}>
@@ -76,10 +77,10 @@ const CategoryCarousel = ({ category, title, desc }) => {
               </BooksContainer>
             </BooksWrapper>
           </Wrapper>
-          <LeftSlider>
+          <LeftSlider onClick={handlePrevClick}>
             <ArrowBackIos className="arrow-left"></ArrowBackIos>
           </LeftSlider>
-          <RightSlider onClick={handleClick}>
+          <RightSlider onClick={handleNextClick}>
             <ArrowForwardIos className="arrow"></ArrowForwardIos>
           </RightSlider>
         </Section>

@@ -101,6 +101,7 @@ export const BooksWrapper = styled.div`
   scroll-padding: 0;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
     display: none;
