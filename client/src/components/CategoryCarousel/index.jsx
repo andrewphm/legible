@@ -19,13 +19,13 @@ import API from '../../API';
 
 import { ProductCover } from '../index';
 
-const CategoryCarousel = ({ category }) => {
+const CategoryCarousel = ({ category, title, desc }) => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const gettingBooks = async () => {
       try {
-        let res = await API.getBooks('Romance');
+        let res = await API.getBooks(category);
         console.log(res);
         setBooks(res);
       } catch (error) {
@@ -42,11 +42,8 @@ const CategoryCarousel = ({ category }) => {
         <Section>
           <Wrapper>
             <HeadingContainer>
-              <HeadingTitle>2021 Award Winners & Nominees</HeadingTitle>
-              <HeadingDesc>
-                The books that have won the hearts of readers and award juries
-                this year.
-              </HeadingDesc>
+              <HeadingTitle>{title}</HeadingTitle>
+              <HeadingDesc>{desc}</HeadingDesc>
               <Link to="/" className="link">
                 SEE ALL
               </Link>

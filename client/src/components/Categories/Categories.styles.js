@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  padding: 0px 2rem;
+  padding: 0px 1rem;
 
   h2 {
-    font-size: 22px;
+    font-size: clamp(20px, 4vw, 26px);
   }
 `;
 
