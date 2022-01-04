@@ -5,15 +5,23 @@ export const Container = styled.div`
   height: 294px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: 500px) {
+    height: 400px;
+    width: 200px;
+  }
 `;
 
 export const ImgWrapper = styled.div`
-  height: 204px;
+  width: 100%;
+  height: 74%;
   margin-bottom: 0.4rem;
 `;
 
 export const Thumb = styled.img`
+  width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 export const Title = styled.h3`
