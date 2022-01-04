@@ -8,11 +8,12 @@ export const Container = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
-  width: 100%;
+  height: 204px;
+  margin-bottom: 0.4rem;
 `;
 
 export const Thumb = styled.img`
-  width: 100%;
+  height: 100%;
 `;
 
 export const Title = styled.h3`
