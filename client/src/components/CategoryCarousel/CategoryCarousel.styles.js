@@ -10,7 +10,11 @@ export const Section = styled.section`
   width: 100%;
 `;
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.4rem;
+`;
 
 export const HeadingContainer = styled.div`
   display: flex;
