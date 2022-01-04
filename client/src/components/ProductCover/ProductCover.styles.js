@@ -5,23 +5,28 @@ export const Container = styled.div`
   height: 294px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 
   @media screen and (min-width: 500px) {
     height: 400px;
     width: 200px;
+
+    h3 {
+      font-size: 1.1rem;
+    }
   }
 `;
 
 export const ImgWrapper = styled.div`
-  width: 100%;
   height: 74%;
   margin-bottom: 0.4rem;
+  overflow: hidden;
 `;
 
 export const Thumb = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 export const Title = styled.h3`

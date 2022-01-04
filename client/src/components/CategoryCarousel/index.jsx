@@ -39,8 +39,6 @@ const CategoryCarousel = ({ category, title, desc }) => {
     gettingBooks();
   }, []);
 
-  let container;
-
   const handleNextClick = (e) => {
     e.stopPropagation();
     const scrollLeft = listContainer.current.parentNode.scrollLeft;

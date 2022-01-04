@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Favorite, FavoriteBorderOutlined } from '@material-ui/icons';
+import { FavoriteBorderOutlined } from '@material-ui/icons';
 
 import {
   Author,
@@ -12,20 +12,20 @@ import {
   Title,
 } from './ProductCover.styles';
 
+import { Link } from 'react-router-dom';
+
 const ProductCover = ({ book }) => {
   const { author, image, price, title } = book;
 
   return (
     <Container>
       <ImgWrapper>
-        <Thumb src={image}></Thumb>
+        <Link to="/hi">
+          <Thumb src={image}></Thumb>
+        </Link>
       </ImgWrapper>
-      <div>
-        <Title>{title}</Title>
-      </div>
-      <div>
-        <Author>{author}</Author>
-      </div>
+      <Title>{title}</Title>
+      <Author>{author}</Author>
       <Price>{price > 0 ? 'CAD $' + price : 'FREE'}</Price>
       <LinkContainer>
         <FavoriteBorderOutlined className="heart-border"></FavoriteBorderOutlined>

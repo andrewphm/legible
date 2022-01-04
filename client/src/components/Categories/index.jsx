@@ -17,9 +17,28 @@ import {
   CategoryList,
   CategoryItem,
   ItemContainer,
+  LeftSlider,
+  RightSlider,
 } from './Categories.styles';
 
+import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
+
 const Categories = () => {
+  const handleNextClick = (e) => {
+    e.stopPropagation();
+    const container = document.getElementById('categories-container');
+    const scrollLeft = container.scrollLeft;
+    container.scrollLeft = scrollLeft + 500;
+  };
+
+  const handlePrevClick = (e) => {
+    e.stopPropagation();
+    const container = document.getElementById('categories-container');
+
+    const scrollLeft = container.scrollLeft;
+    container.scrollLeft = scrollLeft - 500;
+  };
+
   const categories = [
     {
       category: 'FREE BOOKS',
@@ -59,7 +78,7 @@ const Categories = () => {
     <Section>
       <h2>Browse Book Categories</h2>
       <CategoryContainer>
-        <CategoryList>
+        <CategoryList id="categories-container">
           {categories.map((item, i) => (
             <CategoryItem key={i}>
               <ItemContainer>
@@ -71,6 +90,12 @@ const Categories = () => {
             </CategoryItem>
           ))}
         </CategoryList>
+        <LeftSlider onClick={handlePrevClick}>
+          <ArrowBackIos className="arrow-left"></ArrowBackIos>
+        </LeftSlider>
+        <RightSlider onClick={handleNextClick}>
+          <ArrowForwardIos className="arrow"></ArrowForwardIos>
+        </RightSlider>
       </CategoryContainer>
     </Section>
   );
