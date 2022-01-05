@@ -4,17 +4,33 @@ export const Main = styled.main`
   padding: 0 30px;
   width: 100%;
   height: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 900px) {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1200px;
+  }
 `;
 
 export const Section = styled.section`
   display: grid;
   justify-content: center;
-  grid-template-columns: min(100%, 69.2rem);
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   width: auto;
   grid-template-areas:
-    'header'
-    'cover';
+    'book-cover'
+    'book-info';
   gap: 2rem;
+  padding: 2rem 0;
+
+  @media screen and (min-width: 900px) {
+    grid-template-columns: 1fr 2fr;
+    padding-top: 5rem;
+  }
 `;
 
 export const Header = styled.div`
@@ -24,6 +40,16 @@ export const Header = styled.div`
   justify-content: center;
   align-items: center;
   row-gap: 1rem;
+  margin-bottom: 2rem;
+
+  .author {
+    display: flex;
+
+    span {
+      font-weight: 700;
+      margin-right: 0.3rem;
+    }
+  }
 `;
 export const Title = styled.h1`
   font-weight: 700;
@@ -32,14 +58,23 @@ export const Title = styled.h1`
 `;
 
 export const Author = styled.p`
-  font-weight: 700;
+  font-weight: 600;
   color: var(--secondary-color);
+  cursor: pointer;
+
+  :hover {
+    text-decoration: underline;
+  }
 `;
 
 export const Cover = styled.aside`
   max-width: 225px;
   grid-area: cover;
   margin: 0 auto;
+`;
+
+export const BookCover = styled.div`
+  grid-area: book-cover;
 `;
 
 export const Image = styled.img`
@@ -53,7 +88,7 @@ export const BookInfo = styled.div`
 `;
 
 export const WishList = styled.div`
-  margin-bottom: 2rem;
+  margin: 2rem;
   display: flex;
   justify-content: center;
 `;
@@ -128,6 +163,103 @@ export const BuyNow = styled.div`
   }
 `;
 
-export const Description = styled.div``;
+export const Description = styled.div`
+  border-bottom: 1px solid rgb(171, 187, 191);
+  padding: 1.3rem 0;
+`;
 
-export const Categories = styled.ul``;
+export const Categories = styled.ul`
+  margin: 1.5rem 0;
+  list-style: none;
+
+  span {
+    font-weight: 600;
+    font-color: rgb(43, 50, 56);
+  }
+`;
+
+export const Category = styled.li`
+  color: var(--secondary-color);
+  font-weight: 600;
+  width: fit-content;
+  cursor: pointer;
+
+  display: inline-block;
+
+  :after {
+    content: '|';
+    margin: 0px 0.4rem;
+    display: inline-block;
+    text-decoration: none;
+    height: 16px;
+    color: var(--primary-color);
+  }
+
+  :hover {
+    text-decoration: underline;
+  }
+`;
+
+export const Article = styled.article`
+  h3 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+`;
+
+export const ProductDetails = styled.section`
+  padding: 1.5rem 0;
+  border-top: 1px solid rgb(171, 187, 191);
+  border-bottom: 1px solid rgb(171, 187, 191);
+
+  div p,
+  p strong {
+    color: rgb(43, 50, 56);
+  }
+
+  p strong {
+    font-weight: 600;
+  }
+
+  .button-container {
+    button {
+      background-color: transparent;
+      padding: 8px 20px;
+      width: 150px;
+      border-radius: 20px;
+      color: rgb(203, 14, 14);
+      border: 1px solid rgb(203, 14, 14);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 2rem 0;
+
+      :hover {
+        color: white;
+        background-color: rgb(203, 14, 14);
+      }
+    }
+  }
+`;
+
+export const Reviews = styled.section`
+  margin: 1.5rem 0;
+  padding-bottom: 2rem;
+  height: 100%;
+`;
+
+export const ReviewsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  p {
+    color: var(--third-color);
+  }
+
+  p span {
+    color: var(--third-color);
+    font-weight: 600;
+  }
+`;
