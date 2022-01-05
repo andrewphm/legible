@@ -28,7 +28,9 @@ const apiSettings = {
   },
 
   getBook: async (bookId) => {
-    let res = await axios.get(`${BASE_URL}`);
+    let res = await axios.get(`${BASE_URL}book/${bookId}`);
+
+    return res.data;
   },
 
   getBooks: async (query) => {
