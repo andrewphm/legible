@@ -27,6 +27,10 @@ const apiSettings = {
     return res.data;
   },
 
+  getBook: async (bookId) => {
+    let res = await axios.get(`${BASE_URL}`);
+  },
+
   getBooks: async (query) => {
     if (query) {
       let res = await axios.get(`${BASE_URL}book/?category=${query}`);

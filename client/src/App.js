@@ -15,6 +15,7 @@ import SignUp from './pages/SignUp/SignUp';
 import LogIn from './pages/LogIn/LogIn';
 import NotFound from './pages/NotFound';
 import AddBook from './pages/AddBook/AddBook';
+import Book from './pages/Book/Book';
 
 // UI Components
 import { Header, Footer, ScrollUp } from './components/index';
@@ -38,6 +39,7 @@ function App() {
             <Route path="/log-in" element={<Navigate replace to="/" />} />
           </>
         )}
+        <Route path="/book/:id" element={<Book />} />
         <Route path="/" element={<Home />} />
         <Route path="/add-book" element={<AddBook />} />
         <Route path="/sign-up" element={<SignUp />} />
