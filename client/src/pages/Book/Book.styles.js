@@ -71,6 +71,10 @@ export const Cover = styled.aside`
   max-width: 225px;
   grid-area: cover;
   margin: 0 auto;
+
+  @media screen and (min-width: 900px) {
+    max-width: 275px;
+  }
 `;
 
 export const BookCover = styled.div`
@@ -201,17 +205,29 @@ export const Category = styled.li`
 `;
 
 export const Article = styled.article`
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: 2rem;
+
   h3 {
     margin-bottom: 0.5rem;
     font-weight: 600;
     font-size: 1.1rem;
   }
+
+  @media screen and (min-width: 900px) {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 'details reviews';
+  }
 `;
 
 export const ProductDetails = styled.section`
+  margin: 0 auto;
   padding: 1.5rem 0;
   border-top: 1px solid rgb(171, 187, 191);
   border-bottom: 1px solid rgb(171, 187, 191);
+  grid-area: details;
 
   div p,
   p strong {
@@ -241,12 +257,23 @@ export const ProductDetails = styled.section`
       }
     }
   }
+
+  @media screen and (min-width: 900px) {
+    border: none;
+  }
 `;
 
 export const Reviews = styled.section`
   margin: 1.5rem 0;
   padding-bottom: 2rem;
   height: 100%;
+  grid-area: reviews;
+
+  @media screen and (min-width: 900px) {
+    border-top: 1px solid rgb(171, 187, 191);
+
+    padding: 2rem 0;
+  }
 `;
 
 export const ReviewsContainer = styled.div`

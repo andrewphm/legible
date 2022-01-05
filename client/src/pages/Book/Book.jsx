@@ -102,15 +102,35 @@ const Book = () => {
           <Article>
             <Reviews>
               <h3>REVIEWS</h3>
-              <ReviewsContainer>
-                {book.reviews?.map((review, i) => {
-                  return (
-                    <p key={i}>
-                      "{review.description}" — <span>{review.name}</span>
-                    </p>
-                  );
-                })}
-              </ReviewsContainer>
+              {console.log(book.reviews)}
+              {book.reviews.length > 1 ? (
+                <ReviewsContainer>
+                  {book.reviews?.map((review, i) => {
+                    return (
+                      <p key={i}>
+                        "{review.description}" — <span>{review.name}</span>
+                      </p>
+                    );
+                  })}
+                </ReviewsContainer>
+              ) : (
+                <ReviewsContainer>
+                  <p>
+                    "Whoa! Don’t take those tissues away, I’m not quite cried
+                    out just yet! Happy tears, sad tears, who knows where one
+                    ends and the other begins!... Beautiful, heart-breaking,
+                    heart-warming, uplifting and inspirational." —{' '}
+                    <span>Fiction Books</span>
+                  </p>
+                  <p>
+                    "An absolute must read. I devoured this book in its
+                    entirety… I am almost speechless… a box of Kleenex is
+                    mandatory.I absolutely loved this book, historical fiction
+                    at its best!... Definitely worth ten stars." —{' '}
+                    <span>Page Turners</span>
+                  </p>
+                </ReviewsContainer>
+              )}
             </Reviews>
             <ProductDetails>
               <h3>PRODUCT DETAILS</h3>
