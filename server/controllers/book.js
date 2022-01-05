@@ -1,5 +1,17 @@
 const Book = require('../models/Book');
 
+// GET single book
+const getBook = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    let book = await Book.find({ _id: id });
+    res.status(200).json(book);
+  } catch (error) {
+    res.status(500).json('Error finding book');
+  }
+};
+
 // GET Books via queryparams
 const getBooks = async (req, res) => {
   const queryCategory = req.query.category;
@@ -34,4 +46,4 @@ const createBook = async (req, res) => {
   }
 };
 
-module.exports = { createBook, getBooks };
+module.exports = { createBook, getBook, getBooks };
