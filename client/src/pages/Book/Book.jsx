@@ -83,7 +83,9 @@ const Book = () => {
                 </p>
                 <p className="price">Buy the eBook: CAD ${book.price}</p>
                 <Link to={`/purchase/${id}`}>
-                  <button>Buy now</button>
+                  <button disabled={book.price === 0}>
+                    {book.price === 0 ? 'Free' : 'Buy now'}
+                  </button>
                 </Link>
               </BuyNow>
               <Description>
