@@ -38,10 +38,8 @@ export const Purchase = () => {
   }, []);
 
   const appearance = {
-    theme: 'flat',
-    variables: {
-      colorPrimary: '#213245',
-    },
+    theme: 'stripe',
+    variables: {},
   };
   const options = {
     clientSecret,
