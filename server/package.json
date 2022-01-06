@@ -19,6 +19,7 @@
     "mongodb": "^4.2.2",
     "mongoose": "^6.1.2",
     "nodemon": "^2.0.15",
-    "passport": "^0.5.2"
+    "passport": "^0.5.2",
+    "stripe": "^8.195.0"
   }
 }

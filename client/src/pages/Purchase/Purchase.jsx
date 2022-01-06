@@ -25,13 +25,16 @@ export const Purchase = () => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch('/create-payment-intent', {
+    fetch('http://localhost:5000/api/stripe/create-payment-intent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ items: [{ id }] }),
     })
       .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((data) => setClientSecret(data.clientSecret))
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const appearance = {
