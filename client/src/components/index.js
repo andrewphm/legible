@@ -10,3 +10,4 @@ export { default as ScrollUp } from './ScrollUp';
 export { default as CategoryCarousel } from './CategoryCarousel';
 export { default as ProductCover } from './ProductCover';
 export { default as CheckoutForm } from './CheckoutForm';
+export { default as SkeletonLoading } from './SkeletonLoading';

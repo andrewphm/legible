@@ -81,6 +81,14 @@ font-display:auto;font-style:italic;font-weight:600;
  }
 
  body {
+
+     #root{
+         position: relative;
+         min-height: 100vh;
+         display:flex;
+         flex-direction: column;
+         justify-content: space-between;
+     }
      
 
      h1, h2 {

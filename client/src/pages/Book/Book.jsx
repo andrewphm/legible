@@ -26,6 +26,8 @@ import {
 
 import { Favorite } from '@material-ui/icons';
 
+import { Link } from 'react-router-dom';
+
 const Book = () => {
   const { id } = useParams();
   const [book, setBook] = useState('');
@@ -80,7 +82,9 @@ const Book = () => {
                   This eBook is available for purchase
                 </p>
                 <p className="price">Buy the eBook: CAD ${book.price}</p>
-                <button>Buy now</button>
+                <Link to={`/purchase/${id}`}>
+                  <button>Buy now</button>
+                </Link>
               </BuyNow>
               <Description>
                 {description?.map((para, i) => {

@@ -46,7 +46,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/log-in" element={<LogIn />} />
         <Route path="/*" element={<NotFound />} />
-        <Route path="/purchase/:id" element={<Purchase />} />
+        <Route path="/purchase/:id" element={user ? <Purchase /> : <LogIn />} />
       </Routes>
       <Footer />
       <GlobalStyles />

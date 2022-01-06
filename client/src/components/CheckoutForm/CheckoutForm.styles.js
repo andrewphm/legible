@@ -4,9 +4,7 @@ export const Form = styled.form`
   width: 30vw;
   min-width: 500px;
   align-self: center;
-  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
-    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
-  border-radius: 7px;
+  box-shadow: rgb(80 110 122 / 20%) 2px 2px 1rem;
   padding: 40px;
   color: var(--secondary-color);
 
