@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-  padding: 0 30px;
+  padding: 0 20px;
   width: 100%;
   height: 100%;
   max-width: 750px;
@@ -19,13 +19,14 @@ export const Main = styled.main`
 export const Section = styled.section`
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: 1fr;
   width: auto;
   grid-template-areas:
     'book-cover'
     'book-info';
   gap: 2rem;
   padding: 2rem 0;
+  width: 100%;
 
   @media screen and (min-width: 900px) {
     grid-template-columns: 1fr 2fr;
@@ -208,10 +209,13 @@ export const Article = styled.article`
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
+  grid-template-areas:
+    'reviews'
+    'details';
   gap: 2rem;
 
   h3 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.9rem;
     font-weight: 600;
     font-size: 1.1rem;
   }
@@ -228,6 +232,7 @@ export const ProductDetails = styled.section`
   border-top: 1px solid rgb(171, 187, 191);
   border-bottom: 1px solid rgb(171, 187, 191);
   grid-area: details;
+  width: 100%;
 
   div p,
   p strong {
@@ -260,6 +265,7 @@ export const ProductDetails = styled.section`
 
   @media screen and (min-width: 900px) {
     border: none;
+    padding-left: 2.5rem;
   }
 `;
 
