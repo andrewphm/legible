@@ -3,6 +3,9 @@ import React, { useState, useEffect, useRef } from 'react';
 // Router
 import { Link } from 'react-router-dom';
 
+// Component
+import { SkeletonLoading } from '../index';
+
 // Styled components
 import {
   Section,
@@ -23,7 +26,7 @@ import { ProductCover } from '../index';
 import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 
 const CategoryCarousel = ({ category, title, desc }) => {
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState(null);
   const listContainer = useRef(null);
 
   useEffect(() => {
@@ -53,7 +56,7 @@ const CategoryCarousel = ({ category, title, desc }) => {
 
   return (
     <>
-      {books && (
+      {books ? (
         <Section>
           <Wrapper>
             <HeadingContainer>
@@ -72,6 +75,36 @@ const CategoryCarousel = ({ category, title, desc }) => {
                     </li>
                   );
                 })}
+              </BooksContainer>
+            </BooksWrapper>
+          </Wrapper>
+          <LeftSlider onClick={handlePrevClick}>
+            <ArrowBackIos className="arrow-left"></ArrowBackIos>
+          </LeftSlider>
+          <RightSlider onClick={handleNextClick}>
+            <ArrowForwardIos className="arrow"></ArrowForwardIos>
+          </RightSlider>
+        </Section>
+      ) : (
+        <Section>
+          <Wrapper>
+            <HeadingContainer>
+              <HeadingTitle>{title}</HeadingTitle>
+              <HeadingDesc>{desc}</HeadingDesc>
+              <Link to="/" className="link">
+                SEE ALL
+              </Link>
+            </HeadingContainer>
+            <BooksWrapper>
+              <BooksContainer ref={listContainer} id="book-container">
+                <SkeletonLoading></SkeletonLoading>
+                <SkeletonLoading></SkeletonLoading>
+                <SkeletonLoading></SkeletonLoading>
+                <SkeletonLoading></SkeletonLoading>
+                <SkeletonLoading></SkeletonLoading>
+                <SkeletonLoading></SkeletonLoading>
+                <SkeletonLoading></SkeletonLoading>
+                <SkeletonLoading></SkeletonLoading>
               </BooksContainer>
             </BooksWrapper>
           </Wrapper>
