@@ -6,12 +6,14 @@ const cors = require('cors');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
 const bookRoute = require('./routes/book');
+const stripeRoute = require('./routes/stripe');
 
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.send('Hello, World!');
@@ -20,6 +22,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
 app.use('/api/book', bookRoute);
+app.use('/api/stripe', stripeRoute);
 
 const startServer = async () => {
   await mongoose
