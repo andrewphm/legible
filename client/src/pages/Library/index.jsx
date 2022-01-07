@@ -9,13 +9,15 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentUser } from '../../redux/userRedux';
 
+// Component
+import { LibraryItem } from '../../components/index';
+
 // API
 import API from '../../API';
 import {
   Heading,
   HeadingContainer,
   LibraryContainer,
-  LibraryItem,
   LogoContainer,
   Main,
   Section,
@@ -78,11 +80,7 @@ const Libray = () => {
 
         <LibraryContainer>
           {user.library.map((item, i) => {
-            return (
-              <LibraryItem key={i}>
-                <img src={item.image} alt="" />
-              </LibraryItem>
-            );
+            return <LibraryItem key={i} id={item} />;
           })}
         </LibraryContainer>
       </Section>

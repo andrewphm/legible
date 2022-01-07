@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 // API
 import API from '../../API';
+import { BookInfoContainer, ImageWrapper, Item } from './LibraryItem.styles';
 
 const LibraryItem = ({ id }) => {
   const [book, setBook] = useState(null);
@@ -15,9 +16,27 @@ const LibraryItem = ({ id }) => {
         console.log(error);
       }
     };
+
+    fetchBook();
   }, []);
 
-  return <div></div>;
+  return (
+    <>
+      {book && (
+        <Item>
+          <ImageWrapper>
+            <img src={book.image} alt="" />
+          </ImageWrapper>
+          <BookInfoContainer>
+            <p>
+              <strong>{book.title}</strong>
+            </p>
+            <p>by {book.author}</p>
+          </BookInfoContainer>
+        </Item>
+      )}
+    </>
+  );
 };
 
 export default LibraryItem;
