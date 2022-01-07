@@ -11,6 +11,15 @@ import { setCurrentUser } from '../../redux/userRedux';
 
 // API
 import API from '../../API';
+import {
+  Heading,
+  HeadingContainer,
+  LibraryContainer,
+  LibraryItem,
+  LogoContainer,
+  Main,
+  Section,
+} from './Library.styles';
 
 const Libray = () => {
   const location = useLocation();
@@ -56,7 +65,29 @@ const Libray = () => {
 
   console.log(id, success);
 
-  return <div>{console.log(user)}</div>;
+  return (
+    <Main>
+      {console.log(user)}
+      <Section>
+        <HeadingContainer>
+          <LogoContainer>
+            <Logo></Logo>
+          </LogoContainer>
+          <Heading>CURRENTLY READING</Heading>
+        </HeadingContainer>
+
+        <LibraryContainer>
+          {user.library.map((item, i) => {
+            return (
+              <LibraryItem key={i}>
+                <img src={item.image} alt="" />
+              </LibraryItem>
+            );
+          })}
+        </LibraryContainer>
+      </Section>
+    </Main>
+  );
 };
 
 export default Libray;
