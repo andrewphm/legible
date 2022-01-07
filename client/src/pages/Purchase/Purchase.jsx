@@ -100,16 +100,38 @@ export const Purchase = () => {
             <p>
               You're purchasing the eBook:{' '}
               <span>
-                <strong>{book.title}</strong>
+                <strong style={{ color: 'var(--secondary-color)' }}>
+                  {book.title}
+                </strong>
               </span>
             </p>
             <p>Enter your payment info to complete your purchase.</p>
             <p>
               Book name{' '}
               <span>
-                will be available in your <strong>Legible library.</strong>
+                will be available in your{' '}
+                <strong style={{ color: 'var(--secondary-color)' }}>
+                  Legible library.
+                </strong>
               </span>
             </p>
+            <div>
+              <p>
+                <strong>To test out a purchase use card info: </strong>
+              </p>
+              <p>
+                Card number: <strong>4242 4242 4242 4242</strong>
+              </p>
+              <p>
+                Expiry: <strong>01/24</strong>
+              </p>
+              <p>
+                CVC: <strong>123</strong>
+              </p>
+              <p>
+                Postal code: <strong>A1B 2C3</strong>
+              </p>
+            </div>
           </Info>
 
           <SectionContainer>

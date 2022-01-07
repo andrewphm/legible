@@ -11,6 +11,10 @@ export const Section = styled.section`
   flex-direction: column;
   padding: 3rem 0;
   row-gap: 1rem;
+
+  @media only screen and (min-width: 800px) {
+    padding: 5rem 1rem;
+  }
 `;
 
 export const Heading = styled.h1`
@@ -21,12 +25,17 @@ export const Info = styled.div`
   box-shadow: rgb(80 110 122 / 20%) 2px 2px 1rem;
   padding: 1rem;
   width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
 `;
 
 export const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  position: relative;
 
   @media only screen and (min-width: 800px) {
     width: 100%;
@@ -46,6 +55,11 @@ export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 28px;
+
+  @media only screen and (min-width: 800px) {
+    position: relative;
+    top: -126px;
+  }
 `;
 
 export const BookInfoContainer = styled.div`
