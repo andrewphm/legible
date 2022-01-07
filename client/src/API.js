@@ -50,6 +50,12 @@ const apiSettings = {
 
     return res.data;
   },
+
+  updateUser: async (user) => {
+    let res = await axios.post(`${BASE_URL}user/`, user);
+
+    return res.data;
+  },
 };
 
 export default apiSettings;

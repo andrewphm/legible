@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { FavoriteBorderOutlined } from '@material-ui/icons';
+
+// API
+import API from '../../API';
 
 import {
   Author,
@@ -25,7 +28,7 @@ const ProductCover = ({ book }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.currentUser);
 
-  const handleWishlistClick = () => {
+  const handleWishlistClick = async () => {
     // Removes book from Wishlist
     if (user.wishList.includes(_id)) {
       const index = user.wishList.indexOf(_id);
@@ -35,11 +38,21 @@ const ProductCover = ({ book }) => {
       dispatch(setCurrentUser({ ...user, wishList: [...wishList] }));
 
       // Update DB
+      try {
+        API.updateUser({ ...user, wishList: [...wishList] });
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       // Add book to Wishlist
       dispatch(setCurrentUser({ ...user, wishList: [...user.wishList, _id] }));
 
       // Update DB
+      try {
+        API.updateUser({ ...user, wishList: [...user.wishList, _id] });
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

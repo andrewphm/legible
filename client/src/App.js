@@ -31,7 +31,6 @@ function App() {
 
   return (
     <Router>
-      {console.log(user)}
       <ScrollUp />
       <Header />
       <Routes>
