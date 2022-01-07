@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Logo from '../../assets/MyLibrary1';
 
 // Router
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, Link } from 'react-router-dom';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -79,6 +79,14 @@ const Libray = () => {
         </HeadingContainer>
 
         <LibraryContainer>
+          {user.library.length === 0 && (
+            <div>
+              Your library is currently empty. Purchased books will appear here.
+              <Link to="/browse">
+                <button className="books-btn">Shop books</button>
+              </Link>
+            </div>
+          )}
           {user.library.map((item, i) => {
             return <LibraryItem key={i} id={item} />;
           })}

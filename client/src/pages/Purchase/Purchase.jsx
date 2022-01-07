@@ -120,14 +120,14 @@ export const Purchase = () => {
           </Info>
 
           <SectionContainer>
-            <FormContainer>
-              {clientSecret && (
+            {clientSecret && (
+              <FormContainer>
                 <Elements options={options} stripe={stripePromise}>
                   <CheckoutForm price={book.price} id={id} />
                 </Elements>
-              )}
-            </FormContainer>
-            <ProductContainer>
+              </FormContainer>
+            )}
+            <ProductContainer price={book.price}>
               <ImageWrapper>
                 <Image src={book.image}></Image>
               </ImageWrapper>

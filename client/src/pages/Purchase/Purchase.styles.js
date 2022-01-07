@@ -9,11 +9,13 @@ export const Section = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 3rem 0;
+  padding-top: 4rem;
+  padding-bottom: 7rem;
   row-gap: 1rem;
 
   @media only screen and (min-width: 800px) {
     padding: 5rem 1rem;
+    padding-bottom: 10rem;
   }
 `;
 
@@ -74,7 +76,7 @@ export const ProductContainer = styled.div`
 
   @media only screen and (min-width: 800px) {
     position: relative;
-    top: -126px;
+    top: ${(props) => (props.price > 0 ? '-126px' : '0')};
   }
 `;
 
@@ -93,7 +95,7 @@ export const BookInfoContainer = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  width: 80%;
+  width: 75%;
   margin: 0 auto;
 `;
 
