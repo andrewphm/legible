@@ -8,6 +8,12 @@ export const Form = styled.form`
   padding: 40px;
   color: var(--secondary-color);
 
+  .test {
+    margin-top: 1rem;
+    border: 1px solid lightgrey;
+    padding: 0.8rem;
+  }
+
   @media only screen and (max-width: 600px) {
     width: 100%;
     min-width: initial;

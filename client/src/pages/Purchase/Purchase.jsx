@@ -25,16 +25,23 @@ import {
 } from './Purchase.styles';
 
 // React Router
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 // API
 import API from '../../API';
 
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentUser } from '../../redux/userRedux';
+
 const stripePromise = loadStripe('pk_test_41BQHoiiuBaAIJaJBieuDRP7');
 
 export const Purchase = () => {
-  const [clientSecret, setClientSecret] = useState('');
+  const [clientSecret, setClientSecret] = useState(null);
+  const user = useSelector((state) => state.user.currentUser);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [book, setBook] = useState(null);
 
   const { id } = useParams();
@@ -53,21 +60,6 @@ export const Purchase = () => {
   }, []);
 
   useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    // fetch('http://localhost:5000/api/stripe/create-payment-intent', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ items: [{ id }] }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     setClientSecret(data.clientSecret);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
     const initiatePayment = async () => {
       try {
         let res = await API.createPaymentIntent({ items: [{ id }] });
@@ -88,6 +80,16 @@ export const Purchase = () => {
   const options = {
     clientSecret,
     appearance,
+  };
+
+  const handleBtnClick = (e) => {
+    e.preventDefault();
+    // Change user state
+    dispatch(setCurrentUser({ ...user, library: [...user.library, id] }));
+    // update user in DB
+    API.updateUser({ ...user, library: [...user.library, id] });
+    // Redirect to Library
+    navigate('/library', { replace: true });
   };
 
   return (
@@ -115,30 +117,13 @@ export const Purchase = () => {
                 </strong>
               </span>
             </p>
-            <div>
-              <p>
-                <strong>To test out a purchase use card info: </strong>
-              </p>
-              <p>
-                Card number: <strong>4242 4242 4242 4242</strong>
-              </p>
-              <p>
-                Expiry: <strong>01/24</strong>
-              </p>
-              <p>
-                CVC: <strong>123</strong>
-              </p>
-              <p>
-                Postal code: <strong>A1B 2C3</strong>
-              </p>
-            </div>
           </Info>
 
           <SectionContainer>
             <FormContainer>
               {clientSecret && (
                 <Elements options={options} stripe={stripePromise}>
-                  <CheckoutForm price={book.price} />
+                  <CheckoutForm price={book.price} id={id} />
                 </Elements>
               )}
             </FormContainer>
@@ -156,8 +141,15 @@ export const Purchase = () => {
                 <p>
                   <strong>TOTAL:</strong>
                 </p>
-                <p>${book.price}</p>
+                <p>
+                  <strong>{`${
+                    book.price > 0 ? '$ ' + book.price : 'FREE'
+                  }`}</strong>
+                </p>
               </PriceContainer>
+              {book.price === 0 && (
+                <button onClick={handleBtnClick}>Add to library</button>
+              )}
             </ProductContainer>
           </SectionContainer>
         </Section>

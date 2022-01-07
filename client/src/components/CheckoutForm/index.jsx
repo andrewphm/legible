@@ -7,7 +7,7 @@ import {
 
 import { Button, Form, PaymentMessage, Spinner } from './CheckoutForm.styles';
 
-export default function CheckoutForm({ price }) {
+export default function CheckoutForm({ price, id }) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -60,7 +60,7 @@ export default function CheckoutForm({ price }) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: 'http://localhost:3000',
+        return_url: `http://localhost:3000/library?id=${id}`,
       },
     });
 
@@ -86,6 +86,23 @@ export default function CheckoutForm({ price }) {
       </Button>
       {/* Show any error or success messages */}
       {message && <PaymentMessage>{message}</PaymentMessage>}
+      <div className="test">
+        <p>
+          <strong>To test out a purchase use card info: </strong>
+        </p>
+        <p>
+          Card number: <strong>4242 4242 4242 4242</strong>
+        </p>
+        <p>
+          Expiry: <strong>01/24</strong>
+        </p>
+        <p>
+          CVC: <strong>123</strong>
+        </p>
+        <p>
+          Postal code: <strong>A1B 2C3</strong>
+        </p>
+      </div>
     </Form>
   );
 }

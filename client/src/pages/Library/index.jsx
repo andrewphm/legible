@@ -1,11 +1,18 @@
 import React from 'react';
 
 // Router
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const Libray = () => {
-  var location = useLocation();
-  console.log(location.search.split('redirect_status='));
+  const location = useLocation();
+
+  const params = new URLSearchParams(location.search);
+
+  const id = params.get('id');
+
+  if (id) {
+  }
+
   return <div></div>;
 };
 
