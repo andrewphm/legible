@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  width: 30vw;
+  width: 100%;
   min-width: 500px;
   align-self: center;
   box-shadow: rgb(80 110 122 / 20%) 2px 2px 1rem;
@@ -9,7 +9,7 @@ export const Form = styled.form`
   color: var(--secondary-color);
 
   @media only screen and (max-width: 600px) {
-    width: 80vw;
+    width: 100%;
     min-width: initial;
   }
 `;

@@ -8,7 +8,21 @@ import { Elements } from '@stripe/react-stripe-js';
 import { CheckoutForm } from '../../components/index';
 
 // Styled components
-import { Main, Section } from './Purchase.styles';
+import {
+  Author,
+  BookInfoContainer,
+  FormContainer,
+  Heading,
+  Image,
+  ImageWrapper,
+  Info,
+  Main,
+  ProductContainer,
+  Section,
+  Title,
+  PriceContainer,
+  SectionContainer,
+} from './Purchase.styles';
 
 // React Router
 import { useParams } from 'react-router-dom';
@@ -21,7 +35,22 @@ const stripePromise = loadStripe('pk_test_41BQHoiiuBaAIJaJBieuDRP7');
 export const Purchase = () => {
   const [clientSecret, setClientSecret] = useState('');
 
+  const [book, setBook] = useState(null);
+
   const { id } = useParams();
+
+  useEffect(() => {
+    const fetchBook = async () => {
+      try {
+        let res = await API.getBook(id);
+        setBook(res[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchBook();
+  }, []);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -63,13 +92,54 @@ export const Purchase = () => {
 
   return (
     <Main>
-      <Section>
-        {clientSecret && (
-          <Elements options={options} stripe={stripePromise}>
-            <CheckoutForm />
-          </Elements>
-        )}
-      </Section>
+      {book && (
+        <Section>
+          {console.log(book)}
+          <Heading>Secure checkout</Heading>
+          <Info>
+            <p>
+              You're purchasing the eBook:{' '}
+              <span>
+                <strong>{book.title}</strong>
+              </span>
+            </p>
+            <p>Enter your payment info to complete your purchase.</p>
+            <p>
+              Book name{' '}
+              <span>
+                will be available in your <strong>Legible library.</strong>
+              </span>
+            </p>
+          </Info>
+
+          <SectionContainer>
+            <FormContainer>
+              {clientSecret && (
+                <Elements options={options} stripe={stripePromise}>
+                  <CheckoutForm price={book.price} />
+                </Elements>
+              )}
+            </FormContainer>
+            <ProductContainer>
+              <ImageWrapper>
+                <Image src={book.image}></Image>
+              </ImageWrapper>
+
+              <BookInfoContainer>
+                <Title>{book.title}</Title>
+                <Author>by {book.author}</Author>
+                <p>Regular price: CAD ${book.price}</p>
+              </BookInfoContainer>
+              <PriceContainer>
+                <p>
+                  <strong>TOTAL:</strong>
+                </p>
+                <p>${book.price}</p>
+              </PriceContainer>
+            </ProductContainer>
+          </SectionContainer>
+        </Section>
+      )}
     </Main>
   );
 };

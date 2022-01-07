@@ -7,7 +7,7 @@ import {
 
 import { Button, Form, PaymentMessage, Spinner } from './CheckoutForm.styles';
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ price }) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -82,7 +82,7 @@ export default function CheckoutForm() {
     <Form onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
       <Button disabled={isLoading || !stripe || !elements}>
-        <span>{isLoading ? <Spinner></Spinner> : 'Pay now'}</span>
+        <span>{isLoading ? <Spinner></Spinner> : `Pay $${price} now`}</span>
       </Button>
       {/* Show any error or success messages */}
       {message && <PaymentMessage>{message}</PaymentMessage>}
