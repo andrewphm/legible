@@ -14,4 +14,12 @@ const isUserUnique = async (req, res) => {
   }
 };
 
+// Update user
+
+const updateUser = async (req, res) => {
+  try {
+    let user = User.findByIdAndUpdate({});
+  } catch (error) {}
+};
+
 module.exports = { isUserUnique };

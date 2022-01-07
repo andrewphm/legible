@@ -25,16 +25,31 @@ export const Purchase = () => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch('http://localhost:5000/api/stripe/create-payment-intent', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items: [{ id }] }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret))
-      .catch((error) => {
+    // fetch('http://localhost:5000/api/stripe/create-payment-intent', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ items: [{ id }] }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     setClientSecret(data.clientSecret);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    const initiatePayment = async () => {
+      try {
+        let res = await API.createPaymentIntent({ items: [{ id }] });
+
+        setClientSecret(res.clientSecret);
+      } catch (error) {
         console.log(error);
-      });
+      }
+    };
+
+    initiatePayment();
   }, []);
 
   const appearance = {

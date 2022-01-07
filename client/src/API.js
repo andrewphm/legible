@@ -44,6 +44,12 @@ const apiSettings = {
       return res.data;
     }
   },
+
+  createPaymentIntent: async (body) => {
+    let res = await axios.post(`${BASE_URL}stripe/create-payment-intent`, body);
+
+    return res.data;
+  },
 };
 
 export default apiSettings;
