@@ -96,7 +96,6 @@ export const Purchase = () => {
     <Main>
       {book && (
         <Section>
-          {console.log(book)}
           <Heading>Secure checkout</Heading>
           <Info>
             <p>

@@ -83,9 +83,7 @@ const Book = () => {
                 </p>
                 <p className="price">Buy the eBook: CAD ${book.price}</p>
                 <Link to={`/purchase/${id}`}>
-                  <button disabled={book.price === 0}>
-                    {book.price === 0 ? 'Free' : 'Buy now'}
-                  </button>
+                  <button>{book.price === 0 ? 'Free' : 'Buy now'}</button>
                 </Link>
               </BuyNow>
               <Description>
@@ -108,7 +106,6 @@ const Book = () => {
           <Article>
             <Reviews>
               <h3>REVIEWS</h3>
-              {console.log(book.reviews)}
               {book.reviews.length > 1 ? (
                 <ReviewsContainer>
                   {book.reviews?.map((review, i) => {
