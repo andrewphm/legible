@@ -18,8 +18,18 @@ const isUserUnique = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
-    let user = User.findByIdAndUpdate({});
-  } catch (error) {}
+    let updatedUser = await User.findByIdAndUpdate(
+      req.body._id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    res.status(500).json('Could not update user');
+  }
 };
 
-module.exports = { isUserUnique };
+module.exports = { isUserUnique, updateUser };
