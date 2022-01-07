@@ -25,7 +25,7 @@ import {
 } from './Purchase.styles';
 
 // React Router
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 
 // API
 import API from '../../API';
@@ -101,8 +101,13 @@ export const Purchase = () => {
             <p>
               You're purchasing the eBook:{' '}
               <span>
-                <strong style={{ color: 'var(--secondary-color)' }}>
-                  {book.title}
+                <strong>
+                  <Link
+                    to={`/book/${id}`}
+                    style={{ color: 'var(--secondary-color)' }}
+                  >
+                    {book.title}
+                  </Link>
                 </strong>
               </span>
             </p>
@@ -111,8 +116,13 @@ export const Purchase = () => {
               Book name{' '}
               <span>
                 will be available in your{' '}
-                <strong style={{ color: 'var(--secondary-color)' }}>
-                  Legible library.
+                <strong>
+                  <Link
+                    style={{ color: 'var(--secondary-color)' }}
+                    to="/library"
+                  >
+                    Legible library.
+                  </Link>
                 </strong>
               </span>
             </p>

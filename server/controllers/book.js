@@ -22,7 +22,7 @@ const getBooks = async (req, res) => {
     if (queryCategory) {
       books = await Book.find({ category: queryCategory });
     } else {
-      books = await Book.find().limit(10);
+      books = await Book.find().sort({ createdAt: -1 }).limit(20);
     }
 
     res.status(200).json(books);
