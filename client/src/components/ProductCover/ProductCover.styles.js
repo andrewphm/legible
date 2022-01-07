@@ -54,6 +54,8 @@ export const Price = styled.p`
 export const LinkContainer = styled.div`
   display: flex;
   cursor: pointer;
+  column-gap: 0.5rem;
+  padding-top: 0.2rem;
 
   .heart-border {
     :hover path[d] {
@@ -74,6 +76,12 @@ export const LinkContainer = styled.div`
     }
 
     :hover path[d] {
+      transform: scale(1.1);
+    }
+  }
+
+  .cart {
+    :hover {
       transform: scale(1.1);
     }
   }

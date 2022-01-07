@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { FavoriteBorderOutlined } from '@material-ui/icons';
+import { FavoriteBorderOutlined, ShoppingCart } from '@material-ui/icons';
 
 // API
 import API from '../../API';
@@ -68,9 +68,11 @@ const ProductCover = ({ book }) => {
       <Price>{price > 0 ? 'CAD $' + price : 'FREE'}</Price>
       <LinkContainer>
         {!user ? (
-          <Link to="/log-in">
-            <FavoriteBorderOutlined className="heart-border"></FavoriteBorderOutlined>
-          </Link>
+          <>
+            <Link to="/log-in">
+              <FavoriteBorderOutlined className="heart-border"></FavoriteBorderOutlined>
+            </Link>
+          </>
         ) : (
           <FavoriteBorderOutlined
             onClick={handleWishlistClick}
@@ -81,6 +83,9 @@ const ProductCover = ({ book }) => {
             }
           ></FavoriteBorderOutlined>
         )}
+        <Link to={`/purchase/${_id}`}>
+          <ShoppingCart className="cart"></ShoppingCart>
+        </Link>
       </LinkContainer>
     </Container>
   );
