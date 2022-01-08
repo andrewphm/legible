@@ -18,6 +18,7 @@ import AddBook from './pages/AddBook/AddBook';
 import Book from './pages/Book/Book';
 import Purchase from './pages/Purchase/Purchase';
 import Library from './pages/Library';
+import Browse from './pages/Browse';
 
 // UI Components
 import { Header, Footer, ScrollUp } from './components/index';
@@ -48,6 +49,7 @@ function App() {
         <Route path="/*" element={<NotFound />} />
         <Route path="/purchase/:id" element={user ? <Purchase /> : <LogIn />} />
         <Route path="/library" element={user ? <Library /> : <LogIn />} />
+        <Route path="/browse" element={<Browse />} />
       </Routes>
       <Footer />
       <GlobalStyles />
