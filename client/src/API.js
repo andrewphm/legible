@@ -27,6 +27,12 @@ const apiSettings = {
     return res.data;
   },
 
+  getWishList: async (list) => {
+    let res = await axios.post(`${BASE_URL}book/wishlist`, list);
+
+    return res.data;
+  },
+
   getBook: async (bookId) => {
     let res = await axios.get(`${BASE_URL}book/${bookId}`);
 
