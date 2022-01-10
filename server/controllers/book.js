@@ -12,6 +12,22 @@ const getBook = async (req, res) => {
   }
 };
 
+// GET Wishlist
+
+const getWishList = async (req, res) => {
+  let books;
+  try {
+    books = await Book.find({ _id: { $in: [...req.body] } });
+
+    res.status(200).json(books);
+  } catch (error) {
+    console.log(error);
+    res
+      .status(400)
+      .json({ success: 'false', message: 'failed to fetch books' });
+  }
+};
+
 // GET Books via queryparams
 const getBooks = async (req, res) => {
   const queryCategory = req.query.category;
@@ -51,4 +67,4 @@ const createBook = async (req, res) => {
   }
 };
 
-module.exports = { createBook, getBook, getBooks };
+module.exports = { createBook, getBook, getBooks, getWishList };
