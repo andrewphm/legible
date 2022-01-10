@@ -3,6 +3,14 @@ import styled from 'styled-components';
 export const Main = styled.main`
   width: 100%;
   min-height: 500px;
+
+  @media only screen and (min-width: 800px) {
+    padding: 2rem 4rem;
+  }
+
+  @media only screen and (min-width: 1300px) {
+    padding: 4rem 8rem;
+  }
 `;
 
 export const Heading = styled.h1`
@@ -70,6 +78,28 @@ export const TabItem = styled.li`
 export const Section = styled.section`
   padding: 2rem 1rem;
   min-height: 50vh;
+  width: 100%;
+`;
+
+export const BooksContainer = styled.ul`
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 2rem;
+`;
+
+export const BookItem = styled.li`
+  margin: 0 auto;
+`;
+
+export const ImageWrapper = styled.div`
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
 `;
 
 export const CategoriesContainer = styled.section``;

@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
+  BookItem,
+  BooksContainer,
   CategoriesContainer,
   CategoriesList,
   CategoryItem,
   Heading,
+  ImageWrapper,
   Main,
   Section,
   TabItem,
@@ -14,14 +17,11 @@ import {
 
 import { Link } from 'react-router-dom';
 
+// UI Component
+import { ProductCover } from '../../components/index';
+
 // API
 import API from '../../API';
-
-const RecentlyAdded = () => {
-  return <div>hi</div>;
-};
-
-const FreeBooks = () => {};
 
 const categories = [
   'Thriller',
@@ -73,17 +73,20 @@ const Browse = () => {
         }
 
         if (tab === 'freeBooks') {
-          let res = await API.getBooks();
+          let res = await API.getBooks('free');
           setBooks(res);
         }
       } catch (error) {
         console.log(error);
       }
     };
+
+    fetchBooks();
   }, [tab]);
 
   return (
     <Main>
+      {console.log(books)}
       <Heading>Browse</Heading>
       <TabsWrapper>
         <TabsContainer>
@@ -102,9 +105,19 @@ const Browse = () => {
       </TabsWrapper>
 
       <Section>
-        {tab === 'recentlyAdded' && <RecentlyAdded />}
-
-        {tab === 'categories' && <Categories />}
+        {tab === 'categories' ? (
+          <Categories />
+        ) : (
+          <BooksContainer>
+            {books?.map((book, i) => {
+              return (
+                <BookItem key={i}>
+                  <ProductCover book={book} />
+                </BookItem>
+              );
+            })}
+          </BooksContainer>
+        )}
       </Section>
     </Main>
   );
