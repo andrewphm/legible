@@ -19,6 +19,11 @@ const getBooks = async (req, res) => {
   try {
     let books;
 
+    if (req.query.free) {
+      books = await Book.find({ price: 0 });
+      res.status(200).json(books);
+    }
+
     if (queryCategory) {
       books = await Book.find({ category: queryCategory });
     } else {
