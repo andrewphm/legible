@@ -128,7 +128,12 @@ const Header = () => {
             </li>
             <li>
               <Link to="/browse">
-                <button>Browse</button>
+                <button className="link-item">Browse</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/faqs">
+                <button className="link-item">FAQs</button>
               </Link>
             </li>
 
@@ -197,25 +202,21 @@ const Header = () => {
           </MenuItem>
         )}
 
-        {user && (
-          <MenuItem auth="auth">
-            <Link to="/library">
-              <button className="library-btn">
-                <MyLibrary />
-              </button>
-            </Link>
-          </MenuItem>
-        )}
         <MenuItem>
           <Link to="/browse">
             <p>Browse</p>
+          </Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/faqs">
+            <p>FAQs</p>
           </Link>
         </MenuItem>
       </MenuList>
 
       {user && (
         <MenuList id="profile-nav">
-          <MenuItem>
+          {/* <MenuItem>
             <Link to={`/${user.username}`}>
               <p>My Profile</p>
             </Link>
@@ -224,10 +225,17 @@ const Header = () => {
             <Link to="/dashboard">
               <p>Dashboard</p>
             </Link>
+          </MenuItem> */}
+          <MenuItem library="library">
+            <Link to="/library">
+              <button className="library-btn">
+                <MyLibrary />
+              </button>
+            </Link>
           </MenuItem>
           <MenuItem>
             <Link to="/wishlist">
-              <p>My Wishlist</p>
+              <p>My Wish List</p>
             </Link>
           </MenuItem>
           <MenuItem>

@@ -210,6 +210,10 @@ export const MenuItem = styled.div`
       color: white;
       background-color: var(--primary-color);
     }
+
+    @media only screen and (min-width: 900px) {
+      display: ${(props) => (props.library === 'library' ? 'none' : 'flex')};
+    }
   }
 
   .signup {
@@ -308,6 +312,12 @@ export const WideList = styled.ul`
     cursor: pointer;
   }
 
+  li {
+    :hover .link-item {
+      color: grey;
+    }
+  }
+
   a .signup__btn {
     width: 100px;
     padding: 5px;
@@ -318,6 +328,7 @@ export const WideList = styled.ul`
 
     :hover {
       background-color: var(--secondary-btn-color);
+      color: white;
     }
   }
 

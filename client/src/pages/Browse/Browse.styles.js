@@ -86,12 +86,12 @@ export const BooksContainer = styled.ul`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1rem;
   row-gap: 2rem;
+  justify-content: center;
 `;
 
 export const BookItem = styled.li`
-  margin: 0 auto;
+  /* margin: 0 auto; */
 `;
 
 export const ImageWrapper = styled.div`

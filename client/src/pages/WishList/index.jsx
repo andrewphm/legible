@@ -31,7 +31,6 @@ const WishList = () => {
 
   return (
     <Main>
-      {console.log(wishList)}
       <Section>
         <Heading>Your Wish List</Heading>
         <WishListContainer>
