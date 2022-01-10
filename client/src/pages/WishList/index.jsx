@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Heading, Main, Section, WishListContainer } from './WishList.styles';
+import {
+  Heading,
+  Main,
+  Section,
+  WishListContainer,
+  WishListItem,
+} from './WishList.styles';
 
 import { useSelector } from 'react-redux';
 
 // API
 import API from '../../API';
+
+// UI Component
+import { ProductCover } from '../../components/';
 
 const WishList = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -13,7 +22,7 @@ const WishList = () => {
   useEffect(() => {
     API.getWishList(user.wishList)
       .then((res) => {
-        console.log(res);
+        setWishList(res);
       })
       .catch((error) => {
         console.log(error);
@@ -22,9 +31,18 @@ const WishList = () => {
 
   return (
     <Main>
+      {console.log(wishList)}
       <Section>
-        <Heading></Heading>
-        <WishListContainer></WishListContainer>
+        <Heading>Your Wish List</Heading>
+        <WishListContainer>
+          {wishList?.map((item, i) => {
+            return (
+              <WishListItem key={i}>
+                <ProductCover book={item} />
+              </WishListItem>
+            );
+          })}
+        </WishListContainer>
       </Section>
     </Main>
   );
