@@ -226,7 +226,7 @@ const Header = () => {
               <p>Dashboard</p>
             </Link>
           </MenuItem> */}
-          <MenuItem library="library">
+          <MenuItem lib="lib">
             <Link to="/library">
               <button className="library-btn">
                 <MyLibrary />

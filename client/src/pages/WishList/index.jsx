@@ -34,6 +34,10 @@ const WishList = () => {
       <Section>
         <Heading>Your Wish List</Heading>
         <WishListContainer>
+          {wishList?.length === 0 && (
+            <h2>Your Wish List is currently empty...</h2>
+          )}
+
           {wishList?.map((item, i) => {
             return (
               <WishListItem key={i}>

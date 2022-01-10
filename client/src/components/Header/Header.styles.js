@@ -210,10 +210,6 @@ export const MenuItem = styled.div`
       color: white;
       background-color: var(--primary-color);
     }
-
-    @media only screen and (min-width: 900px) {
-      display: ${(props) => (props.library === 'library' ? 'none' : 'flex')};
-    }
   }
 
   .signup {
@@ -232,6 +228,10 @@ export const MenuItem = styled.div`
     :hover {
       background-color: var(--secondary-btn-color);
     }
+  }
+
+  @media only screen and (min-width: 900px) {
+    display: ${(props) => (props.lib === 'lib' ? 'none' : 'flex')};
   }
 `;
 

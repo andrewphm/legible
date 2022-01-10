@@ -6,17 +6,21 @@ export const Main = styled.main`
 
 export const Section = styled.section`
   width: 100%;
+  min-height: 30vh;
 
+  @media only screen and (min-width: 500px) {
+    padding: 3rem 2rem;
+  }
   @media only screen and (min-width: 800px) {
-    padding: 2rem;
+    padding: 2rem 4rem;
   }
 
   @media only screen and (min-width: 1200px) {
-    padding: 4rem;
+    padding: 4rem 8rem;
   }
 
   @media only screen and (min-width: 1400px) {
-    padding: 4rem 8rem;
+    padding: 4rem 10rem;
   }
 `;
 
@@ -27,6 +31,11 @@ export const WishListContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
   margin: 2rem auto;
+
+  h2 {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+  }
 `;
 
 export const WishListItem = styled.li``;
