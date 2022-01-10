@@ -15,7 +15,7 @@ export const Main = styled.main`
 
 export const Heading = styled.h1`
   font-size: 1.7rem;
-  padding: 2rem 1rem;
+  padding: 2rem 1.8rem;
 `;
 
 export const TabsWrapper = styled.div`
