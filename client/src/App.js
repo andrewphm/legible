@@ -26,6 +26,7 @@ import { Header, Footer, ScrollUp } from './components/index';
 // Redux
 import { useSelector } from 'react-redux';
 import WishList from './pages/WishList';
+import FAQs from './pages/FAQs';
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -52,6 +53,7 @@ function App() {
         <Route path="/library" element={user ? <Library /> : <LogIn />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/wishlist" element={user ? <WishList /> : <LogIn />} />
+        <Route path="/faqs" element={<FAQs />} />
       </Routes>
       <Footer />
       <GlobalStyles />
