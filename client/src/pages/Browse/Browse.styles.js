@@ -41,6 +41,7 @@ export const Tabs = styled.ul`
   .focused {
     border-bottom: 8px solid rgb(64, 128, 107);
     p {
+      color: rgb(43, 50, 56);
       opacity: 1;
     }
   }
@@ -55,7 +56,6 @@ export const TabItem = styled.li`
   cursor: pointer;
 
   p {
-    opacity: 0.85;
     color: rgb(108, 120, 127);
     letter-spacing: 0.05em;
     font-weight: 600;
@@ -63,10 +63,36 @@ export const TabItem = styled.li`
   }
 
   :hover p {
-    opacity: 1;
+    color: rgb(43, 50, 56);
   }
 `;
 
 export const Section = styled.section`
   padding: 2rem 1rem;
+  min-height: 50vh;
+`;
+
+export const CategoriesContainer = styled.section``;
+
+export const CategoriesList = styled.ul`
+  list-style: none;
+`;
+
+export const CategoryItem = styled.li`
+  padding: 4px 10px;
+  max-width: 250px;
+
+  :hover {
+    background-color: lightgrey;
+    filter: contrast(125%);
+    border-radius: 20px;
+  }
+
+  p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 600;
+    cursor: pointer;
+  }
 `;

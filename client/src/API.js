@@ -34,6 +34,12 @@ const apiSettings = {
   },
 
   getBooks: async (query) => {
+    if (query === 'free') {
+      let res = await axios.get(`${BASE_URL}book/?free=true`);
+
+      return res.data;
+    }
+
     if (query) {
       let res = await axios.get(`${BASE_URL}book/?category=${query}`);
 
