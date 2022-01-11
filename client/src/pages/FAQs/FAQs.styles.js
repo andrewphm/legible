@@ -2,16 +2,110 @@ import styled from 'styled-components';
 
 import faqsbg from '../../assets/faqs-bg.svg';
 
-export const Main = styled.main``;
-
-export const Section = styled.section`
-  min-height: 60vh;
-  background-image: url(${faqsbg});
-  background-size: 200%;
-  background-position: top center;
-  background-repeat: no-repeat;
+export const Main = styled.main`
+  width: 100%;
 `;
 
-export const FAQContainer = styled.div``;
+export const Hero = styled.section`
+  position: relative;
+  background-image: url(${faqsbg});
+  /* background-size: 200%; */
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
 
-export const Heading = styled.h1``;
+  @media only screen and (min-width: 1200px) {
+    height: 350px;
+  }
+`;
+export const Heading = styled.h1`
+  width: fit-content;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 auto;
+  padding: 4rem 0;
+  font-family: var(--secondary-font);
+
+  @media only screen and (min-width: 1200px) {
+    padding-top: 8rem;
+  }
+`;
+
+export const FAQsContainer = styled.section`
+  padding: 0 1rem;
+  padding-top: 4rem;
+  position: relative;
+  top: -2rem;
+  margin: 0 auto;
+  width: fit-content;
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0.8rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+
+    h3 {
+      font-family: var(--secondary-font);
+      font-size: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    p {
+      text-align: left;
+      max-width: 600px;
+    }
+  }
+
+  @media only screen and (min-width: 700px) {
+    padding: 4rem 4rem 1rem;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    padding: 8rem 4rem 1rem;
+    top: -6rem;
+  }
+`;
+
+export const FAQsHeading = styled.h3`
+  color: var(--third-color);
+  letter-spacing: 0.005em;
+`;
+
+export const FAQsList = styled.ul`
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  margin: 2rem auto;
+`;
+
+export const FAQsItem = styled.li`
+  width: 100%;
+
+  p {
+    color: var(--third-color);
+    padding: 0.5rem 0;
+    padding-left: 2rem;
+    width: 100%;
+  }
+`;
+
+export const ItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  color: var(--secondary-color);
+  font-weight: 500;
+  font-size: 1.2rem;
+  position: relative;
+  cursor: pointer;
+  font-family: var(--secondary-font);
+
+  .arrow-icon {
+    fill: var(--secondary-color);
+    z-index: -1;
+    margin-right: 0.5rem;
+  }
+`;
