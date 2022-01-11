@@ -36,12 +36,15 @@ const getBooks = async (req, res) => {
     let books;
 
     if (req.query.free) {
+      console.log(req.query.free);
       books = await Book.find({ price: 0 });
       return res.status(200).json(books);
     }
 
     if (queryCategory) {
-      books = await Book.find({ category: queryCategory });
+      books = await Book.find({
+        category: { $in: [...queryCategory.split(',')] },
+      });
     } else {
       books = await Book.find().sort({ createdAt: -1 }).limit(20);
     }

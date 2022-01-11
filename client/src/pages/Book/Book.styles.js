@@ -188,8 +188,8 @@ export const Category = styled.li`
   font-weight: 600;
   width: fit-content;
   cursor: pointer;
-
   display: inline-block;
+  text-transform: capitalize;
 
   :after {
     content: '|';

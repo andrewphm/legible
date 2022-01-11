@@ -30,7 +30,9 @@ const startServer = async () => {
     .then(() => console.log('DB connected!'))
     .catch((err) => console.error(err));
 
-  app.listen(process.env.PORT || 5000, () => console.log('Server Started'));
+  await app.listen(process.env.PORT || 5000, () =>
+    console.log('Server Started')
+  );
 };
 
 startServer();
