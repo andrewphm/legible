@@ -53,9 +53,10 @@ function App() {
         <Route path="/purchase/:id" element={user ? <Purchase /> : <LogIn />} />
         <Route path="/library" element={user ? <Library /> : <LogIn />} />
         <Route path="/browse" element={<Browse />} />
+        <Route path="/browse/category" element={<Browse category={true} />} />
         <Route path="/wishlist" element={user ? <WishList /> : <LogIn />} />
         <Route path="/faq" element={<FAQs />} />
-        <Route path="/browse/:id" element={<BrowseCategory />} />
+        <Route path="/browse/category/:id" element={<BrowseCategory />} />
       </Routes>
       <Footer />
       <GlobalStyles />

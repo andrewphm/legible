@@ -27,6 +27,11 @@ const BrowseCategory = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
+        if (id === 'free books') {
+          let res = await API.getBooks('free');
+          return setBooks(res);
+        }
+
         let res = await API.getBooks(catArr);
         console.log(res);
         setBooks(res);

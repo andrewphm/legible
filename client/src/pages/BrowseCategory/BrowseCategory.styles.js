@@ -29,7 +29,7 @@ export const BooksContainer = styled.ul`
   justify-content: center;
   list-style: none;
   padding: 2rem 0px;
-  row-gap: 1rem;
+  gap: 1rem;
 `;
 
 export const BookItem = styled.li``;

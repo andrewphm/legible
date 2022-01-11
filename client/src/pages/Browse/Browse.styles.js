@@ -106,6 +106,7 @@ export const CategoriesContainer = styled.section``;
 
 export const CategoriesList = styled.ul`
   list-style: none;
+  padding: 0 10px;
 `;
 
 export const CategoryItem = styled.li`

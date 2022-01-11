@@ -6,7 +6,6 @@ import {
   CategoriesList,
   CategoryItem,
   Heading,
-  ImageWrapper,
   Main,
   Section,
   TabItem,
@@ -46,7 +45,12 @@ const Categories = () => {
         {categories.sort().map((cat, i) => {
           return (
             <CategoryItem key={i}>
-              <Link to={`/browse/${cat.toLowerCase().split(' ').join('-')}`}>
+              <Link
+                to={`/browse/category/${cat
+                  .toLowerCase()
+                  .split(' ')
+                  .join('-')}`}
+              >
                 <p>{cat}</p>
               </Link>
             </CategoryItem>
@@ -57,12 +61,16 @@ const Categories = () => {
   );
 };
 
-const Browse = () => {
+const Browse = ({ category }) => {
   const [tab, setTab] = useState('recentlyAdded');
 
   const [books, setBooks] = useState(null);
 
   const currentTab = useRef(null);
+
+  useEffect(() => {
+    if (category) setTab('categories');
+  }, []);
 
   const handleTabChange = (e) => {
     currentTab.current.classList.toggle('focused');
@@ -93,18 +101,25 @@ const Browse = () => {
 
   return (
     <Main>
-      {console.log(books)}
       <Heading>Browse</Heading>
       <TabsWrapper>
         <TabsContainer>
           <Tabs>
-            <TabItem id="recentlyAdded" ref={currentTab} className="focused">
+            <TabItem
+              id="recentlyAdded"
+              ref={!category ? '' : currentTab}
+              className={category ? '' : 'focused'}
+            >
               <p onClick={handleTabChange}>RECENTLY ADDED</p>
             </TabItem>
             <TabItem id="freeBooks">
               <p onClick={handleTabChange}>FREE BOOKS</p>
             </TabItem>
-            <TabItem id="categories">
+            <TabItem
+              ref={category ? currentTab : ''}
+              className={category ? 'focused' : ''}
+              id="categories"
+            >
               <p onClick={handleTabChange}>CATEGORIES</p>
             </TabItem>
           </Tabs>
