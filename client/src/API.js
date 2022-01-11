@@ -46,6 +46,7 @@ const apiSettings = {
       return res.data;
     }
 
+    // query must be an array
     if (query) {
       let res = await axios.get(`${BASE_URL}book/?category=${query}`);
 

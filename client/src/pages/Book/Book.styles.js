@@ -56,6 +56,7 @@ export const Title = styled.h1`
   font-weight: 700;
   line-height: 1.1;
   font-size: 28px;
+  text-align: center;
 `;
 
 export const Author = styled.p`

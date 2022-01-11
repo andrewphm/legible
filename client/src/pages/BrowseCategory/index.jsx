@@ -15,7 +15,7 @@ import { useParams } from 'react-router-dom';
 
 const BrowseCategory = () => {
   const { id } = useParams();
-  const formatId = id.split('-').join(' ');
+  const catArr = id.split(' & ');
 
   const [books, setBooks] = useState(null);
 
@@ -23,7 +23,7 @@ const BrowseCategory = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        let res = await API.getBooks(id.split('-').join(' '));
+        let res = await API.getBooks(catArr);
         console.log(res);
         setBooks(res);
       } catch (error) {
@@ -36,9 +36,9 @@ const BrowseCategory = () => {
 
   return (
     <Main>
-      {console.log(formatId)}
+      {console.log(catArr)}
       <HeaderSection>
-        <Heading>{formatId}</Heading>
+        <Heading>{id}</Heading>
       </HeaderSection>
       <BodySection>
         <BooksContainer></BooksContainer>
