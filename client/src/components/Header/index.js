@@ -132,8 +132,8 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/faqs">
-                <button className="link-item">FAQs</button>
+              <Link to="/faq">
+                <button className="link-item">FAQ</button>
               </Link>
             </li>
 
@@ -208,8 +208,8 @@ const Header = () => {
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/faqs">
-            <p>FAQs</p>
+          <Link to="/faq">
+            <p>FAQ</p>
           </Link>
         </MenuItem>
       </MenuList>

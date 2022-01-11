@@ -53,7 +53,7 @@ function App() {
         <Route path="/library" element={user ? <Library /> : <LogIn />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/wishlist" element={user ? <WishList /> : <LogIn />} />
-        <Route path="/faqs" element={<FAQs />} />
+        <Route path="/faq" element={<FAQs />} />
       </Routes>
       <Footer />
       <GlobalStyles />

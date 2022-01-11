@@ -37,7 +37,11 @@ export const FAQsContainer = styled.section`
   position: relative;
   top: -2rem;
   margin: 0 auto;
-  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 800px;
+  row-gap: 2rem;
 
   .description {
     display: flex;
@@ -49,10 +53,11 @@ export const FAQsContainer = styled.section`
 
     h3 {
       font-family: var(--secondary-font);
-      font-size: clamp(1rem, 3vw, 1.5rem);
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
     }
 
     p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
       text-align: left;
       max-width: 600px;
     }
@@ -75,21 +80,18 @@ export const FAQsHeading = styled.h3`
 
 export const FAQsList = styled.ul`
   list-style: none;
-  width: 100%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
-  margin: 2rem auto;
 `;
 
 export const FAQsItem = styled.li`
-  width: 100%;
-
   p {
     color: var(--third-color);
     padding: 0.5rem 0;
     padding-left: 2rem;
-    width: 100%;
+    font-size: clamp(1rem, 2vw, 1.2rem);
   }
 `;
 
