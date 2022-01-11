@@ -21,6 +21,8 @@ import {
   RightSlider,
 } from './Categories.styles';
 
+import { Link } from 'react-router-dom';
+
 import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 
 const Categories = () => {
@@ -61,7 +63,7 @@ const Categories = () => {
       img: mystery,
     },
     {
-      category: 'THRILLERS & HORROR',
+      category: 'THRILLER & HORROR',
       img: thrillers,
     },
     {
@@ -82,10 +84,15 @@ const Categories = () => {
           {categories.map((item, i) => (
             <CategoryItem key={i}>
               <ItemContainer>
-                <div className="img-wrapper">
-                  <img src={item.img} alt="A miniature treehouse with books" />
-                </div>
-                <h3>{item.category}</h3>
+                <Link to={`/browse/${item.category.toLowerCase()}`}>
+                  <div className="img-wrapper">
+                    <img
+                      src={item.img}
+                      alt="A miniature treehouse with books"
+                    />
+                  </div>
+                  <h3>{item.category}</h3>
+                </Link>
               </ItemContainer>
             </CategoryItem>
           ))}
