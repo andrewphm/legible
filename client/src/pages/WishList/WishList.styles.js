@@ -24,7 +24,9 @@ export const Section = styled.section`
   }
 `;
 
-export const Heading = styled.h1``;
+export const Heading = styled.h1`
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
+`;
 
 export const WishListContainer = styled.ul`
   list-style: none;

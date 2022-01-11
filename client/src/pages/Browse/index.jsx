@@ -28,8 +28,14 @@ const categories = [
   'Fiction',
   'Romance',
   'Science Fiction',
-  'Mystery',
   'Action & Adventure',
+  'Young Adult',
+  'Fantasy',
+  'Mystery',
+  'Crime',
+  'Horror',
+  'Biographies',
+  'Memoirs',
 ];
 
 const Categories = () => {

@@ -32,8 +32,7 @@ export const Heading = styled.h1`
 `;
 
 export const FAQsContainer = styled.section`
-  padding: 0 1rem;
-  padding-top: 4rem;
+  padding: 4rem 1rem;
   position: relative;
   top: -2rem;
   margin: 0 auto;

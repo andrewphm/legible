@@ -4,7 +4,7 @@ export const Main = styled.main`
   width: 100%;
   min-height: 500px;
 
-  @media only screen and (min-width: 800px) {
+  @media only screen and (min-width: 700px) {
     padding: 2rem 4rem;
   }
 
@@ -14,7 +14,7 @@ export const Main = styled.main`
 `;
 
 export const Heading = styled.h1`
-  font-size: 1.7rem;
+  font-size: clamp(1.7rem, 4vw, 2.2rem);
   padding: 2rem 1.8rem;
 `;
 
