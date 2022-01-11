@@ -3,16 +3,16 @@ import styled from 'styled-components';
 export const Section = styled.section`
   background-color: rgb(255, 242, 234);
   height: 100%;
-  padding: 20px;
+  padding: 40px 20px;
 
   @media screen and (min-width: 500px) {
-    padding: 20px 50px;
+    padding: 40px 50px;
   }
   @media screen and (min-width: 700px) {
-    padding: 20px 100px;
+    padding: 60px 100px;
   }
   @media screen and (min-width: 1200px) {
-    padding: 50px 200px;
+    padding: 60px 200px;
   }
 `;
 
@@ -28,7 +28,7 @@ export const Container = styled.div`
 
 export const ImgWrapper = styled.div`
   position: absolute;
-  bottom: -20px;
+  bottom: -40px;
   right: 0;
   width: 150px;
   height: 150px;
@@ -38,15 +38,20 @@ export const ImgWrapper = styled.div`
     height: 100%;
   }
 
+  @media screen and (min-width: 500px) {
+    bottom: -40px;
+  }
+
   @media screen and (min-width: 700px) {
     width: 200px;
     height: 200px;
+    bottom: -60px;
   }
 
   @media screen and (min-width: 1200px) {
     width: 300px;
     height: 300px;
-    bottom: -50px;
+    bottom: -60px;
   }
 `;
 
