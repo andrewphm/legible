@@ -19,14 +19,15 @@ import Book from './pages/Book/Book';
 import Purchase from './pages/Purchase/Purchase';
 import Library from './pages/Library';
 import Browse from './pages/Browse';
+import WishList from './pages/WishList';
+import FAQs from './pages/FAQs';
+import BrowseCategory from './pages/BrowseCategory';
 
 // UI Components
 import { Header, Footer, ScrollUp } from './components/index';
 
 // Redux
 import { useSelector } from 'react-redux';
-import WishList from './pages/WishList';
-import FAQs from './pages/FAQs';
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -54,6 +55,7 @@ function App() {
         <Route path="/browse" element={<Browse />} />
         <Route path="/wishlist" element={user ? <WishList /> : <LogIn />} />
         <Route path="/faq" element={<FAQs />} />
+        <Route path="/browse/:id" element={<BrowseCategory />} />
       </Routes>
       <Footer />
       <GlobalStyles />
