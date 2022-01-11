@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import {
   BodySection,
+  BookItem,
   BooksContainer,
   HeaderSection,
   Heading,
@@ -12,6 +13,9 @@ import {
 import API from '../../API';
 // Router
 import { useParams } from 'react-router-dom';
+
+// UI Component
+import { ProductCover } from '../../components';
 
 const BrowseCategory = () => {
   const { id } = useParams();
@@ -41,7 +45,17 @@ const BrowseCategory = () => {
         <Heading>{id}</Heading>
       </HeaderSection>
       <BodySection>
-        <BooksContainer></BooksContainer>
+        <BooksContainer>
+          {books?.length === 0 && <h1>No books found...</h1>}
+
+          {books?.map((book, i) => {
+            return (
+              <BookItem key={i}>
+                <ProductCover book={book} />
+              </BookItem>
+            );
+          })}
+        </BooksContainer>
       </BodySection>
     </Main>
   );
