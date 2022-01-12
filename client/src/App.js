@@ -46,6 +46,7 @@ function App() {
         )}
         <Route path="/book/:id" element={<Book />} />
         <Route path="/" element={<Home />} />
+        <Route path="/legible" element={<Home />} />
         <Route path="/add-book" element={<AddBook />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/log-in" element={<LogIn />} />
