@@ -61,7 +61,7 @@ export const Wrapper = styled.header`
   } */
 
   .show-menu {
-    top: 105%;
+    top: 102%;
   }
 
   @media screen and (min-width: 900px) {

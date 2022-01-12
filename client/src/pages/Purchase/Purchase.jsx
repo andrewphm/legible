@@ -113,7 +113,7 @@ export const Purchase = () => {
             </p>
             <p>Enter your payment info to complete your purchase.</p>
             <p>
-              Book name{' '}
+              {book.title}{' '}
               <span>
                 will be available in your{' '}
                 <strong>

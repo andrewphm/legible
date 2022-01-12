@@ -65,7 +65,7 @@ const BrowseCategory = () => {
   return (
     <Main>
       <HeaderSection>
-        <Heading>{id}</Heading>
+        <Heading>{id.split(',').join(' & ')}</Heading>
         <FilterContainer>
           <button
             className="active"

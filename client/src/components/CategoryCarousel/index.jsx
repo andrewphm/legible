@@ -62,7 +62,7 @@ const CategoryCarousel = ({ category, title, desc }) => {
             <HeadingContainer>
               <HeadingTitle>{title}</HeadingTitle>
               <HeadingDesc>{desc}</HeadingDesc>
-              <Link to="/" className="link">
+              <Link to={`/browse/category/${category}`} className="link">
                 SEE ALL
               </Link>
             </HeadingContainer>
