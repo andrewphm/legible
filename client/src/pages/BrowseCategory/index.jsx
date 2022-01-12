@@ -18,6 +18,7 @@ import { useParams } from 'react-router-dom';
 // UI Component
 import { ProductCover } from '../../components';
 import { ArrowDropDown } from '@material-ui/icons';
+import { BreadCrumb } from '../../components';
 
 const BrowseCategory = () => {
   const { id } = useParams();
@@ -65,6 +66,7 @@ const BrowseCategory = () => {
   return (
     <Main>
       <HeaderSection>
+        <BreadCrumb />
         <Heading>{id.split(',').join(' & ')}</Heading>
         <FilterContainer>
           <button
