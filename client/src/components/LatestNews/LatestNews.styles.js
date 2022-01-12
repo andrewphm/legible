@@ -91,7 +91,7 @@ export const NewsContainer = styled.div`
   display: grid;
   width: 100%;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, minmax(340px, 1fr));
   margin: 1rem auto;
 `;
 

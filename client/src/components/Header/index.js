@@ -32,6 +32,7 @@ const Header = () => {
   const location = useLocation();
   const path = location.pathname.slice(1);
   const menuButton = useRef(null);
+  const profileButton = useRef(null);
 
   const handleMenuBlur = () => {
     const nav = document.getElementById('auth-nav');
@@ -48,6 +49,7 @@ const Header = () => {
 
   const handleMenuClick = () => {
     const nav = document.getElementById('auth-nav');
+    menuButton.current.focus();
 
     setTimeout(() => {
       // nav.style.top = '105%';
@@ -66,6 +68,7 @@ const Header = () => {
 
   const handleProfileClick = () => {
     let nav = document.getElementById('profile-nav');
+    profileButton.current.focus();
 
     setTimeout(() => {
       nav.classList.toggle('show-menu');
@@ -105,6 +108,7 @@ const Header = () => {
 
             {user && (
               <button
+                ref={profileButton}
                 className="profile__button"
                 onBlur={handleMenuBlur}
                 onClick={handleProfileClick}
