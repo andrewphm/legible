@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import {
   BodySection,
   BookItem,
   BooksContainer,
+  FilterContainer,
   HeaderSection,
   Heading,
   Main,
@@ -16,12 +17,25 @@ import { useParams } from 'react-router-dom';
 
 // UI Component
 import { ProductCover } from '../../components';
+import { ArrowDropDown } from '@material-ui/icons';
 
 const BrowseCategory = () => {
   const { id } = useParams();
   const catArr = id.split(' & ');
-
   const [books, setBooks] = useState(null);
+  const [filter, setFilter] = useState('Book Title (A to Z)');
+  const hiddenMenu = useRef(null);
+  const arrow = useRef(null);
+
+  const handleFilterClick = (e) => {
+    hiddenMenu.current.style.display = 'flex';
+  };
+
+  const closeMenu = () => {
+    // if (hiddenMenu.current.style.display === 'flex') {
+    //   hiddenMenu.current.style.display = 'none';
+    // }
+  };
 
   // Fetch books
   useEffect(() => {
@@ -44,10 +58,37 @@ const BrowseCategory = () => {
   }, []);
 
   return (
-    <Main>
+    <Main onClick={closeMenu}>
       {console.log(catArr)}
       <HeaderSection>
         <Heading>{id}</Heading>
+        <FilterContainer onClick={handleFilterClick}>
+          <div className="active">
+            <p>
+              <span>Sort By: </span>
+              {filter}
+            </p>
+          </div>
+          <ArrowDropDown ref={arrow} />
+
+          <div ref={hiddenMenu} className="hidden-menu">
+            <div className="menu-item">
+              <input type="button" value="Book Title (A to Z)" />
+            </div>
+
+            <div className="menu-item">
+              <input type="button" value="Book Title (Z to A)" />
+            </div>
+
+            <div className="menu-item">
+              <input type="button" value="Date Added (Newest First)" />
+            </div>
+
+            <div className="menu-item">
+              <input type="button" value="Date Added (Oldest First)" />
+            </div>
+          </div>
+        </FilterContainer>
       </HeaderSection>
       <BodySection>
         <BooksContainer>
