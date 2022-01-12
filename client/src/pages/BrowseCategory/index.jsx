@@ -7,7 +7,9 @@ import {
   FilterContainer,
   HeaderSection,
   Heading,
+  InfoContainer,
   Main,
+  ResultsInfo,
 } from './BrowseCategory.styles';
 
 // API
@@ -63,42 +65,122 @@ const BrowseCategory = () => {
     fetchBooks();
   }, []);
 
+  // Filter books
+  useEffect(() => {
+    if (filter === 'Book Title (A to Z)') {
+      books &&
+        setBooks((prev) => {
+          return [
+            ...prev.sort((a, b) => {
+              let fa = a.title.toLowerCase(),
+                fb = b.title.toLowerCase();
+
+              if (fa < fb) {
+                return -1;
+              }
+              if (fa > fb) {
+                return 1;
+              }
+              return 0;
+            }),
+          ];
+        });
+    }
+
+    if (filter === 'Book Title (Z to A)') {
+      books &&
+        setBooks((prev) => {
+          return [
+            ...prev.sort((a, b) => {
+              let fa = a.title.toLowerCase(),
+                fb = b.title.toLowerCase();
+
+              if (fa < fb) {
+                return 1;
+              }
+              if (fa > fb) {
+                return -1;
+              }
+              return 0;
+            }),
+          ];
+        });
+    }
+
+    if (filter === 'Date Added (Newest First)') {
+      books &&
+        setBooks((prev) => {
+          return [
+            ...prev.sort((a, b) => {
+              return (
+                new Date(a.createdAt).getTime() -
+                new Date(b.createdAt).getTime()
+              );
+            }),
+          ];
+        });
+    }
+
+    if (filter === 'Date Added (Oldest First)') {
+      books &&
+        setBooks((prev) => {
+          return [
+            ...prev.sort((a, b) => {
+              return (
+                new Date(b.createdAt).getTime() -
+                new Date(a.createdAt).getTime()
+              );
+            }),
+          ];
+        });
+    }
+  }, [filter]);
+
   return (
     <Main>
       <HeaderSection>
         <BreadCrumb />
         <Heading>{id.split(',').join(' & ')}</Heading>
-        <FilterContainer>
-          <button
-            className="active"
-            onClick={toggleHiddenMenu}
-            onBlur={handleMenuBlur}
-          >
+
+        <InfoContainer>
+          <FilterContainer>
+            <button
+              className="active"
+              onClick={toggleHiddenMenu}
+              onBlur={handleMenuBlur}
+            >
+              <p>
+                <span>Sort By: </span>
+                {filter}
+              </p>
+              <ArrowDropDown ref={arrow} />
+            </button>
+
+            <div ref={hiddenMenu} className="hidden-menu">
+              <div className="menu-item" onClick={handleFilterChange}>
+                <input type="button" value="Book Title (A to Z)" />
+              </div>
+
+              <div onClick={handleFilterChange} className="menu-item">
+                <input type="button" value="Book Title (Z to A)" />
+              </div>
+
+              <div onClick={handleFilterChange} className="menu-item">
+                <input type="button" value="Date Added (Newest First)" />
+              </div>
+
+              <div onClick={handleFilterChange} className="menu-item">
+                <input type="button" value="Date Added (Oldest First)" />
+              </div>
+            </div>
+          </FilterContainer>
+
+          <ResultsInfo>
             <p>
-              <span>Sort By: </span>
-              {filter}
+              Showing results 1-{books?.length} of {books?.length}
             </p>
-            <ArrowDropDown ref={arrow} />
-          </button>
-
-          <div ref={hiddenMenu} className="hidden-menu">
-            <div className="menu-item" onClick={handleFilterChange}>
-              <input type="button" value="Book Title (A to Z)" />
-            </div>
-
-            <div onClick={handleFilterChange} className="menu-item">
-              <input type="button" value="Book Title (Z to A)" />
-            </div>
-
-            <div onClick={handleFilterChange} className="menu-item">
-              <input type="button" value="Date Added (Newest First)" />
-            </div>
-
-            <div onClick={handleFilterChange} className="menu-item">
-              <input type="button" value="Date Added (Oldest First)" />
-            </div>
-          </div>
-        </FilterContainer>
+          </ResultsInfo>
+        </InfoContainer>
       </HeaderSection>
       <BodySection>
         <BooksContainer>

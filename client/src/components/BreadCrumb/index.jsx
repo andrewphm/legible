@@ -8,8 +8,6 @@ const BreadCrumb = () => {
   let location = useLocation().pathname.split('/');
   location.splice(0, 1);
 
-  console.log(location);
-
   return (
     <Container>
       <BreadCrumbList>
