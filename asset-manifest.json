@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.js": "/legible/static/js/main.b0e9fdf6.chunk.js",
+    "main.js.map": "/legible/static/js/main.b0e9fdf6.chunk.js.map",
+    "runtime-main.js": "/legible/static/js/runtime-main.8d5d83f2.js",
+    "runtime-main.js.map": "/legible/static/js/runtime-main.8d5d83f2.js.map",
+    "static/js/2.4921569f.chunk.js": "/legible/static/js/2.4921569f.chunk.js",
+    "static/js/2.4921569f.chunk.js.map": "/legible/static/js/2.4921569f.chunk.js.map",
+    "index.html": "/legible/index.html",
+    "static/js/2.4921569f.chunk.js.LICENSE.txt": "/legible/static/js/2.4921569f.chunk.js.LICENSE.txt",
+    "static/media/404notfound.e558046e.svg": "/legible/static/media/404notfound.e558046e.svg",
+    "static/media/LatestNewsImg.5cf23ece.svg": "/legible/static/media/LatestNewsImg.5cf23ece.svg",
+    "static/media/antiracism.545ab3c1.svg": "/legible/static/media/antiracism.545ab3c1.svg",
+    "static/media/biographies.aa858189.svg": "/legible/static/media/biographies.aa858189.svg",
+    "static/media/categorycarouselbg.6daef5f5.svg": "/legible/static/media/categorycarouselbg.6daef5f5.svg",
+    "static/media/defaultAvatar.af4ed9b8.png": "/legible/static/media/defaultAvatar.af4ed9b8.png",
+    "static/media/faqs-bg.49092a56.svg": "/legible/static/media/faqs-bg.49092a56.svg",
+    "static/media/freebooks.d7bdf914.svg": "/legible/static/media/freebooks.d7bdf914.svg",
+    "static/media/mystery.0ab51547.svg": "/legible/static/media/mystery.0ab51547.svg",
+    "static/media/newscard1.426c1a36.jpeg": "/legible/static/media/newscard1.426c1a36.jpeg",
+    "static/media/newscard2.0ad48e8c.jpeg": "/legible/static/media/newscard2.0ad48e8c.jpeg",
+    "static/media/newscard3.61fd132f.jpeg": "/legible/static/media/newscard3.61fd132f.jpeg",
+    "static/media/publisher.046fea9a.svg": "/legible/static/media/publisher.046fea9a.svg",
+    "static/media/romance.f584dc59.svg": "/legible/static/media/romance.f584dc59.svg",
+    "static/media/scifi.abbfeea5.svg": "/legible/static/media/scifi.abbfeea5.svg",
+    "static/media/slide1.2297221e.svg": "/legible/static/media/slide1.2297221e.svg",
+    "static/media/slide1img.fc4d27cb.svg": "/legible/static/media/slide1img.fc4d27cb.svg",
+    "static/media/slide2.c8b4558c.svg": "/legible/static/media/slide2.c8b4558c.svg",
+    "static/media/slide2img.29687057.svg": "/legible/static/media/slide2img.29687057.svg",
+    "static/media/slide3.29733b53.svg": "/legible/static/media/slide3.29733b53.svg",
+    "static/media/slide3img.7ae486e3.svg": "/legible/static/media/slide3img.7ae486e3.svg",
+    "static/media/thrillers.64cc10ea.svg": "/legible/static/media/thrillers.64cc10ea.svg",
+    "static/media/youngadult.d5e78704.svg": "/legible/static/media/youngadult.d5e78704.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8d5d83f2.js",
+    "static/js/2.4921569f.chunk.js",
+    "static/js/main.b0e9fdf6.chunk.js"
+  ]
+}
