@@ -107,7 +107,7 @@ const Browse = ({ category }) => {
           <Tabs>
             <TabItem
               id="recentlyAdded"
-              ref={!category ? '' : currentTab}
+              ref={!category ? currentTab : null}
               className={category ? '' : 'focused'}
             >
               <p onClick={handleTabChange}>RECENTLY ADDED</p>
@@ -116,7 +116,7 @@ const Browse = ({ category }) => {
               <p onClick={handleTabChange}>FREE BOOKS</p>
             </TabItem>
             <TabItem
-              ref={category ? currentTab : ''}
+              ref={category ? currentTab : null}
               className={category ? 'focused' : ''}
               id="categories"
             >

@@ -23,18 +23,24 @@ const BrowseCategory = () => {
   const { id } = useParams();
   const catArr = id.split(' & ');
   const [books, setBooks] = useState(null);
-  const [filter, setFilter] = useState('Book Title (A to Z)');
+  const [filter, setFilter] = useState('Date Added (Newest First)');
   const hiddenMenu = useRef(null);
   const arrow = useRef(null);
 
-  const handleFilterClick = (e) => {
-    hiddenMenu.current.style.display = 'flex';
+  const toggleHiddenMenu = (e) => {
+    hiddenMenu.current.classList.toggle('show-menu');
+
+    arrow.current.classList.toggle('move-arrow');
   };
 
-  const closeMenu = () => {
-    // if (hiddenMenu.current.style.display === 'flex') {
-    //   hiddenMenu.current.style.display = 'none';
-    // }
+  const handleMenuBlur = (e) => {
+    setTimeout(() => {
+      hiddenMenu.current.classList.toggle('show-menu');
+    }, 100);
+  };
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.firstChild.value);
   };
 
   // Fetch books
@@ -47,7 +53,6 @@ const BrowseCategory = () => {
         }
 
         let res = await API.getBooks(catArr);
-        console.log(res);
         setBooks(res);
       } catch (error) {
         console.log(error);
@@ -58,33 +63,36 @@ const BrowseCategory = () => {
   }, []);
 
   return (
-    <Main onClick={closeMenu}>
-      {console.log(catArr)}
+    <Main>
       <HeaderSection>
         <Heading>{id}</Heading>
-        <FilterContainer onClick={handleFilterClick}>
-          <div className="active">
+        <FilterContainer>
+          <button
+            className="active"
+            onClick={toggleHiddenMenu}
+            onBlur={handleMenuBlur}
+          >
             <p>
               <span>Sort By: </span>
               {filter}
             </p>
-          </div>
-          <ArrowDropDown ref={arrow} />
+            <ArrowDropDown ref={arrow} />
+          </button>
 
           <div ref={hiddenMenu} className="hidden-menu">
-            <div className="menu-item">
+            <div className="menu-item" onClick={handleFilterChange}>
               <input type="button" value="Book Title (A to Z)" />
             </div>
 
-            <div className="menu-item">
+            <div onClick={handleFilterChange} className="menu-item">
               <input type="button" value="Book Title (Z to A)" />
             </div>
 
-            <div className="menu-item">
+            <div onClick={handleFilterChange} className="menu-item">
               <input type="button" value="Date Added (Newest First)" />
             </div>
 
-            <div className="menu-item">
+            <div onClick={handleFilterChange} className="menu-item">
               <input type="button" value="Date Added (Oldest First)" />
             </div>
           </div>

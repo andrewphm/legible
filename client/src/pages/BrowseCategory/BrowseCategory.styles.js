@@ -21,13 +21,29 @@ export const FilterContainer = styled.div`
   display: flex;
   position: relative;
   justify-content: space-between;
-  padding: 5px;
   border-radius: 2px;
 
+  button {
+    padding: 8px 10px;
+    background-color: white;
+    font-size: 1rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .active p {
+    font-weight: 500;
+  }
+
+  .active p span {
+    font-weight: 400;
+  }
+
   .hidden-menu {
-    color: var(--third-color);
     position: absolute;
-    top: 110%;
+    top: 105%;
     left: -2px;
     width: calc(100% + 3px);
     display: none;
@@ -41,20 +57,32 @@ export const FilterContainer = styled.div`
       cursor: pointer;
       position: relative;
       z-index: 1;
-      padding: 5px;
+      padding: 8px 10px;
+
+      :hover {
+        background-color: rgb(241, 244, 245);
+      }
+
+      input {
+        font-weight: 500;
+        position: relative;
+        font-size: 1rem;
+        background-color: transparent;
+        z-index: -1;
+      }
     }
 
     .menu-item:last-child {
       border-bottom: none;
     }
+  }
 
-    input {
-      position: relative;
-      font-size: 1rem;
-      background-color: white;
-      color: var(--third-color);
-      z-index: -1;
-    }
+  .show-menu {
+    display: flex;
+  }
+
+  .move-arrow {
+    transform: rotate(180deg);
   }
 `;
 
