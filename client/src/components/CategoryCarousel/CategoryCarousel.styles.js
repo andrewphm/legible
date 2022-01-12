@@ -23,7 +23,11 @@ export const Section = styled.section`
   }
 
   @media screen and (min-width: 900px) {
-    padding: 20px 65px;
+    padding: 50px 65px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding: 50px 100px;
   }
 `;
 
@@ -48,6 +52,10 @@ export const LeftSlider = styled.div`
   @media screen and (min-width: 900px) {
     display: flex;
   }
+
+  @media screen and (min-width: 1200px) {
+    left: 50px;
+  }
 `;
 export const RightSlider = styled.div`
   display: none;
@@ -68,6 +76,10 @@ export const RightSlider = styled.div`
   }
   @media screen and (min-width: 900px) {
     display: flex;
+  }
+
+  @media screen and (min-width: 1200px) {
+    right: 50px;
   }
 `;
 

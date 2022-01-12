@@ -55,7 +55,7 @@ const Categories = () => {
       img: romance,
     },
     {
-      category: 'SCI-FI & FANTASY',
+      category: 'SCIENCE FICTION & FANTASY',
       img: scifi,
     },
     {

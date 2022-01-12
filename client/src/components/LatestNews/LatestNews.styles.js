@@ -57,6 +57,14 @@ export const Section = styled.section`
   background-repeat: no-repeat;
   background-size: 200%;
   padding: 20px;
+
+  @media screen and (min-width: 700px) {
+    padding: 40px 50px;
+  }
+
+  @media screen and (min-width: 1400px) {
+    background-size: 100%;
+  }
 `;
 
 export const Container = styled.div`
@@ -68,8 +76,14 @@ export const Container = styled.div`
   margin: 1rem 0;
 
   h2 {
-    font-size: clamp(20px, 4vw, 26px);
+    font-size: clamp(24px, 4vw, 30px);
     color: white;
+    padding-bottom: 1.5rem;
+
+    @media screen and (min-width: 700px) {
+      margin: 0 auto;
+      padding-bottom: 1.5rem;
+    }
   }
 `;
 

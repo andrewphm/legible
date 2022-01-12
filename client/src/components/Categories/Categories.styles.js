@@ -69,6 +69,7 @@ export const ItemContainer = styled.div`
   h3 {
     font-size: 1rem;
     text-align: center;
+    padding-top: 0.5rem;
   }
 
   @media screen and (min-width: 500px) {

@@ -30,7 +30,7 @@ const categories = [
   'Young Adult',
   'Thriller & Horror',
   'Crime & Mystery',
-  'Biographies',
+  'Autobiography & Biographies',
   'Memoirs',
 ];
 
