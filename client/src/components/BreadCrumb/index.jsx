@@ -22,7 +22,7 @@ const BreadCrumb = () => {
           </Link>
         </ListItem>
         <ListItem>
-          <p>{location[2]}</p>
+          <p>{location[2].split('%20').join(' ').split(',').join(' & ')}</p>
         </ListItem>
       </BreadCrumbList>
     </Container>

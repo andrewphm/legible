@@ -23,17 +23,13 @@ import { ProductCover } from '../../components/index';
 import API from '../../API';
 
 const categories = [
-  'Thriller',
   'Fiction',
   'Romance',
-  'Science Fiction',
-  'Action',
-  'Adventure',
+  'Science Fiction & Fantasy',
+  'Action & Adventure',
   'Young Adult',
-  'Fantasy',
-  'Mystery',
-  'Crime',
-  'Horror',
+  'Thriller & Horror',
+  'Crime & Mystery',
   'Biographies',
   'Memoirs',
 ];
@@ -47,9 +43,9 @@ const Categories = () => {
             <CategoryItem key={i}>
               <Link
                 to={`/browse/category/${cat
-                  .toLowerCase()
-                  .split(' ')
-                  .join('-')}`}
+                  .split(' & ')
+                  .join(',')
+                  .toLowerCase()}`}
               >
                 <p>{cat}</p>
               </Link>
