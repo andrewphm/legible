@@ -60,6 +60,10 @@ export const Wrapper = styled.header`
     }
   } */
 
+  .show-menu {
+    top: 105%;
+  }
+
   @media screen and (min-width: 900px) {
   }
 `;
@@ -95,10 +99,10 @@ export const Right = styled.div`
     transition: var(--transition);
     cursor: pointer;
     background-color: transparent;
+  }
 
-    :focus {
-      transform: rotate(90deg);
-    }
+  .rotate {
+    transform: rotate(90deg);
   }
 
   .search__button {
@@ -174,6 +178,7 @@ export const MenuItem = styled.div`
   font-weight: 600;
   color: grey;
   z-index: 10;
+  border-bottom: 1px dashed var(--secondary-color);
 
   :last-child {
     z-index: -1;
@@ -266,6 +271,7 @@ export const Input = styled.input`
   width: 90%;
   text-indent: 10px;
   margin-left: 5px;
+  font-size: 1rem;
 
   :focus {
     outline: none;

@@ -1,5 +1,5 @@
 import { SearchOutlined } from '@material-ui/icons';
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo';
 import MenuIcon from '../../assets/MenuIcon';
@@ -31,24 +31,28 @@ const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.slice(1);
+  const menuButton = useRef(null);
 
   const handleMenuBlur = () => {
     const nav = document.getElementById('auth-nav');
     let search = document.getElementById('search-container');
     const profileNav = document.getElementById('profile-nav');
-
     search.style.top = '-200%';
+
     setTimeout(() => {
-      nav.style.top = '-500%';
-      if (profileNav) profileNav.style.top = '-500%';
+      nav.classList.remove('show-menu');
+      if (profileNav) profileNav.classList.remove('show-menu');
     }, 100);
+    menuButton.current.classList.remove('rotate');
   };
 
   const handleMenuClick = () => {
     const nav = document.getElementById('auth-nav');
 
     setTimeout(() => {
-      nav.style.top = '105%';
+      // nav.style.top = '105%';
+      nav.classList.toggle('show-menu');
+      menuButton.current.classList.toggle('rotate');
     }, 100);
   };
 
@@ -64,7 +68,7 @@ const Header = () => {
     let nav = document.getElementById('profile-nav');
 
     setTimeout(() => {
-      nav.style.top = '105%';
+      nav.classList.toggle('show-menu');
     }, 100);
   };
 
@@ -110,8 +114,9 @@ const Header = () => {
             )}
 
             <button
+              ref={menuButton}
               className="menu__button"
-              onFocus={handleMenuClick}
+              onClick={handleMenuClick}
               onBlur={handleMenuBlur}
             >
               <MenuIcon />
@@ -178,7 +183,7 @@ const Header = () => {
 
       <MenuList id="auth-nav">
         {user === null && (
-          <MenuItem auth="auth" style={{ borderBottom: '1px solid lightgrey' }}>
+          <MenuItem auth="auth">
             <Link
               to="/log-in"
               style={{
