@@ -95,7 +95,7 @@ const Header = () => {
       <Container>
         <Link
           aria-label="Back to homepage"
-          to="/"
+          to="/legible"
           style={{ display: 'flex', alignItems: 'center' }}
         >
           <Logo />
@@ -136,12 +136,12 @@ const Header = () => {
               </button>
             </li>
             <li>
-              <Link to="/browse">
+              <Link to="/legible/browse">
                 <button className="link-item">Browse</button>
               </Link>
             </li>
             <li>
-              <Link to="/faq">
+              <Link to="/legible/faq">
                 <button className="link-item">FAQ</button>
               </Link>
             </li>
@@ -149,12 +149,12 @@ const Header = () => {
             {!user && (
               <>
                 <li>
-                  <Link to="/log-in">
+                  <Link to="/legible/log-in">
                     <button className="login__btn">Log In</button>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/sign-up">
+                  <Link to="/legible/sign-up">
                     <button className="signup__btn">Sign Up</button>
                   </Link>
                 </li>
@@ -164,7 +164,7 @@ const Header = () => {
             {user && (
               <>
                 <li>
-                  <Link to="/library">
+                  <Link to="/legible/library">
                     <button className="library-btn">
                       <MyLibrary />
                     </button>
@@ -189,7 +189,7 @@ const Header = () => {
         {user === null && (
           <MenuItem auth="auth">
             <Link
-              to="/log-in"
+              to="/legible/log-in"
               style={{
                 width: 'fit-content',
                 margin: '0 auto',
@@ -199,7 +199,7 @@ const Header = () => {
               <button className="login">Log in</button>
             </Link>
             <Link
-              to="/sign-up"
+              to="/legible/sign-up"
               style={{
                 width: 'fit-content',
                 margin: '0 auto',
@@ -212,12 +212,12 @@ const Header = () => {
         )}
 
         <MenuItem>
-          <Link to="/browse">
+          <Link to="/legible/browse">
             <p>Browse</p>
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/faq">
+          <Link to="/legible/faq">
             <p>FAQ</p>
           </Link>
         </MenuItem>
@@ -236,19 +236,19 @@ const Header = () => {
             </Link>
           </MenuItem> */}
           <MenuItem lib="lib">
-            <Link to="/library">
+            <Link to="/legible/library">
               <button className="library-btn">
                 <MyLibrary />
               </button>
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link to="/wishlist">
+            <Link to="/legible/wishlist">
               <p>My Wish List</p>
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link to="/">
+            <Link to="/legible">
               <p onClick={handleSignOutClick}>Sign out</p>
             </Link>
           </MenuItem>

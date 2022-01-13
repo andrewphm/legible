@@ -83,7 +83,7 @@ const Carousel = () => {
               </p>
               {!user && (
                 <button>
-                  <Link to="/sign-up" style={{ color: '#fff' }}>
+                  <Link to="/legible/sign-up" style={{ color: '#fff' }}>
                     Create my free account{' '}
                   </Link>
                 </button>
@@ -105,7 +105,7 @@ const Carousel = () => {
 
               {!user && (
                 <button>
-                  <Link to="/sign-up" style={{ color: '#fff' }}>
+                  <Link to="/legible/sign-up" style={{ color: '#fff' }}>
                     Create my free account{' '}
                   </Link>
                 </button>
@@ -126,7 +126,7 @@ const Carousel = () => {
               </p>
               {!user && (
                 <button>
-                  <Link to="/sign-up" style={{ color: '#fff' }}>
+                  <Link to="/legible/sign-up" style={{ color: '#fff' }}>
                     Create my free account{' '}
                   </Link>
                 </button>

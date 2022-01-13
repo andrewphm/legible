@@ -84,7 +84,9 @@ const Categories = () => {
           {categories.map((item, i) => (
             <CategoryItem key={i}>
               <ItemContainer>
-                <Link to={`/browse/category/${item.category.toLowerCase()}`}>
+                <Link
+                  to={`/legible/browse/category/${item.category.toLowerCase()}`}
+                >
                   <div className="img-wrapper">
                     <img
                       src={item.img}

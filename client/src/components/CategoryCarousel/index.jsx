@@ -62,7 +62,10 @@ const CategoryCarousel = ({ category, title, desc }) => {
             <HeadingContainer>
               <HeadingTitle>{title}</HeadingTitle>
               <HeadingDesc>{desc}</HeadingDesc>
-              <Link to={`/browse/category/${category}`} className="link">
+              <Link
+                to={`/legible/browse/category/${category}`}
+                className="link"
+              >
                 SEE ALL
               </Link>
             </HeadingContainer>
@@ -91,7 +94,10 @@ const CategoryCarousel = ({ category, title, desc }) => {
             <HeadingContainer>
               <HeadingTitle>{title}</HeadingTitle>
               <HeadingDesc>{desc}</HeadingDesc>
-              <Link to="/" className="link">
+              <Link
+                to={`/legible/browse/category/${category}`}
+                className="link"
+              >
                 SEE ALL
               </Link>
             </HeadingContainer>

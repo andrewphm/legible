@@ -40,24 +40,45 @@ function App() {
       <Routes>
         {user && (
           <>
-            <Route path="/sign-up" element={<Navigate replace to="/" />} />
-            <Route path="/log-in" element={<Navigate replace to="/" />} />
+            <Route
+              path="/legible/sign-up"
+              element={<Navigate replace to="/" />}
+            />
+            <Route
+              path="/legible/log-in"
+              element={<Navigate replace to="/" />}
+            />
           </>
         )}
-        <Route path="/book/:id" element={<Book />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/legible/book/:id" element={<Book />} />
+        <Route path="/" element={<Navigate replace to="/legible" />} />
         <Route path="/legible" element={<Home />} />
-        <Route path="/add-book" element={<AddBook />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/log-in" element={<LogIn />} />
+        <Route path="/legible/add-book" element={<AddBook />} />
+        <Route path="/legible/sign-up" element={<SignUp />} />
+        <Route path="/legible/log-in" element={<LogIn />} />
         <Route path="/*" element={<NotFound />} />
-        <Route path="/purchase/:id" element={user ? <Purchase /> : <LogIn />} />
-        <Route path="/library" element={user ? <Library /> : <LogIn />} />
-        <Route path="/browse" element={<Browse />} />
-        <Route path="/browse/category" element={<Browse category={true} />} />
-        <Route path="/wishlist" element={user ? <WishList /> : <LogIn />} />
-        <Route path="/faq" element={<FAQs />} />
-        <Route path="/browse/category/:id" element={<BrowseCategory />} />
+        <Route
+          path="/legible/purchase/:id"
+          element={user ? <Purchase /> : <LogIn />}
+        />
+        <Route
+          path="/legible/library"
+          element={user ? <Library /> : <LogIn />}
+        />
+        <Route path="/legible/browse" element={<Browse />} />
+        <Route
+          path="/legible/browse/category"
+          element={<Browse category={true} />}
+        />
+        <Route
+          path="/legible/wishlist"
+          element={user ? <WishList /> : <LogIn />}
+        />
+        <Route path="/legible/faq" element={<FAQs />} />
+        <Route
+          path="/legible/browse/category/:id"
+          element={<BrowseCategory />}
+        />
       </Routes>
       <Footer />
       <GlobalStyles />

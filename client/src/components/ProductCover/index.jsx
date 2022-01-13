@@ -59,7 +59,7 @@ const ProductCover = ({ book }) => {
   return (
     <Container>
       <ImgWrapper>
-        <Link to={`/book/${_id}`}>
+        <Link to={`/legible/book/${_id}`}>
           <Thumb src={image}></Thumb>
         </Link>
       </ImgWrapper>
@@ -69,7 +69,7 @@ const ProductCover = ({ book }) => {
       <LinkContainer>
         {!user ? (
           <>
-            <Link to="/log-in">
+            <Link to="/legible/log-in">
               <FavoriteBorderOutlined className="heart-border"></FavoriteBorderOutlined>
             </Link>
           </>
@@ -83,7 +83,7 @@ const ProductCover = ({ book }) => {
             }
           ></FavoriteBorderOutlined>
         )}
-        <Link to={`/purchase/${_id}`}>
+        <Link to={`/legible/purchase/${_id}`}>
           <ShoppingCart className="cart"></ShoppingCart>
         </Link>
       </LinkContainer>

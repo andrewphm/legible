@@ -7,22 +7,23 @@ import { useLocation, Link } from 'react-router-dom';
 const BreadCrumb = () => {
   let location = useLocation().pathname.split('/');
   location.splice(0, 1);
+  console.log(location);
 
   return (
     <Container>
       <BreadCrumbList>
         <ListItem>
-          <Link to={`/${location[0]}`}>
-            <p>{location[0]}</p>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link to={`/${location[0]}/${location[1]}`}>
+          <Link to={`/legible/${location[1]}`}>
             <p>{location[1]}</p>
           </Link>
         </ListItem>
         <ListItem>
-          <p>{location[2].split('%20').join(' ').split(',').join(' & ')}</p>
+          <Link to={`/legible/${location[1]}/${location[2]}`}>
+            <p>{location[2]}</p>
+          </Link>
+        </ListItem>
+        <ListItem>
+          <p>{location[3].split('%20').join(' ').split(',').join(' & ')}</p>
         </ListItem>
       </BreadCrumbList>
     </Container>

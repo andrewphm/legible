@@ -30,7 +30,7 @@ const Footer = () => {
       <Container>
         <Mission>
           <div className="icon__wrapper">
-            <Link to="/">
+            <Link to="/legible">
               <LogoIcon />
             </Link>
           </div>
@@ -67,13 +67,13 @@ const Footer = () => {
         <Navigation>
           <p className="heading">GETTING STARTED</p>
           <Nav role="navigation" aria-label="Footer Menu">
-            <Link to="/browse">Browse All</Link>
-            <Link to="/about">About Us</Link>
-            <Link to="/help">Help</Link>
-            <Link to="/faq">FAQ</Link>
-            <Link to="/publishers">For Publishers</Link>
-            <Link to="/careers">Careers</Link>
-            <Link to="/investors">Investor Relations</Link>
+            <Link to="/legible/browse">Browse All</Link>
+            <Link to="/legible/about">About Us</Link>
+            <Link to="/legible/help">Help</Link>
+            <Link to="/legible/faq">FAQ</Link>
+            <Link to="/legible/publishers">For Publishers</Link>
+            <Link to="/legible/careers">Careers</Link>
+            <Link to="/legible/investors">Investor Relations</Link>
           </Nav>
         </Navigation>
         <FeedBack>
@@ -101,10 +101,10 @@ const Footer = () => {
       </Container>
       <Legal>
         <LegalLinks>
-          <Link to="/legal">
+          <Link to="/legible/legal">
             <p>Legal</p>
           </Link>
-          <Link to="/privacy">
+          <Link to="/legible/privacy">
             <p>Privacy Policy</p>
           </Link>
         </LegalLinks>

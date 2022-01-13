@@ -89,7 +89,7 @@ export const Purchase = () => {
     // update user in DB
     API.updateUser({ ...user, library: [...user.library, id] });
     // Redirect to Library
-    navigate('/library', { replace: true });
+    navigate('/legible/library', { replace: true });
   };
 
   return (
@@ -103,7 +103,7 @@ export const Purchase = () => {
               <span>
                 <strong>
                   <Link
-                    to={`/book/${id}`}
+                    to={`/legible/book/${id}`}
                     style={{ color: 'var(--secondary-color)' }}
                   >
                     {book.title}
@@ -119,7 +119,7 @@ export const Purchase = () => {
                 <strong>
                   <Link
                     style={{ color: 'var(--secondary-color)' }}
-                    to="/library"
+                    to="/legible/library"
                   >
                     Legible library.
                   </Link>

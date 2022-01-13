@@ -42,7 +42,7 @@ const Categories = () => {
           return (
             <CategoryItem key={i}>
               <Link
-                to={`/browse/category/${cat
+                to={`/legible/browse/category/${cat
                   .split(' & ')
                   .join(',')
                   .toLowerCase()}`}
