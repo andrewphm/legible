@@ -32,47 +32,40 @@ const Header = () => {
   const location = useLocation();
   const path = location.pathname.slice(1);
   const menuButton = useRef(null);
-  const profileButton = useRef(null);
+  const menuNav = useRef(null);
+  const profileNav = useRef(null);
 
   const handleMenuBlur = () => {
-    const nav = document.getElementById('auth-nav');
-    let search = document.getElementById('search-container');
-    const profileNav = document.getElementById('profile-nav');
-    search.style.top = '-200%';
-
-    setTimeout(() => {
-      nav.classList.remove('show-menu');
-      if (profileNav) profileNav.classList.remove('show-menu');
-    }, 100);
+    menuNav.current.classList.remove('show-menu');
     menuButton.current.classList.remove('rotate');
+    if (profileNav.current) profileNav.current.classList.remove('show-menu');
+
+    let search = document.getElementById('search-container');
+
+    search.classList.remove('show-menu');
   };
 
   const handleMenuClick = () => {
-    const nav = document.getElementById('auth-nav');
-    menuButton.current.focus();
+    if (profileNav.current) profileNav.current.classList.remove('show-menu');
 
-    setTimeout(() => {
-      // nav.style.top = '105%';
-      nav.classList.toggle('show-menu');
-      menuButton.current.classList.toggle('rotate');
-    }, 100);
+    menuNav.current.classList.toggle('show-menu');
+    menuButton.current.classList.toggle('rotate');
   };
 
   const handleSearchClick = () => {
+    menuNav.current.classList.remove('show-menu');
+    menuButton.current.classList.remove('rotate');
+    if (profileNav.current) profileNav.current.classList.remove('show-menu');
+
     let search = document.getElementById('search-container');
     let input = document.getElementById('search-input');
-
     input.focus();
-    search.style.top = '101%';
+    search.classList.toggle('show-menu');
   };
 
   const handleProfileClick = () => {
-    let nav = document.getElementById('profile-nav');
-    profileButton.current.focus();
-
-    setTimeout(() => {
-      nav.classList.toggle('show-menu');
-    }, 100);
+    menuNav.current.classList.remove('show-menu');
+    profileNav.current.classList.toggle('show-menu');
   };
 
   const handleSignOutClick = () => {
@@ -108,7 +101,6 @@ const Header = () => {
 
             {user && (
               <button
-                ref={profileButton}
                 className="profile__button"
                 onBlur={handleMenuBlur}
                 onClick={handleProfileClick}
@@ -136,12 +128,12 @@ const Header = () => {
               </button>
             </li>
             <li>
-              <Link to="/legible/browse">
+              <Link to="/legible/browse" onClick={handleMenuBlur}>
                 <button className="link-item">Browse</button>
               </Link>
             </li>
             <li>
-              <Link to="/legible/faq">
+              <Link to="/legible/faq" onClick={handleMenuBlur}>
                 <button className="link-item">FAQ</button>
               </Link>
             </li>
@@ -149,12 +141,12 @@ const Header = () => {
             {!user && (
               <>
                 <li>
-                  <Link to="/legible/log-in">
+                  <Link to="/legible/log-in" onClick={handleMenuBlur}>
                     <button className="login__btn">Log In</button>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/legible/sign-up">
+                  <Link to="/legible/sign-up" onClick={handleMenuBlur}>
                     <button className="signup__btn">Sign Up</button>
                   </Link>
                 </li>
@@ -164,7 +156,7 @@ const Header = () => {
             {user && (
               <>
                 <li>
-                  <Link to="/legible/library">
+                  <Link to="/legible/library" onClick={handleMenuBlur}>
                     <button className="library-btn">
                       <MyLibrary />
                     </button>
@@ -185,10 +177,11 @@ const Header = () => {
         </WideNav>
       </Container>
 
-      <MenuList id="auth-nav">
+      <MenuList ref={menuNav} id="auth-nav">
         {user === null && (
           <MenuItem auth="auth">
             <Link
+              onClick={handleMenuBlur}
               to="/legible/log-in"
               style={{
                 width: 'fit-content',
@@ -199,6 +192,7 @@ const Header = () => {
               <button className="login">Log in</button>
             </Link>
             <Link
+              onClick={handleMenuBlur}
               to="/legible/sign-up"
               style={{
                 width: 'fit-content',
@@ -212,19 +206,19 @@ const Header = () => {
         )}
 
         <MenuItem>
-          <Link to="/legible/browse">
+          <Link onClick={handleMenuBlur} to="/legible/browse">
             <p>Browse</p>
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="/legible/faq">
+          <Link onClick={handleMenuBlur} to="/legible/faq">
             <p>FAQ</p>
           </Link>
         </MenuItem>
       </MenuList>
 
       {user && (
-        <MenuList id="profile-nav">
+        <MenuList ref={profileNav} id="profile-nav">
           {/* <MenuItem>
             <Link to={`/${user.username}`}>
               <p>My Profile</p>
@@ -236,19 +230,19 @@ const Header = () => {
             </Link>
           </MenuItem> */}
           <MenuItem lib="lib">
-            <Link to="/legible/library">
+            <Link onClick={handleMenuBlur} to="/legible/library">
               <button className="library-btn">
                 <MyLibrary />
               </button>
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link to="/legible/wishlist">
+            <Link onClick={handleMenuBlur} to="/legible/wishlist">
               <p>My Wish List</p>
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link to="/legible">
+            <Link onClick={handleMenuBlur} to="/legible">
               <p onClick={handleSignOutClick}>Sign out</p>
             </Link>
           </MenuItem>

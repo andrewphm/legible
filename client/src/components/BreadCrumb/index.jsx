@@ -7,7 +7,6 @@ import { useLocation, Link } from 'react-router-dom';
 const BreadCrumb = () => {
   let location = useLocation().pathname.split('/');
   location.splice(0, 1);
-  console.log(location);
 
   return (
     <Container>

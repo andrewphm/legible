@@ -32,17 +32,12 @@ const BrowseCategory = () => {
 
   const toggleHiddenMenu = (e) => {
     hiddenMenu.current.classList.toggle('show-menu');
-
     arrow.current.classList.toggle('move-arrow');
   };
 
-  const handleMenuBlur = (e) => {
-    setTimeout(() => {
-      hiddenMenu.current.classList.toggle('show-menu');
-    }, 100);
-  };
-
   const handleFilterChange = (e) => {
+    hiddenMenu.current.classList.toggle('show-menu');
+    arrow.current.classList.toggle('move-arrow');
     setFilter(e.target.firstChild.value);
   };
 
@@ -141,14 +136,9 @@ const BrowseCategory = () => {
       <HeaderSection>
         <BreadCrumb />
         <Heading>{id.split(',').join(' & ')}</Heading>
-
         <InfoContainer>
           <FilterContainer>
-            <button
-              className="active"
-              onClick={toggleHiddenMenu}
-              onBlur={handleMenuBlur}
-            >
+            <button className="active" onClick={toggleHiddenMenu}>
               <p>
                 <span>Sort By: </span>
                 {filter}
