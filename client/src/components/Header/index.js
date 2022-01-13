@@ -1,6 +1,6 @@
 import { SearchOutlined } from '@material-ui/icons';
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/Logo';
 import MenuIcon from '../../assets/MenuIcon';
 import SearchIcon from '../../assets/SearchIcon';
@@ -31,6 +31,7 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const dispatch = useDispatch();
   const location = useLocation();
+  const navigate = useNavigate();
   const path = location.pathname.slice(1);
   const menuButton = useRef(null);
   const menuNav = useRef(null);
@@ -41,9 +42,8 @@ const Header = () => {
     menuButton.current.classList.remove('rotate');
     if (profileNav.current) profileNav.current.classList.remove('show-menu');
 
-    let search = document.getElementById('search-container');
-
-    search.blur();
+    let input = document.getElementById('search-input');
+    input.blur();
   };
 
   const handleMenuClick = () => {
@@ -73,17 +73,23 @@ const Header = () => {
     dispatch(signout());
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let search = document.getElementById('search-container');
+    let input = document.getElementById('search-input');
+
+    // Redirect to Search page with searchQuery state
+    navigate(`/legible/search?q=${searchQuery}`);
+    setSearchQuery('');
+    search.classList.remove('show-menu');
+    input.blur();
+  };
+
   return (
     <Wrapper type="reader">
       <SearchContainer id="search-container">
         <Search>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              console.log(searchQuery);
-              setSearchQuery('');
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <Input
               id="search-input"
               placeholder="Search for books, authors, topics, and more!"
