@@ -58,6 +58,12 @@ const apiSettings = {
     }
   },
 
+  searchBooks: async (searchQuery) => {
+    let res = await axios.get(`${BASE_URL}book/search?q=${searchQuery}`);
+
+    return res.data;
+  },
+
   createPaymentIntent: async (body) => {
     let res = await axios.post(`${BASE_URL}stripe/create-payment-intent`, body);
 
