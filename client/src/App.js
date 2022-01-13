@@ -28,6 +28,7 @@ import { Header, Footer, ScrollUp } from './components/index';
 
 // Redux
 import { useSelector } from 'react-redux';
+import Search from './pages/Search';
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -50,6 +51,7 @@ function App() {
             />
           </>
         )}
+        <Route path="/legible/search" element={<Search />} />
         <Route path="/legible/book/:id" element={<Book />} />
         <Route path="/" element={<Navigate replace to="/legible" />} />
         <Route path="/legible" element={<Home />} />
