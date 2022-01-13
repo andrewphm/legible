@@ -1,5 +1,5 @@
 import { SearchOutlined } from '@material-ui/icons';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo';
 import MenuIcon from '../../assets/MenuIcon';
@@ -28,6 +28,7 @@ import {
 
 const Header = () => {
   const user = useSelector((state) => state.user.currentUser);
+  const [searchQuery, setSearchQuery] = useState('');
   const dispatch = useDispatch();
   const location = useLocation();
   const path = location.pathname.slice(1);
@@ -42,7 +43,7 @@ const Header = () => {
 
     let search = document.getElementById('search-container');
 
-    search.classList.remove('show-menu');
+    search.blur();
   };
 
   const handleMenuClick = () => {
@@ -76,12 +77,24 @@ const Header = () => {
     <Wrapper type="reader">
       <SearchContainer id="search-container">
         <Search>
-          <Input
-            id="search-input"
-            placeholder="Search for books, authors, topics, and more!"
-            type="text"
-            onBlur={handleMenuBlur}
-          />
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              console.log(searchQuery);
+              setSearchQuery('');
+            }}
+          >
+            <Input
+              id="search-input"
+              placeholder="Search for books, authors, topics, and more!"
+              type="text"
+              onBlur={handleMenuBlur}
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+              }}
+            />
+          </form>
           <SearchOutlined />
         </Search>
       </SearchContainer>

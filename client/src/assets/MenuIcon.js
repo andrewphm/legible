@@ -3,7 +3,7 @@ import React from 'react';
 const MenuIcon = () => {
   return (
     <svg
-      viewBox="0 0 30 30"
+      viewBox="0 0 35 35"
       width="1.3rem"
       height="1.3rem"
       aria-label="Open menu"
