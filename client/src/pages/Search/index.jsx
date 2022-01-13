@@ -43,6 +43,7 @@ const Search = () => {
     try {
       API.searchBooks(query)
         .then((res) => {
+          console.log(res);
           setBooks(res);
         })
         .catch((err) => console.log(err));

@@ -5,8 +5,11 @@ const {
   getBooks,
   getBook,
   getWishList,
+  searchBooks,
 } = require('../controllers/book');
 
+// Search books
+router.get('/search', searchBooks);
 //GET Books
 router.get('/:id', getBook);
 router.get('/', getBooks);

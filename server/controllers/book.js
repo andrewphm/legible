@@ -70,4 +70,28 @@ const createBook = async (req, res) => {
   }
 };
 
-module.exports = { createBook, getBook, getBooks, getWishList };
+// Fetch books via search query
+const searchBooks = async (req, res) => {
+  let { q } = req.query;
+  q = q.toLowerCase();
+  let re = new RegExp(`${q}`, 'ig');
+
+  let data;
+  let books;
+  try {
+    //Searching title
+    books = await Book.find({ title: re });
+
+    //Search author
+    books = [...books, ...(await Book.find({ author: re }))];
+
+    //Serch categories
+    books = [...books, ...(await Book.find({ category: { $in: [q] } }))];
+
+    res.status(200).json(books);
+  } catch (error) {
+    res.state(400).json({ success: false, message: 'Failed to find books' });
+  }
+};
+
+module.exports = { createBook, getBook, getBooks, getWishList, searchBooks };
