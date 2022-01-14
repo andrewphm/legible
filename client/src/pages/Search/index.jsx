@@ -4,11 +4,28 @@ import React, { useState, useEffect, useRef } from 'react';
 import API from '../../API';
 
 // Router
-import { useLocation } from 'react-router-dom';
-import { BookSection, Container, Main } from './Search.styles';
+import { useLocation, Link } from 'react-router-dom';
+import {
+  BooksContainer,
+  BookSection,
+  BookTitle,
+  Container,
+  Cover,
+  CTA,
+  Description,
+  DescriptionContainer,
+  Image,
+  Info,
+  ListItem,
+  Main,
+} from './Search.styles';
 
 // Material UI
-import { ArrowDropDown } from '@material-ui/icons';
+import {
+  ArrowDropDown,
+  FavoriteBorderOutlined,
+  ShoppingCart,
+} from '@material-ui/icons';
 
 // UI components
 import {
@@ -16,6 +33,73 @@ import {
   InfoContainer,
   ResultsInfo,
 } from '../BrowseCategory/BrowseCategory.styles';
+
+const BookItem = ({ book }) => {
+  const [description, setDescription] = useState([]);
+  const arrow = useRef(null);
+  const bookDescription = useRef(null);
+  const [innerButtonText, setInnerButtonText] = useState('Show more');
+
+  const handleShowMore = () => {
+    arrow.current.classList.toggle('rotate');
+    bookDescription.current.classList.toggle('expand-description');
+
+    setInnerButtonText((prev) =>
+      prev === 'Show more' ? 'Show less' : 'Show more'
+    );
+  };
+
+  useEffect(() => {
+    let splitDescription = book.description.split(/\r?\n/);
+    setDescription(splitDescription);
+  }, []);
+
+  return (
+    <ListItem>
+      <Cover>
+        <Link to={`/legible/book/${book._id}`}>
+          <Image src={book.image}></Image>
+        </Link>
+      </Cover>
+      <Info>
+        <div className="title-container">
+          {' '}
+          <Link to={`/legible/book/${book._id}`}>
+            <BookTitle>{book.title}</BookTitle>
+          </Link>
+        </div>
+        <p className="author">
+          by <strong>{book.author.toLowerCase()}</strong>
+        </p>
+        <p className="price">
+          {book.price > 0 ? `CAD $${book.price}` : 'FREE'}
+        </p>
+        <CTA>
+          <Link to="/">
+            <ShoppingCart></ShoppingCart>
+          </Link>
+          <Link to="/">
+            <FavoriteBorderOutlined></FavoriteBorderOutlined>
+          </Link>
+        </CTA>
+      </Info>
+      <DescriptionContainer>
+        <Description ref={bookDescription}>
+          {description?.map((para, i) => {
+            if (para === '') {
+              return <br key={i}></br>;
+            }
+
+            return <p key={i}>{para}</p>;
+          })}
+        </Description>
+        <button onClick={handleShowMore}>
+          {innerButtonText} <ArrowDropDown ref={arrow}></ArrowDropDown>
+        </button>
+      </DescriptionContainer>
+    </ListItem>
+  );
+};
 
 const Search = () => {
   const [books, setBooks] = useState(null);
@@ -52,7 +136,7 @@ const Search = () => {
     }
     //Fetch books with query term
     // setBooks with result
-  }, []);
+  }, [search]);
 
   return (
     <Main>
@@ -90,12 +174,19 @@ const Search = () => {
             <p>
               Showing results {books?.length > 0 ? '1' : '0'}-
               {books?.length > 0 ? books.length : '0'} of{' '}
-              {books?.length > 0 ? books.length : '0'}
+              {books?.length > 0 ? books.length : '0'} for{' '}
+              <strong>"{query}"</strong>
             </p>
           </ResultsInfo>
         </InfoContainer>
       </Container>
-      <BookSection></BookSection>
+      <BookSection>
+        <BooksContainer>
+          {books?.map((book, i) => {
+            return <BookItem book={book} key={i} />;
+          })}
+        </BooksContainer>
+      </BookSection>
     </Main>
   );
 };
