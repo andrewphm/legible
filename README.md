@@ -45,10 +45,12 @@ Here is a list of features that were considered `core features` to be present in
 - Browse product page
 - Secure check out flow
   - Utilizing Stripe for a complient secure check out
+- Add product page for content management
 
 ## Challenges and learnings
 
-- Utlizing Stripe Secure web check out was very intuitive with their recently updated user guide documentation. Their guides are very DX friendly, allowing you to choose the platform, back-end, front-end of your choice to make a custome payment flow. https://stripe.com/docs/payments/quickstart
+- Utlizing Stripe Secure web check out was very intuitive with their recently updated user guide documentation. Their guides are very DX friendly, allowing you to choose the platform, back-end, front-end of your choice to make a custom payment flow. https://stripe.com/docs/payments/quickstart
+- Likewise, firebase storage was also very intuitive to set up for image uploading. https://firebase.google.com/docs/storage/web/uplo
 
 ## Improvements
 
