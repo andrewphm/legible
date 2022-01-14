@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/legible/static/js/main.2e605b06.chunk.js",
-    "main.js.map": "/legible/static/js/main.2e605b06.chunk.js.map",
+    "main.js": "/legible/static/js/main.8f2518e7.chunk.js",
+    "main.js.map": "/legible/static/js/main.8f2518e7.chunk.js.map",
     "runtime-main.js": "/legible/static/js/runtime-main.8d5d83f2.js",
     "runtime-main.js.map": "/legible/static/js/runtime-main.8d5d83f2.js.map",
-    "static/js/2.4921569f.chunk.js": "/legible/static/js/2.4921569f.chunk.js",
-    "static/js/2.4921569f.chunk.js.map": "/legible/static/js/2.4921569f.chunk.js.map",
+    "static/js/2.06e28773.chunk.js": "/legible/static/js/2.06e28773.chunk.js",
+    "static/js/2.06e28773.chunk.js.map": "/legible/static/js/2.06e28773.chunk.js.map",
     "index.html": "/legible/index.html",
-    "static/js/2.4921569f.chunk.js.LICENSE.txt": "/legible/static/js/2.4921569f.chunk.js.LICENSE.txt",
+    "static/js/2.06e28773.chunk.js.LICENSE.txt": "/legible/static/js/2.06e28773.chunk.js.LICENSE.txt",
     "static/media/404notfound.e558046e.svg": "/legible/static/media/404notfound.e558046e.svg",
     "static/media/LatestNewsImg.5cf23ece.svg": "/legible/static/media/LatestNewsImg.5cf23ece.svg",
     "static/media/antiracism.545ab3c1.svg": "/legible/static/media/antiracism.545ab3c1.svg",
@@ -34,7 +34,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8d5d83f2.js",
-    "static/js/2.4921569f.chunk.js",
-    "static/js/main.2e605b06.chunk.js"
+    "static/js/2.06e28773.chunk.js",
+    "static/js/main.8f2518e7.chunk.js"
   ]
 }
