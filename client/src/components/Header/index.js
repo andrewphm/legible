@@ -49,6 +49,12 @@ const Header = () => {
   };
 
   const handleMenuClick = () => {
+    let search = document.getElementById('search-container');
+    search.classList.remove('show-menu');
+
+    let input = document.getElementById('search-input');
+    input.blur();
+
     if (profileNav.current) profileNav.current.classList.remove('show-menu');
 
     menuNav.current.classList.toggle('show-menu');

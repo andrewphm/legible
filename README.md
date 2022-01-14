@@ -10,21 +10,34 @@ https://andrewpham.ca/legible
 
 This project is a full stack eBook eCommerce website.
 
-## Codebase
+## Code base
 
-### Technologies
+### Core Technologies
 
-- Front-end:
-  - React w/ functional components
-  - React Router for linking/routing
-  - Styled components for CSS
+- `Front-end`:
+  - React framework
+  - React Router for routing
+  - Styled components for CSS-in-JS
   - Material UI for icons
-- Back-end:
+- `Back-end`:
   - Node/Express for the server
-  - MongoDB/Mongoose/Atlas for the DB and ODM
-  - Json web token (JWT) for private API routes
+  - MongoDB/Mongoose/Atlas for the NoSql DB and ODM
+  - Json web token (JWT) for authenticated API routes
   - Stripe for secure check out
-- Hosting:
+- `Hosting`:
   - Heroku for hosting the server
-  - Firebase to host images
-  - Github Pages to host the client
+  - Firebase for hosting images
+  - Github Pages for hosting the client
+
+## Features
+
+Here is a list of features that were considered `core features` to be present in a e-commerce web application.
+
+- Sign up/Sign in flow
+- Product search
+- Product snippets
+- Product categories/organization
+- Browse Product page
+- Secure payment page
+
+## Challenges and learnings

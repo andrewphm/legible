@@ -39,7 +39,7 @@ const ProductCover = ({ book }) => {
 
       // Update DB
       try {
-        API.updateUser({ ...user, wishList: [...wishList] });
+        API.updateUser({ ...user, wishList: [...wishList] }, user.accessToken);
       } catch (error) {
         console.log(error);
       }
