@@ -38,12 +38,14 @@ const Header = () => {
   const profileNav = useRef(null);
 
   const handleMenuBlur = () => {
-    menuNav.current.classList.remove('show-menu');
-    menuButton.current.classList.remove('rotate');
-    if (profileNav.current) profileNav.current.classList.remove('show-menu');
+    setTimeout(() => {
+      menuNav.current.classList.remove('show-menu');
+      menuButton.current.classList.remove('rotate');
+      if (profileNav.current) profileNav.current.classList.remove('show-menu');
 
-    let input = document.getElementById('search-input');
-    input.blur();
+      let input = document.getElementById('search-input');
+      input.blur();
+    }, 100);
   };
 
   const handleMenuClick = () => {

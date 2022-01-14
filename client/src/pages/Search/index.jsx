@@ -5,6 +5,10 @@ import API from '../../API';
 
 // Router
 import { useLocation, Link } from 'react-router-dom';
+
+// Redux
+import { useSelector } from 'react-redux';
+
 import {
   BooksContainer,
   BookSection,
@@ -34,7 +38,7 @@ import {
   ResultsInfo,
 } from '../BrowseCategory/BrowseCategory.styles';
 
-const BookItem = ({ book }) => {
+const BookItem = ({ book, user }) => {
   const [description, setDescription] = useState([]);
   const arrow = useRef(null);
   const bookDescription = useRef(null);
@@ -75,7 +79,7 @@ const BookItem = ({ book }) => {
           {book.price > 0 ? `CAD $${book.price}` : 'FREE'}
         </p>
         <CTA>
-          <Link to="/">
+          <Link to={`/legible/purchase/${book._id}`}>
             <ShoppingCart></ShoppingCart>
           </Link>
           <Link to="/">
@@ -106,6 +110,7 @@ const Search = () => {
   const [filter, setFilter] = useState('Date Added (Newest First)');
   const hiddenMenu = useRef(null);
   const arrow = useRef(null);
+  const user = useSelector((state) => state.user.currentUser);
 
   let search = useLocation().search;
   let params = new URLSearchParams(search);
@@ -183,7 +188,7 @@ const Search = () => {
       <BookSection>
         <BooksContainer>
           {books?.map((book, i) => {
-            return <BookItem book={book} key={i} />;
+            return <BookItem book={book} user={user} key={i} />;
           })}
         </BooksContainer>
       </BookSection>

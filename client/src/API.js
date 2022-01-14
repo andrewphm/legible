@@ -71,8 +71,12 @@ const apiSettings = {
     return res.data;
   },
 
-  updateUser: async (user) => {
-    let res = await axios.post(`${BASE_URL}user/`, user);
+  updateUser: async (user, token) => {
+    let res = await axios.post(`${BASE_URL}user/`, user, {
+      headers: {
+        token: `Bearer ${token}`,
+      },
+    });
 
     return res.data;
   },

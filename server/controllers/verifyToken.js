@@ -8,7 +8,7 @@ const verifyToken = (req, res, next) => {
 
     jwt.verify(token, process.env.JWT_SEC, (err, user) => {
       if (err)
-        res
+        return res
           .status(401)
           .json('You do not have permission or your JWT is expired.');
       req.user = user;
@@ -18,3 +18,5 @@ const verifyToken = (req, res, next) => {
     return res.status(401).json('You are not authenticated');
   }
 };
+
+module.exports = { verifyToken };

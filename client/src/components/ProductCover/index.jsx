@@ -44,12 +44,18 @@ const ProductCover = ({ book }) => {
         console.log(error);
       }
     } else {
-      // Add book to Wishlist
-      dispatch(setCurrentUser({ ...user, wishList: [...user.wishList, _id] }));
-
       // Update DB
       try {
-        API.updateUser({ ...user, wishList: [...user.wishList, _id] });
+        let updatedUser = await API.updateUser(
+          {
+            ...user,
+            wishList: [...user.wishList, _id],
+          },
+          user.accessToken
+        );
+        console.log(updatedUser);
+        // Add book to Wishlist
+        dispatch(setCurrentUser({ ...updatedUser }));
       } catch (error) {
         console.log(error);
       }
