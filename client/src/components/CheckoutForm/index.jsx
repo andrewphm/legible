@@ -7,10 +7,14 @@ import {
 
 import { Button, Form, PaymentMessage, Spinner } from './CheckoutForm.styles';
 
+import { Link } from 'react-router-dom';
+
+import { useSelector } from 'react-redux';
+
 export default function CheckoutForm({ price, id }) {
   const stripe = useStripe();
   const elements = useElements();
-
+  const user = useSelector((state) => state.user.currentUser);
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -81,28 +85,37 @@ export default function CheckoutForm({ price, id }) {
   return (
     <Form onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />
-      <Button disabled={isLoading || !stripe || !elements}>
-        <span>{isLoading ? <Spinner></Spinner> : `Pay $${price} now`}</span>
-      </Button>
-      {/* Show any error or success messages */}
-      {message && <PaymentMessage>{message}</PaymentMessage>}
-      <div className="test">
-        <p>
-          <strong>To test out a purchase use card info: </strong>
-        </p>
-        <p>
-          Card number: <strong>4242 4242 4242 4242</strong>
-        </p>
-        <p>
-          Expiry: <strong>01/24</strong>
-        </p>
-        <p>
-          CVC: <strong>123</strong>
-        </p>
-        <p>
-          Postal code: <strong>A1B 2C3</strong>
-        </p>
-      </div>
+      {user && (
+        <>
+          <Button disabled={isLoading || !stripe || !elements}>
+            <span>{isLoading ? <Spinner></Spinner> : `Pay $${price} now`}</span>
+          </Button>
+          {/* Show any error or success messages */}
+          {message && <PaymentMessage>{message}</PaymentMessage>}
+          <div className="test">
+            <p>
+              <strong>To test out a purchase use card info: </strong>
+            </p>
+            <p>
+              Card number: <strong>4242 4242 4242 4242</strong>
+            </p>
+            <p>
+              Expiry: <strong>01/24</strong>
+            </p>
+            <p>
+              CVC: <strong>123</strong>
+            </p>
+            <p>
+              Postal code: <strong>A1B 2C3</strong>
+            </p>
+          </div>
+        </>
+      )}
+      {!user && (
+        <Link to="/legible/log-in">
+          <Button>Log in to check out</Button>
+        </Link>
+      )}
     </Form>
   );
 }

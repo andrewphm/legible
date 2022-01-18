@@ -59,10 +59,7 @@ function App() {
         <Route path="/legible/sign-up" element={<SignUp />} />
         <Route path="/legible/log-in" element={<LogIn />} />
         <Route path="/*" element={<NotFound />} />
-        <Route
-          path="/legible/purchase/:id"
-          element={user ? <Purchase /> : <LogIn />}
-        />
+        <Route path="/legible/purchase/:id" element={<Purchase />} />
         <Route
           path="/legible/library"
           element={user ? <Library /> : <LogIn />}

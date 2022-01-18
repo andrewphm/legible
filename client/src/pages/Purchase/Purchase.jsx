@@ -156,8 +156,13 @@ export const Purchase = () => {
                   }`}</strong>
                 </p>
               </PriceContainer>
-              {book.price === 0 && (
+              {book.price === 0 && user && (
                 <button onClick={handleBtnClick}>Add to library</button>
+              )}
+              {!user && book.price === 0 && (
+                <Link to="/legible/log-in">
+                  <button>Log in to check out</button>
+                </Link>
               )}
             </ProductContainer>
           </SectionContainer>
