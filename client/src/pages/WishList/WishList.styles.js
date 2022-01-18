@@ -38,6 +38,24 @@ export const WishListContainer = styled.ul`
     color: var(--secondary-color);
     font-size: 1.1rem;
   }
+
+  .books-btn {
+    background-color: white;
+    border: 1px solid var(--primary-color);
+    padding: 8px 20px;
+    width: 200px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    display: block;
+
+    :hover {
+      color: white;
+      background-color: var(--primary-color);
+    }
+  }
 `;
 
 export const WishListItem = styled.li``;

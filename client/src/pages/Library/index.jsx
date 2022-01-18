@@ -82,7 +82,7 @@ const Libray = () => {
           {user.library.length === 0 && (
             <div>
               Your library is currently empty. Purchased books will appear here.
-              <Link to="/browse">
+              <Link to="/legible/browse">
                 <button className="books-btn">Shop books</button>
               </Link>
             </div>

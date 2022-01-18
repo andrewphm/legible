@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import {
   Heading,
   Main,
@@ -6,6 +7,8 @@ import {
   WishListContainer,
   WishListItem,
 } from './WishList.styles';
+
+import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
@@ -35,7 +38,15 @@ const WishList = () => {
         <Heading>Your Wish List</Heading>
         <WishListContainer>
           {wishList?.length === 0 && (
-            <h2>Your Wish List is currently empty...</h2>
+            <div>
+              <p>
+                Your wish list is currently empty. Click the button below to
+                explore books.
+              </p>
+              <Link to="/legible/browse">
+                <button className="books-btn">Explore Books</button>
+              </Link>
+            </div>
           )}
 
           {wishList?.map((item, i) => {
