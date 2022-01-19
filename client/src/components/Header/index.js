@@ -1,7 +1,7 @@
 import { SearchOutlined } from '@material-ui/icons';
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Logo from '../../assets/Logo';
+import Logo from '../../assets/Logo.js';
 import MenuIcon from '../../assets/MenuIcon';
 import SearchIcon from '../../assets/SearchIcon';
 import { useLocation } from 'react-router-dom';
