@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // Reducers
 import { setCurrentUser } from '../../redux/userRedux';
 // API
@@ -81,6 +81,20 @@ const LogIn = () => {
         passwordContainer.style.border = '1px solid rgb(203, 14, 14)';
         passwordContainerLabel.style.color = 'rgb(203, 14, 14)';
       }
+    }
+  };
+
+  const handleDemoLogInClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await API.loginUser({
+        email: 'demo@gmail.com',
+        password: 'demo',
+      });
+      dispatch(setCurrentUser(res));
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -160,6 +174,9 @@ const LogIn = () => {
         <NavContainer>
           <ContinueButton className="button" onClick={handleLogInClick}>
             Log In
+          </ContinueButton>
+          <ContinueButton className="button" onClick={handleDemoLogInClick}>
+            Demo Log In
           </ContinueButton>
           <p>
             Don't have a Legible account?{' '}

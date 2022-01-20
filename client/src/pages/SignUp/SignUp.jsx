@@ -45,6 +45,22 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
   const [isPassVisible, setIsPassVisible] = useState(false);
   const [isConfirmPassVisible, setIsConfirmPassVisible] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const handleDemoLogInClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await API.loginUser({
+        email: 'demo@gmail.com',
+        password: 'demo',
+      });
+      dispatch(setCurrentUser(res));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handlePassVisibleClick = () => {
     let ele = document.getElementById('password');
     if (!isPassVisible) {
@@ -191,6 +207,9 @@ const StepOne = ({ form, handleFormChange, setStep }) => {
           </label>
         </MarketingContainer>
         <ContinueButton onClick={handleContinueClick}>Continue</ContinueButton>
+        <ContinueButton onClick={handleDemoLogInClick}>
+          Demo Log In
+        </ContinueButton>
       </Form>
     </>
   );
