@@ -53,9 +53,10 @@ const ProductCover = ({ book }) => {
           },
           user.accessToken
         );
-        console.log(updatedUser);
         // Add book to Wishlist
-        dispatch(setCurrentUser({ ...updatedUser }));
+        dispatch(
+          setCurrentUser({ ...updatedUser, accessToken: user.accessToken })
+        );
       } catch (error) {
         console.log(error);
       }
