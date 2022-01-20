@@ -1,7 +1,7 @@
 import { SearchOutlined } from '@material-ui/icons';
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import Logo from '../../assets/Logo';
+import Logo from '../../assets/Logo';
 import MenuIcon from '../../assets/MenuIcon';
 import SearchIcon from '../../assets/SearchIcon';
 import { useLocation } from 'react-router-dom';
@@ -118,8 +118,7 @@ const Header = () => {
           to="/legible"
           style={{ display: 'flex', alignItems: 'center' }}
         >
-          {/* <Logo /> */}
-          logo
+          <Logo />
         </Link>
         {path !== 'sign-up' && path !== 'log-in' && (
           <Right>
