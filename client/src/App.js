@@ -22,13 +22,14 @@ import Browse from './pages/Browse';
 import WishList from './pages/WishList';
 import FAQs from './pages/FAQs';
 import BrowseCategory from './pages/BrowseCategory';
+import Search from './pages/Search';
+import DashBoard from './pages/DashBoard';
 
 // UI Components
 import { Header, Footer, ScrollUp } from './components/index';
 
 // Redux
 import { useSelector } from 'react-redux';
-import Search from './pages/Search';
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -78,6 +79,7 @@ function App() {
           path="/legible/browse/category/:id"
           element={<BrowseCategory />}
         />
+        <Route path="/dashboard" element={<DashBoard />} />
       </Routes>
       <Footer />
       <GlobalStyles />
