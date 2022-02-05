@@ -2,6 +2,8 @@ import Logo from '../assets/NavLogo';
 
 import { useState } from 'react';
 
+import API from '../api';
+
 const initialForm = {
   email: '',
   password: '',
@@ -10,7 +12,17 @@ const initialForm = {
 const Login = () => {
   const [form, setForm] = useState(initialForm);
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      let user = await API.adminLogin(form);
+      console.log(user);
+    } catch (error) {
+      let err = { error };
+      console.log(err.error.response.data);
+    }
+  };
 
   return (
     <main className="w-screen h-screen flex text-[#34515f]">
@@ -34,7 +46,12 @@ const Login = () => {
               id="email"
               placeholder="Email"
               autoComplete="off"
-              valeu={form.email}
+              value={form.email}
+              onChange={(e) => {
+                setForm((prev) => {
+                  return { ...prev, [e.target.name]: e.target.value };
+                });
+              }}
             />
           </div>
 
@@ -52,9 +69,17 @@ const Login = () => {
               placeholder="Password"
               autoComplete="off"
               value={form.password}
+              onChange={(e) => {
+                setForm((prev) => {
+                  return { ...prev, [e.target.name]: e.target.value };
+                });
+              }}
             />
           </div>
-          <button className="font-bold py-1 px-3 text-white bg-[#34515f] cursor-pointer hover:scale-105">
+          <button
+            onClick={handleSubmit}
+            className="font-bold py-1 px-3 text-white bg-[#34515f] cursor-pointer hover:scale-105"
+          >
             Login
           </button>
           <button className="font-bold py-1 px-3 text-white bg-[#34515f] cursor-pointer hover:scale-105">
