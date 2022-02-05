@@ -23,7 +23,7 @@ import WishList from './pages/WishList';
 import FAQs from './pages/FAQs';
 import BrowseCategory from './pages/BrowseCategory';
 import Search from './pages/Search';
-import DashBoard from './pages/DashBoard';
+import Dashboard from './pages/Dashboard';
 
 // UI Components
 import { Header, Footer, ScrollUp } from './components/index';
@@ -79,9 +79,12 @@ function App() {
           path="/legible/browse/category/:id"
           element={<BrowseCategory />}
         />
-        <Route path="/dashboard" element={<DashBoard />} />
       </Routes>
       <Footer />
+
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
       <GlobalStyles />
     </Router>
   );

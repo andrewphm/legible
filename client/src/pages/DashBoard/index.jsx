@@ -1,14 +1,21 @@
 // Styled Components
-import { Main } from './DashBoard.styles';
+import { Main, Nav, Section, Wrapper, Header } from './Dashboard.styles';
 
-const DashBoard = () => {
+// Logo
+import NavLogo from '../../assets/NavLogo';
+
+const Dashboard = () => {
   return (
     <Main>
-      <div>
-        <h1>Admin Dashboard</h1>
-      </div>
+      <Header>
+        <NavLogo></NavLogo>
+      </Header>
+      <Wrapper>
+        <Nav>nav</Nav>
+        <Section></Section>
+      </Wrapper>
     </Main>
   );
 };
 
-export default DashBoard;
+export default Dashboard;
