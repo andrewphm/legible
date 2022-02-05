@@ -21,28 +21,28 @@ const SideBar = ({ setCurrentMenu }) => {
         <div
           onClick={handleMenuChange}
           ref={currentMenu}
-          className="flex flex-col justify-center items-center cursor-pointer hover:bg-neutral-200 bg-neutral-200 py-3"
+          className="flex flex-col justify-center items-center cursor-pointer hover:bg-neutral-200 bg-neutral-200 py-3 px-1"
         >
           <Home className="" />
           <p className="text-sm">Home</p>
         </div>
         <div
           onClick={handleMenuChange}
-          className="flex flex-col justify-center items-center cursor-pointer hover:bg-neutral-200 py-3"
+          className="flex flex-col justify-center items-center cursor-pointer hover:bg-neutral-200 py-3 px-1"
         >
           <People />
           <p className="text-sm">Users</p>
         </div>
         <div
           onClick={handleMenuChange}
-          className="flex flex-col justify-center items-center cursor-pointer hover:bg-neutral-200 py-3"
+          className="flex flex-col justify-center items-center cursor-pointer hover:bg-neutral-200 py-3 px-1"
         >
           <MenuBook />
           <p className="text-sm">Products</p>
         </div>
         <div
           onClick={handleMenuChange}
-          className="flex flex-col justify-center items-center cursor-pointer hover:bg-neutral-200 py-3"
+          className="flex flex-col justify-center items-center cursor-pointer hover:bg-neutral-200 py-3 px-1"
         >
           <Receipt />
           <p className="text-sm">Orders</p>
