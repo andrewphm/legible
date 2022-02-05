@@ -1,9 +1,9 @@
-import { AccountCircle, Menu, Settings } from '@mui/icons-material';
+import { Menu, Settings } from '@mui/icons-material';
 import NavLogo from '../../assets/NavLogo';
 
 const Header = () => {
   return (
-    <header className="sticky w-screen h-16">
+    <header className="sticky w-screen h-16 bg-neutral-100">
       <div className="container w-full px-4 py-2 flex justify-between text-slate-700">
         <div className="flex items-center space-x-4">
           <div className=" hover:bg-slate-200 rounded-full px-2 py-1">

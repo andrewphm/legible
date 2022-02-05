@@ -3,6 +3,8 @@ import Image from 'next/image';
 
 // UI components
 import Header from '../components/common/Header';
+import SideBarPopOut from '../components/common/SideBarPopOut';
+import SideBar from '../components/common/SideBar';
 
 export default function Home() {
   return (
@@ -13,9 +15,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header></Header>
-      <main>
-        <h1 className="text-xl">Legible Dashboard</h1>
+      <Header />
+      <SideBar />
+      <main className="h-screen w-screen overflow-hidden relative">
+        <SideBarPopOut />
       </main>
     </div>
   );
