@@ -23,7 +23,6 @@ import WishList from './pages/WishList';
 import FAQs from './pages/FAQs';
 import BrowseCategory from './pages/BrowseCategory';
 import Search from './pages/Search';
-import Dashboard from './pages/Dashboard';
 
 // UI Components
 import { Header, Footer, ScrollUp } from './components/index';
@@ -81,10 +80,6 @@ function App() {
         />
       </Routes>
       <Footer />
-
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
       <GlobalStyles />
     </Router>
   );

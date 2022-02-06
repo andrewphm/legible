@@ -4,7 +4,7 @@ const Book = require('../models/Book');
 const calculateOrderAmount = async (items) => {
   let book = await Book.find({ _id: items[0].id });
   let price = book[0].price * 100;
-  return price;
+  return Math.ceil(price);
 };
 
 // Create a PaymentIntent with the order amount and currency
