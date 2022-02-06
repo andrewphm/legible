@@ -66,7 +66,7 @@ const UsersDashboard = () => {
         </div>
       </div>
 
-      <div>
+      <div className="max-w-5xl">
         <div className="grid grid-cols-[1fr_5fr_5fr_4fr_4fr] border border-[#40806b]">
           <div className="flex justify-center items-center">
             <input type="checkbox" name="" id="" />
