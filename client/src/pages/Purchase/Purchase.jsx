@@ -57,7 +57,7 @@ export const Purchase = () => {
     };
 
     fetchBook();
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const initiatePayment = async () => {
@@ -71,7 +71,7 @@ export const Purchase = () => {
     };
 
     initiatePayment();
-  }, []);
+  }, [id]);
 
   const appearance = {
     theme: 'stripe',

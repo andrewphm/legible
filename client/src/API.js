@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://legible-server.herokuapp.com/api/';
-// const BASE_URL = 'http://localhost:5000/api/';
+// const BASE_URL = 'https://legible-server.herokuapp.com/api/';
+const BASE_URL = 'http://localhost:5000/api/';
 
 const apiSettings = {
   checkUniqueUser: async (user) => {
@@ -79,6 +79,18 @@ const apiSettings = {
     });
 
     return res.data;
+  },
+
+  createOrder: async (body, token) => {
+    if (body) {
+      let res = await axios.post(`${BASE_URL}order/`, body, {
+        headers: {
+          token: `Bearer ${token}`,
+        },
+      });
+
+      return res.data;
+    }
   },
 };
 

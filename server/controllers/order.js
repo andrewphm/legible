@@ -2,7 +2,7 @@ const Order = require('../models/Order');
 
 // Create Order
 
-export const createOrder = async (req, res) => {
+const createOrder = async (req, res) => {
   try {
     let newOrder = new Order(req.body);
     let savedOrder = await newOrder.save();
@@ -12,7 +12,7 @@ export const createOrder = async (req, res) => {
 };
 
 // GET Orders
-export const getOrders = async (req, res) => {
+const getOrders = async (req, res) => {
   try {
     let query = req.query.new;
     let orders = query
@@ -23,4 +23,4 @@ export const getOrders = async (req, res) => {
   } catch (error) {}
 };
 
-module.exports = { getOrders };
+module.exports = { getOrders, createOrder };

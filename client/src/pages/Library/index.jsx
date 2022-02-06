@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import Logo from '../../assets/MyLibrary1';
 
 // Router
-import { useLocation, useParams, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -27,8 +27,6 @@ const Libray = () => {
   const location = useLocation();
   const user = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
-  const [book, setBook] = useState(null);
-  const [purchased, setPurchased] = useState(null);
 
   const params = new URLSearchParams(location.search);
 
@@ -38,38 +36,46 @@ const Libray = () => {
   useEffect(() => {
     const successPurchase = async () => {
       try {
-        let res = await API.getBook(id);
-        setBook(res[0]);
+        // fetch book
+        const book = await API.getBook(id);
 
-        let updatedUser = await API.updateUser({
-          ...user,
-          library: [...user.library, id],
-        });
+        // Create Order Document
+        let createdOrder = await API.createOrder(
+          {
+            userId: user._id,
+            bookId: id,
+            amount: book[0].price,
+          },
+          user.accessToken
+        );
+
+        console.log(createdOrder);
+
+        // Update Users library
+        let updatedUser = await API.updateUser(
+          {
+            ...user,
+            library: [...user.library, id],
+          },
+          user.accessToken
+        );
         // Update user state
-        dispatch(setCurrentUser({ ...updatedUser }));
-      } catch (error) {}
-    };
-
-    if (id && success) {
-      // Grab book from DB
-
-      // Show success module
-      //update user state
-      //update db
-      try {
-        successPurchase();
+        dispatch(
+          setCurrentUser({ ...updatedUser, accessToken: user.accessToken })
+        );
       } catch (error) {
         console.log(error);
       }
-      window.history.replaceState(null, 'Library', '/library');
-    }
-  }, []);
+    };
 
-  console.log(id, success);
+    if (id && success && user) {
+      successPurchase();
+      window.history.replaceState(null, 'Library', '/legible/library');
+    }
+  }, [id, dispatch, user, success]);
 
   return (
     <Main>
-      {console.log(user)}
       <Section>
         <HeadingContainer>
           <LogoContainer>
