@@ -64,7 +64,7 @@ export default function CheckoutForm({ price, id }) {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `https://legibile.andrewpham.ca/legible/library?id=${id}`,
+        return_url: `https://legible.andrewpham.ca/legible/library?id=${id}`,
       },
     });
 
