@@ -1,5 +1,4 @@
-import { Delete } from '@mui/icons-material';
-
+import { Visibility } from '@mui/icons-material';
 import { useState, useEffect } from 'react';
 
 import API from '../../api';
@@ -66,8 +65,8 @@ const OrdersDashboard = () => {
         </div>
       </div>
 
-      <div className="max-w-5xl h-4/5 overflow-y-scroll">
-        <div className="grid grid-cols-[1fr_5fr_5fr_5fr_2fr_2fr] border border-[#40806b]">
+      <div className="max-w-5xl h-4/5 overflow-hidden">
+        <div className="grid grid-cols-[1fr_5fr_5fr_5fr_2fr_2fr] border border-[#40806b] sticky">
           <div className="flex justify-center items-center">
             <input type="checkbox" name="" id="" />
           </div>
@@ -93,50 +92,51 @@ const OrdersDashboard = () => {
           </div>
         </div>
 
-        {filteredOrders?.map(({ _id, bookId, userId, amount }, i) => {
-          return (
-            <div
-              key={i}
-              className="grid grid-cols-[1fr_5fr_5fr_5fr_2fr_2fr] border border-t-0 border-[#40806b]"
-            >
-              <div className="flex justify-center items-center">
-                <input type="checkbox" name="" id="" />
-              </div>
+        <div className="h-full overflow-y-scroll">
+          {filteredOrders?.map(({ _id, bookId, userId, amount }, i) => {
+            return (
+              <div
+                key={i}
+                className="grid grid-cols-[1fr_5fr_5fr_5fr_2fr_2fr] border border-t-0 border-[#40806b]"
+              >
+                <div className="flex justify-center items-center">
+                  <input type="checkbox" name="" id="" />
+                </div>
 
-              <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
-                <p className="text-sm font-normal text-primary truncate">
-                  {_id}
-                </p>
-              </div>
+                <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
+                  <p className="text-sm font-normal text-primary truncate">
+                    {_id}
+                  </p>
+                </div>
 
-              <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
-                <p className="text-sm text-primary truncate">{userId}</p>
-              </div>
+                <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
+                  <p className="text-sm text-primary truncate">{userId}</p>
+                </div>
 
-              <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
-                <p className="text-sm font-normal text-primary truncate">
-                  {bookId}
-                </p>
-              </div>
+                <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
+                  <p className="text-sm font-normal text-primary truncate">
+                    {bookId}
+                  </p>
+                </div>
 
-              <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
-                <p className="text-sm font-normal text-primary truncate">
-                  {amount}
-                </p>
-              </div>
+                <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
+                  <p className="text-sm font-normal text-primary truncate">
+                    {amount}
+                  </p>
+                </div>
 
-              <div className="pl-3 my-2 flex items-center">
-                <div className="flex items-center gap-x-1">
-                  <button className="text-white text-xs bg-green-500 py-1 px-2 rounded-full shadow-sm hover:scale-105">
-                    Edit
-                  </button>
-
-                  <Delete className="text-red-500 cursor-pointer hover:scale-105" />
+                <div className="pl-3 my-2 flex items-center">
+                  <div className="flex items-center gap-x-1">
+                    <button className="text-white text-xs flex items-center bg-green-500 py-1 px-2 rounded-full shadow-sm hover:scale-105">
+                      <Visibility className="text-sm mr-1" />
+                      View
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

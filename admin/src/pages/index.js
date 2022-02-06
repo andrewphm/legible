@@ -20,7 +20,9 @@ export default function Home() {
   const router = useRouter();
   const user = useSelector((state) => state.user.currentUser);
 
-  useEffect(() => {}, [currentMenu]);
+  useEffect(() => {
+    if (user === null) router.push('/login');
+  }, []);
 
   return (
     <div>
@@ -36,7 +38,7 @@ export default function Home() {
 
         <section className="w-full h-full flex">
           <SideBar setCurrentMenu={setCurrentMenu} />
-          <section className="w-full h-full">
+          <section className="w-full h-full lg:px-10">
             {currentMenu === 'home' && <HomeDashboard />}
             {currentMenu === 'users' && <UsersDashboard />}
             {currentMenu === 'orders' && <OrdersDashboard />}

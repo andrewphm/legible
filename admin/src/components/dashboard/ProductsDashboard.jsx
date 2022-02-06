@@ -79,8 +79,8 @@ const ProductsDashboard = () => {
         </a>
       </div>
 
-      <div className="overflow-y-scroll h-4/6 max-w-6xl">
-        <div className="grid grid-cols-[1fr_5fr_5fr_4fr_2fr_2fr] border border-[#40806b]">
+      <div className="overflow-hidden h-4/6 max-w-6xl">
+        <div className="grid grid-cols-[1fr_5fr_5fr_4fr_2fr_2fr] border border-[#40806b] sticky">
           <div className="flex justify-center items-center">
             <input type="checkbox" name="" id="" />
           </div>
@@ -106,50 +106,52 @@ const ProductsDashboard = () => {
           </div>
         </div>
 
-        {filteredBooks?.map(({ _id, title, author, price, image }, i) => {
-          return (
-            <div
-              key={i}
-              className="grid grid-cols-[1fr_5fr_5fr_4fr_2fr_2fr] border border-t-0 border-[#40806b] h-12"
-            >
-              <div className="flex justify-center items-center">
-                <input type="checkbox" name="" id="" />
-              </div>
+        <div className="h-full overflow-y-scroll">
+          {filteredBooks?.map(({ _id, title, author, price, image }, i) => {
+            return (
+              <div
+                key={i}
+                className="grid grid-cols-[1fr_5fr_5fr_4fr_2fr_2fr] border border-t-0 border-[#40806b] h-12"
+              >
+                <div className="flex justify-center items-center">
+                  <input type="checkbox" name="" id="" />
+                </div>
 
-              <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
-                <p className="text-sm font-normal text-primary truncate">
-                  {_id}
-                </p>
-              </div>
+                <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
+                  <p className="text-sm font-normal text-primary truncate">
+                    {_id}
+                  </p>
+                </div>
 
-              <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
-                <p className="text-sm text-primary truncate">{title}</p>
-              </div>
+                <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
+                  <p className="text-sm text-primary truncate">{title}</p>
+                </div>
 
-              <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
-                <p className="text-sm font-normal text-primary truncate">
-                  {author}
-                </p>
-              </div>
+                <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
+                  <p className="text-sm font-normal text-primary truncate">
+                    {author}
+                  </p>
+                </div>
 
-              <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
-                <p className="text-sm font-normal text-primary truncate">
-                  {price}
-                </p>
-              </div>
+                <div className="pl-3 my-2 flex items-center w-full overflow-hidden">
+                  <p className="text-sm font-normal text-primary truncate">
+                    {price}
+                  </p>
+                </div>
 
-              <div className="pl-3 my-2 flex items-center">
-                <div className="flex items-center gap-x-1">
-                  <button className="text-white text-xs bg-green-500 py-1 px-2 rounded-full shadow-sm hover:scale-105">
-                    Edit
-                  </button>
+                <div className="pl-3 my-2 flex items-center">
+                  <div className="flex items-center gap-x-1">
+                    <button className="text-white text-xs bg-green-500 py-1 px-2 rounded-full shadow-sm hover:scale-105">
+                      Edit
+                    </button>
 
-                  <Delete className="text-red-500 cursor-pointer hover:scale-105" />
+                    <Delete className="text-red-500 cursor-pointer hover:scale-105" />
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );
