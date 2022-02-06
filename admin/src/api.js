@@ -27,6 +27,12 @@ const ApiSettings = {
 
     return res;
   },
+
+  getBooks: async () => {
+    const res = await axios.get(`${BASE_URL}/book`);
+
+    return res;
+  },
   getOrders: async (latest) => {
     if (latest) {
       const res = await axios.get(`${BASE_URL}/order/?new=${latest}`);
