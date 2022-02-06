@@ -5,7 +5,7 @@ export const middleware = async (req, res) => {
 
   const { pathname } = req.nextUrl;
 
-  if (pathname !== '/login') {
-    return NextResponse.redirect('/login');
-  }
+  //   if (pathname !== '/login') {
+  //     return NextResponse.redirect('/login');
+  //   }
 };

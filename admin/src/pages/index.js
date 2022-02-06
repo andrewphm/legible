@@ -1,6 +1,10 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { useEffect, useState } from 'react';
+
+//Redux
+import { useSelector } from 'react-redux';
 
 // UI components
 import Header from '../components/common/Header';
@@ -13,10 +17,12 @@ import ProductsDashboard from '../components/dashboard/ProductsDashboard';
 
 export default function Home() {
   const [currentMenu, setCurrentMenu] = useState('home');
+  const router = useRouter();
+  const user = useSelector((state) => state.user.currentUser);
 
-  useEffect(() => {
-    console.log(currentMenu);
-  }, [currentMenu]);
+  console.log(router);
+
+  useEffect(() => {}, [currentMenu]);
 
   return (
     <div>
