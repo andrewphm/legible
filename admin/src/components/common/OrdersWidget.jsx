@@ -43,7 +43,6 @@ const BookItem = ({ id }) => {
   useEffect(() => {
     const fetchBook = async () => {
       const res = await API.getBook(id);
-      console.log(res.data[0]);
       setBook(res.data[0]);
     };
 
@@ -113,11 +112,13 @@ const OrdersWidget = () => {
             >
               <UserItem id={item.userId} />
               <BookItem id={item.bookId} />
-              <div className="truncate">
-                <p>{item.amount}</p>
+              <div className="truncate flex items-center">
+                <p className="text-sm font-normal">{item.amount}</p>
               </div>
-              <div className="truncate">
-                <p>{format(new Date(item.createdAt), 'dd MMM yy')}</p>
+              <div className="truncate flex items-center">
+                <p className="text-sm font-normal">
+                  {format(new Date(item.createdAt), 'dd MMM yy')}
+                </p>
               </div>
             </div>
           );

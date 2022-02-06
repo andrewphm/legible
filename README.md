@@ -2,7 +2,7 @@
 
 # Legible Clone
 
-https://andrewpham.ca/legible
+https://legible.andrewpham.ca/legible
 
 <img src="~/../legiblepreview.png">
 
