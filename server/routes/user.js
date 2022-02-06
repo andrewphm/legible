@@ -4,6 +4,7 @@ const {
   updateUser,
   getUsers,
   getUser,
+  getUserStats,
 } = require('../controllers/user');
 const { verifyToken } = require('../controllers/verifyToken');
 
@@ -13,10 +14,12 @@ router.post('/unique', isUserUnique);
 // Update User
 router.post('/', verifyToken, updateUser);
 
-// Get single user
-router.get('/:id', getUser);
-
 // Get Users
 router.get('/', getUsers);
+
+// Get User Stats
+router.get('/stats', getUserStats);
+// Get single user
+router.get('/:id', getUser);
 
 module.exports = router;
