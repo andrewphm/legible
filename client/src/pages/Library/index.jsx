@@ -72,7 +72,7 @@ const Libray = () => {
       successPurchase();
       window.history.replaceState(null, 'Library', '/legible/library');
     }
-  }, [id, dispatch, user, success]);
+  }, []);
 
   return (
     <Main>
