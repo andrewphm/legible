@@ -8,6 +8,15 @@ const ApiSettings = {
 
     return res;
   },
+  getUsers: async (latest) => {
+    if (latest) {
+      const res = await axios.get(`${BASE_URL}/user/?new=${latest}`);
+      return res;
+    } else {
+      const res = await axios.get(`${BASE_URL}/user/`);
+      return res;
+    }
+  },
 };
 
 export default ApiSettings;

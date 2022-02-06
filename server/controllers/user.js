@@ -14,8 +14,19 @@ const isUserUnique = async (req, res) => {
   }
 };
 
-// Update user
+// GET Users
+const getUsers = async (req, res) => {
+  const query = req.query.new;
 
+  try {
+    const users = query
+      ? await User.find().sort({ _id: -1 }).limit(5)
+      : await User.find();
+    res.status(200).json(users);
+  } catch (error) {}
+};
+
+// Update user
 const updateUser = async (req, res) => {
   try {
     let updatedUser = await User.findByIdAndUpdate(
@@ -32,4 +43,4 @@ const updateUser = async (req, res) => {
   }
 };
 
-module.exports = { isUserUnique, updateUser };
+module.exports = { isUserUnique, updateUser, getUsers };

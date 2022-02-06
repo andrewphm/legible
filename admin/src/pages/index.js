@@ -20,8 +20,6 @@ export default function Home() {
   const router = useRouter();
   const user = useSelector((state) => state.user.currentUser);
 
-  console.log(router);
-
   useEffect(() => {}, [currentMenu]);
 
   return (

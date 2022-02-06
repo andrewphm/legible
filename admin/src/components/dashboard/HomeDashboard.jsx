@@ -1,5 +1,13 @@
+import UserWidget from '../common/UserWidget';
+
 const HomeDashboard = () => {
-  return <div>This is home dashboard</div>;
+  return (
+    <section className="p-10">
+      <h1>This is dashboard</h1>
+
+      <UserWidget />
+    </section>
+  );
 };
 
 export default HomeDashboard;
