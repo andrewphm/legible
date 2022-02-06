@@ -17,6 +17,16 @@ const ApiSettings = {
       return res;
     }
   },
+  getUser: async (id) => {
+    const res = await axios.get(`${BASE_URL}/user/${id}`);
+
+    return res;
+  },
+  getBook: async (id) => {
+    const res = await axios.get(`${BASE_URL}/book/${id}`);
+
+    return res;
+  },
   getOrders: async (latest) => {
     if (latest) {
       const res = await axios.get(`${BASE_URL}/order/?new=${latest}`);

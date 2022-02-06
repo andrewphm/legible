@@ -12,7 +12,7 @@ const UserWidget = () => {
     const fetchUsers = async () => {
       try {
         const res = await API.getUsers(true);
-        console.log(res.data);
+
         setUsers(res.data);
       } catch (error) {
         console.log(error);

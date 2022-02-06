@@ -1,6 +1,19 @@
 const User = require('../models/User');
 
-// GET user
+// Get 1 User
+const getUser = async (req, res) => {
+  let { id } = req.params;
+
+  try {
+    let user = await User.findById(id);
+
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json({ success: false, message: 'Could not find user' });
+  }
+};
+
+// Check if User is unique
 const isUserUnique = async (req, res) => {
   try {
     const user = await User.findOne({ ...req.body });
@@ -43,4 +56,4 @@ const updateUser = async (req, res) => {
   }
 };
 
-module.exports = { isUserUnique, updateUser, getUsers };
+module.exports = { isUserUnique, updateUser, getUsers, getUser };
