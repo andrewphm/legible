@@ -1,7 +1,6 @@
 const Order = require('../models/Order');
 
 // Create Order
-
 const createOrder = async (req, res) => {
   try {
     let newOrder = new Order(req.body);
@@ -17,7 +16,7 @@ const getOrders = async (req, res) => {
     let query = req.query.new;
     let orders = query
       ? await Order.find().sort({ _id: -1 }).limit(5)
-      : await Order.find();
+      : await Order.find().sort({ _id: -1 });
 
     res.status(200).json(orders);
   } catch (error) {}

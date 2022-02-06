@@ -17,6 +17,15 @@ const ApiSettings = {
       return res;
     }
   },
+  getOrders: async (latest) => {
+    if (latest) {
+      const res = await axios.get(`${BASE_URL}/order/?new=${latest}`);
+      return res;
+    } else {
+      const res = await axios.get(`${BASE_URL}/order/`);
+      return res;
+    }
+  },
 };
 
 export default ApiSettings;
