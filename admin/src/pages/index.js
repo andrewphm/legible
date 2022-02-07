@@ -22,7 +22,7 @@ export default function Home() {
 
   useEffect(() => {
     if (user === null) router.push('/login');
-  }, []);
+  }, [user]);
 
   return (
     <div>

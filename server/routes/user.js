@@ -6,13 +6,13 @@ const {
   getUser,
   getUserStats,
 } = require('../controllers/user');
-const { verifyToken } = require('../controllers/verifyToken');
+const { verifyTokenAndAdmin } = require('../controllers/verifyToken');
 
 // Check if User is unique
 router.post('/unique', isUserUnique);
 
 // Update User
-router.post('/', verifyToken, updateUser);
+router.put('/', verifyTokenAndAdmin, updateUser);
 
 // Get Users
 router.get('/', getUsers);
