@@ -42,6 +42,12 @@ const ApiSettings = {
       return res;
     }
   },
+
+  getMonthlyRevenue: async () => {
+    const res = await axios.get(`${BASE_URL}/order/stats`);
+
+    return res;
+  },
 };
 
 export default ApiSettings;
