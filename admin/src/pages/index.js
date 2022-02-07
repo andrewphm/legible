@@ -32,13 +32,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="h-screen w-screen overflow-hidden relative">
+      <main className="h-screen w-screen relative overflow-x-hidden">
         <Header />
         <SideBarPopOut />
 
         <section className="w-full h-full flex">
           <SideBar setCurrentMenu={setCurrentMenu} />
-          <section className="w-full h-full lg:px-10">
+          <section className="w-full h-full lg:px-10 flex">
             {currentMenu === 'home' && <HomeDashboard />}
             {currentMenu === 'users' && <UsersDashboard />}
             {currentMenu === 'orders' && <OrdersDashboard />}

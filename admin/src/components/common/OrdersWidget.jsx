@@ -86,8 +86,10 @@ const OrdersWidget = () => {
   }, []);
 
   return (
-    <div className="bg-neutral-50 shadow-lg p-4 min-w-[600px]">
-      <h1 className="font-semibold text-lg mb-3">Latest New Orders</h1>
+    <div className="bg-neutral-100 shadow-lg p-4 min-w-[600px]">
+      <h1 className="font-semibold text-lg mb-3 text-secondary">
+        Latest New Orders
+      </h1>
       <div className="min-w-[600px]">
         <div className="grid grid-cols-[3fr_3fr_1fr_1fr] font-semibold whitespace-nowrap gap-x-5 border-b border-black">
           <div>

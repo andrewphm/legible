@@ -5,11 +5,16 @@ import Chart from '../common/Chart';
 
 const HomeDashboard = () => {
   return (
-    <section className="p-10 flex gap-x-5 w-full flex-wrap">
-      <RevenueWidget />
-      <Chart />
-      <UserWidget />
-      <OrdersWidget />
+    <section className="py-10 flex gap-y-5 w-screen flex-col">
+      <div className="flex h-[380px] w-full gap-x-14">
+        <UserWidget />
+        <OrdersWidget />
+      </div>
+
+      <div className="flex h-[350px] w-full gap-x-14">
+        <RevenueWidget />
+        <Chart />
+      </div>
     </section>
   );
 };

@@ -29,7 +29,7 @@ const Header = () => {
           <NavLogo />
         </div>
 
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-1 mr-4">
           <h2>ADMIN </h2>
 
           <div

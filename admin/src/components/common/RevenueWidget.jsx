@@ -39,8 +39,8 @@ const RevenueWidget = () => {
   }, [income]);
 
   return (
-    <div className="bg-neutral-50 shadow-lg p-4 h-fit">
-      <h2 className="font-semibold text-lg mb-3">Revenue</h2>
+    <div className="bg-neutral-100 shadow-lg p-5 h-fit">
+      <h2 className="font-semibold text-lg mb-3 text-secondary">Revenue</h2>
 
       {income ? (
         <div className="">

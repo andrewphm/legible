@@ -23,8 +23,10 @@ const UserWidget = () => {
   }, []);
 
   return (
-    <div className="bg-neutral-50 shadow-lg p-4 w-fit">
-      <h1 className="font-semibold text-lg mb-3">Latest New Users</h1>
+    <div className="bg-neutral-100 shadow-lg p-4 w-fit">
+      <h1 className="font-semibold text-lg mb-3 text-secondary">
+        Latest New Users
+      </h1>
       <div className="w-full flex flex-col gap-y-3">
         {users?.map(({ email, username }, i) => {
           return (
