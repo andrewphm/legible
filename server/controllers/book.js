@@ -55,7 +55,7 @@ const getBooks = async (req, res) => {
   }
 };
 
-// Create DB book object
+// Create Book
 const createBook = async (req, res) => {
   const newBook = new Book({
     ...req.body,
@@ -66,6 +66,21 @@ const createBook = async (req, res) => {
     res.status(201).json(savedBook);
   } catch (error) {
     res.status(500).json(error);
+  }
+};
+
+// Delete Book
+const deleteBook = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    await Book.findByIdAndDelete(id);
+
+    res
+      .status(200)
+      .json({ success: true, message: 'Successfully deleted book' });
+  } catch (error) {
+    res.status(500).json('Could not delete product');
   }
 };
 
@@ -93,4 +108,30 @@ const searchBooks = async (req, res) => {
   }
 };
 
-module.exports = { createBook, getBook, getBooks, getWishList, searchBooks };
+// UPDATE BOOK
+
+const updateBook = async (req, res) => {
+  try {
+    const updatedBook = await Book.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+
+    res.status(200).json(updatedBook);
+  } catch (error) {
+    res.status(500).json('Could not update book');
+  }
+};
+
+module.exports = {
+  createBook,
+  getBook,
+  getBooks,
+  getWishList,
+  searchBooks,
+  deleteBook,
+  updateBook,
+};
