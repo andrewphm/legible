@@ -70,7 +70,7 @@ const Login = () => {
           <div className="relative border py-3 px-2 w-full">
             <div className="absolute -top-[14px] bg-white left-2">
               <label className="text-sm font-semibold" htmlFor="email">
-                Email
+                Password
               </label>
             </div>
             <input
