@@ -32,8 +32,6 @@ const RevenueWidget = () => {
         ((income[1].total - income[0].total) / income[0].total) * 100
       );
 
-      console.log(percentChange);
-
       setPercentage(percentChange);
     };
 
@@ -41,7 +39,7 @@ const RevenueWidget = () => {
   }, [income]);
 
   return (
-    <div className="bg-neutral-50 shadow-lg p-4">
+    <div className="bg-neutral-50 shadow-lg p-4 h-fit">
       <h2 className="font-semibold text-lg mb-3">Revenue</h2>
 
       {income ? (

@@ -52,7 +52,7 @@ const ProductsDashboard = () => {
     <div className="w-full h-full p-4">
       <h1 className=" text-xl text-secondary font-semibold">Products Panel</h1>
 
-      <div className="flex justify-between items-center my-1 max-w-6xl">
+      <div className="flex justify-between items-center my-1 max-w-6xl flex-wrap">
         <div className="flex my-2 items-center gap-x-3">
           <h2 className="text-black text-base whitespace-nowrap">
             Quick Search:{' '}

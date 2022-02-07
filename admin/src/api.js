@@ -42,9 +42,13 @@ const ApiSettings = {
       return res;
     }
   },
-
   getMonthlyRevenue: async () => {
     const res = await axios.get(`${BASE_URL}/order/stats`);
+
+    return res;
+  },
+  getUserStats: async () => {
+    const res = await axios.get(`${BASE_URL}/user/stats`);
 
     return res;
   },
